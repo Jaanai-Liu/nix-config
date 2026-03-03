@@ -11,20 +11,7 @@
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;[
-    # gnome Extension
-    # gnome-extensions-app
-    gnome-extension-manager
-    gnomeExtensions.gsconnect
-    gnomeExtensions.appindicator
-    # gnomeExtensions.kimpanel
-    gnomeExtensions.clipboard-indicator
 
-    # niri extension
-    #(nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" ]; })
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
-    font-awesome
   ];
 
   home.stateVersion = "25.11";
