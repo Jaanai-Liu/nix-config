@@ -18,4 +18,5 @@
     inherit (myvars) initialHashedPassword;
     openssh.authorizedKeys.keys = config.users.users."${myvars.username}".openssh.authorizedKeys.keys;
   };
+  
 }

@@ -1,12 +1,10 @@
 # modules/git.nix
 { config, pkgs, ... }:
 {
-  # === Git 配置 (新版写法，消灭警告) ===
+  # === Git 配置 ===
   programs.git = {
     enable = true;
-    
-    # 以前散落在外面的 userName, userEmail, extraConfig
-    # 现在全部统一放到 settings 里面，层级更清晰
+
     settings = {
       # 用户信息
       user = {
@@ -22,7 +20,7 @@
       # 核心设置
       core = {
         fileMode = false;
-        # editor = "vim";  # 你甚至可以在这设置默认编辑器
+        # editor = "vim";  # 默认编辑器
       };
 
       alias = {
