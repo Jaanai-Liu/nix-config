@@ -22,9 +22,14 @@
     # my private secrets, it's a private repository, you need to replace it with your own.
     # use ssh protocol to authenticate via ssh-agent/ssh-key, and shallow clone to save time
     mysecrets = {
-    url = "git+ssh://git@github.com/Jaanai-Liu/nix-secrets.git?shallow=1";
-    flake = false;
-  };
+      url = "git+ssh://git@github.com/Jaanai-Liu/nix-secrets.git?shallow=1";
+      flake = false;
+    };
+
+    # myfonts = {
+    #   url = "git+ssh://git@github.com/Jaanai-Liu/nixos-fonts.git?shallow=1";
+    #   flake = false;
+    # };
 
     # niri.url = "github:YaLTeR/niri";
   };

@@ -8,4 +8,8 @@
   
   #剔除GNOME自带的Epiphany浏览器
   environment.gnome.excludePackages = [ pkgs.epiphany ];
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.power-off-options
+  ];
 }

@@ -18,6 +18,7 @@
     btop
     # htop
     
+    tree
     
 
     # system tools
@@ -27,8 +28,9 @@
     usbutils # lsusb
     parted
 
-    pkgs.fcitx5-material-color
-    gnomeExtensions.power-off-options
+    fuse
+
+    strace #调试检查缺了什么strace snipaste 2>&1 | grep -iE "error|no such file"
     
   ];
 

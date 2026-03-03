@@ -24,4 +24,8 @@
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
+
+  environment.systemPackages = with pkgs; [
+    pkgs.fcitx5-material-color
+  ];
 }

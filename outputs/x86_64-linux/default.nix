@@ -1,12 +1,12 @@
 # outputs/x86_64-linux/default.nix
-{ inputs, mylib, myvars, mysecrets, agenix, nixpkgs, home-manager, ... }:
+{ inputs, mylib, myvars, mysecrets, agenix, myfonts, nixpkgs, home-manager, ... }:
 
 let
   system = "x86_64-linux";
 
   mkHost = hostName: nixpkgs.lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs mylib myvars mysecrets agenix; };
+    specialArgs = { inherit inputs mylib myvars mysecrets myfonts agenix; };
 
     modules = [
       ../../hosts/${hostName}/configuration.nix
