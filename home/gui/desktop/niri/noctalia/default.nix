@@ -18,9 +18,8 @@ in
       confPath = "${config.home.homeDirectory}/nixos-config/home/gui/desktop/niri/noctalia";
     in
     {
-      # 这句话的意思是：把 ~/.config/noctalia 整个文件夹，
-      # 变成一个指向你 Git 仓库里 confPath/config 文件夹的快捷方式。
       "noctalia".source = mkSymlink "${confPath}/config";
+      "qt6ct/qt6ct.conf".source = mkSymlink "${confPath}/qt6ct.conf";
     };
 
   systemd.user.services.noctalia-shell = {
