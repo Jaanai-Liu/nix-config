@@ -1,47 +1,89 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, mylib, ... }:
 
 {
+  imports = mylib.scanPaths ./.;
+
   # ====================================================
   # 1. 核心包与字体
   # ====================================================
   home.packages = with pkgs; [
-    mako swaybg swaylock grim slurp wl-clipboard brightnessctl
+    mako swaybg swaylock-effects grim slurp wl-clipboard brightnessctl
     swww waybar fuzzel kitty
     nerd-fonts.jetbrains-mono noto-fonts-cjk-sans
+    wlogout
+    xwayland-satellite
   ];
+
+
+  # ====================================================
+  # Swaylock 深度美化配置
+  # ====================================================
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      # 基础设置
+      screenshots = true;
+      clock = true;
+      indicator = true;
+      indicator-radius = 100;
+      indicator-thickness = 7;
+      
+      # 关键：背景模糊效果 (非常适合你的透明桌面)
+      effect-blur = "7x5";
+      effect-vignette = "0.5:0.5";
+      
+      # 颜色配置 (深色通透风)
+      color = "1a1b26";
+      bs-hl-color = "bb9af7";
+      key-hl-color = "7dcfff";
+      
+      # 环形指示器颜色
+      ring-color = "414868";
+      inside-color = "1a1b2688"; # 带透明度的内部
+      separator-color = "00000000";
+      
+      # 验证状态颜色
+      ring-ver-color = "7dcfff";
+      inside-ver-color = "1a1b26";
+      ring-wrong-color = "f7768e";
+      inside-wrong-color = "1a1b26";
+    };
+  };
 
   # ====================================================
   # 2. Waybar 状态栏配置
   # ====================================================
-  programs.waybar = {
-    enable = true;
-    settings = [{
-      layer = "top"; position = "top"; height = 30;
-      modules-left = [ "niri/window" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "cpu" "memory" "network" "tray" ];
-      "niri/window" = { format = "󰖲 {}"; };
-      "clock" = {
-        format = " {:%H:%M}";
-        format-alt = "󰃭 {:%Y-%m-%d}";
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      };
-      "cpu" = { format = " {usage}%"; };
-      "memory" = { format = " {percentage}%"; };
-      "network" = {
-        format-wifi = " {essid}";
-        format-ethernet = "󰈀 eth";
-        format-disconnected = "󰖪 off";
-      };
-    }];
-    style = ''
-      * { font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", sans-serif; font-size: 14px; border: none; border-radius: 0; }
-      window#waybar { background: rgba(43, 48, 59, 0.5); color: #ffffff; border-bottom: 2px solid rgba(100, 114, 125, 0.5); }
-      #clock, #cpu, #memory, #network, #window { padding: 0 10px; margin: 0 5px; }
-      #clock { color: #64f1f1; }
-      #cpu { color: #fb8c00; }
-    '';
-  };
+  #programs.waybar = {
+  #  enable = true;
+  #  systemd.enable = true;
+  #  settings = [{
+  #    layer = "top"; position = "top"; height = 30;
+  #    modules-left = [ "niri/window" ];
+  #    modules-center = [ "clock" ];
+  #    modules-right = [ "cpu" "memory" "network" "tray" ];
+  #    "niri/window" = { format = "󰖲 {}"; };
+  #    "clock" = {
+  #      format = " {:%H:%M}";
+  #      format-alt = "󰃭 {:%Y-%m-%d}";
+  #      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+  #    };
+  #    "cpu" = { format = " {usage}%"; };
+  #    "memory" = { format = " {percentage}%"; };
+  #    "network" = {
+  #      format-wifi = " {essid}";
+  #      format-ethernet = "󰈀 eth";
+  #      format-disconnected = "󰖪 off";
+  #    };
+  #  }];
+  #  style = ''
+  #    * { font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK SC", sans-serif; font-size: 14px; border: none; border-radius: 0; }
+  #    window#waybar { background: rgba(43, 48, 59, 0.5); color: #ffffff; border-bottom: 2px solid rgba(100, 114, 125, 0.5); }
+  #    #clock, #cpu, #memory, #network, #window { padding: 0 10px; margin: 0 5px; }
+  #    #clock { color: #64f1f1; }
+  #    #cpu { color: #fb8c00; }
+  #  '';
+  #};
 
   # ====================================================
   # 3. Fuzzel 启动器配置
@@ -82,9 +124,15 @@
   # 4. Niri 核心配置 (防弹语法格式)
   # ====================================================
   xdg.configFile."niri/config.kdl".text = ''
-    spawn-at-startup "${pkgs.swww}/bin/swww-daemon"
-    spawn-at-startup "${pkgs.swww}/bin/swww" "img" "/etc/wallpapers/blood_marry.jpg" "--transition-type" "wipe"
-    spawn-at-startup "${pkgs.waybar}/bin/waybar"
+    include "output.kdl"
+
+    spawn-at-startup "sh" "-c" "${pkgs.swww}/bin/swww-daemon"
+    spawn-at-startup "sh" "-c" "${pkgs.swww}/bin/swww" "img" "/etc/wallpapers/meihua.JPG" "--transition-type" "wipe"
+    // spawn-at-startup "${pkgs.waybar}/bin/waybar"
+    spawn-at-startup "noctalia-shell"
+    // spawn-at-startup "sh" "-c" "WEBKIT_DISABLE_DMABUF_RENDERER=1 WEBKIT_DISABLE_COMPOSITING_MODE=1 GDK_BACKEND=wayland clash-verge"
+    spawn-at-startup "clash-verge"
+    spawn-at-startup "xwayland-satellite"
 
     input {
         keyboard {
@@ -102,17 +150,6 @@
         }
     }
 
-    output "DP-2" {
-        // 开启最高刷新率
-        mode "2560x1440@180.001"
-        // 2K 分辨率在 27 寸左右的屏幕上 1.0 缩放是最完美的
-        scale 1.0
-        // 如果你需要旋转屏幕写代码，可以改成 "90" 或 "270"
-        transform "normal"
-        // 逻辑位置，单屏默认 0,0 即可
-        position x=0 y=0
-    }
-
     layout {
         gaps 16
         center-focused-column "never"
@@ -123,9 +160,12 @@
         }
         default-column-width { proportion 0.5; }
         focus-ring {
-            width 2
-            active-color "#7fc8ff88"
-            inactive-color "#50505044"
+            width 0
+        }
+        border {
+            width 1      // 边框粗细
+            active-color "#7fc8ff22"   // 聚焦时的亮蓝色边框
+            inactive-color "#50505011" // 闲置时的灰色边框
         }
     }
 
@@ -144,7 +184,7 @@
         // --- 1. 应用启动 ---
         Mod+Return { spawn "kitty"; }
         Alt+Space { spawn "fuzzel"; }
-        Ctrl+Shift+L { spawn "swaylock"; }
+        Mod+L { spawn "swaylock" "-f"; }
         Mod+Shift+E { quit; }
         Mod+Q { close-window; }
 
@@ -158,10 +198,10 @@
         // --- 3. 窗口焦点切换 (保持 Vim 风格) ---
         Mod+Left  { focus-column-left; }
         Mod+Right { focus-column-right; }
-        Mod+H     { focus-column-left; }
-        Mod+L     { focus-column-right; }
-        Mod+J     { focus-window-down; }
-        Mod+K     { focus-window-up; }
+        // Mod+H     { focus-column-left; }
+        // Mod+L     { focus-column-right; }
+        // Mod+J     { focus-window-down; }
+        // Mod+K     { focus-window-up; }
 
         // --- 4. 窗口快速切换 (Alt+Tab) ---
         // 绑定为切换到上一个活跃窗口

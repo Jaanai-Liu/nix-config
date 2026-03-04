@@ -1,9 +1,21 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
+  # 👇 定义一个 Overlay，把 unstable 的包打包放到 pkgs.unstable 下面
+  nixpkgs.overlays = [
+    (final: prev: {
+      unstable = import inputs.nixpkgs-unstable {
+        system = prev.system;
+        # 允许安装不稳定的闭源软件（比如某些字体、驱动或商业软件）
+        config.allowUnfree = true; 
+      };
+    })
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -41,4 +53,7 @@
 
   # replace default editor with neovim
   environment.variables.EDITOR = "vim-full";
+
+
+  programs.dconf.enable = true;
 }
