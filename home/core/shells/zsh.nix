@@ -27,6 +27,7 @@
       py = "python3";
       # 注意：conda activate 最好在 initExtra 中处理，或直接在 shell 中使用
       mlp = "conda activate mlp";
+      nixclear = "sudo nix-collect-garbage -d";
       # fixchrome = "pkill -f chrome; rm -rf ~/.config/google-chrome/Singleton*";
     };
 
