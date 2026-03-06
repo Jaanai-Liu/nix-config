@@ -1,93 +1,49 @@
-<h2 align="center">:snowflake: Ryan4Yin's Nix Config :snowflake:</h2>
+<h2 align="center">:snowflake: Jaanai-Liu's Nix Config :snowflake:</h2>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </p>
 
 <p align="center">
-	<a href="https://github.com/ryan4yin/nix-config/stargazers">
-		<img alt="Stargazers" src="https://img.shields.io/github/stars/ryan4yin/nix-config?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/Jaanai-Liu/nix-config/stargazers">
+		<img alt="Stargazers" src="https://img.shields.io/github/stars/Jaanai-Liu/nix-config?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-25.11-informational.svg?style=for-the-badge&logo=nixos&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"></a>
-    <a href="https://github.com/ryan4yin/nixos-and-flakes-book">
+    <a href="https://github.com/Jaanai-Liu/nixos-and-flakes-book">
         <img src="https://img.shields.io/badge/Nix%20Flakes-learning-informational.svg?style=for-the-badge&logo=nixos&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"></a>
   </a>
 </p>
 
 > My configuration is becoming more and more complex, and **it will be difficult for beginners to
 > read**. If you are new to NixOS and want to know how I use NixOS, I would recommend you to take a
-> look at the [ryan4yin/nix-config/releases](https://github.com/ryan4yin/nix-config/releases) first,
+> look at the [Jaanai-Liu/nix-config/releases](https://github.com/Jaanai-Liu/nix-config/releases) first,
 > **check out to some simpler older versions, such as
-> [i3-kickstarter](https://github.com/ryan4yin/nix-config/tree/i3-kickstarter), which will be much
+> [i3-kickstarter](https://github.com/Jaanai-Liu/nix-config/tree/i3-kickstarter), which will be much
 > easier to understand**.
 
-This repository is home to the nix code that builds my systems:
-
-1. NixOS Desktops: NixOS with home-manager, niri, agenix, etc.
-2. macOS Desktops: nix-darwin with home-manager, share the same home-manager configuration with
-   NixOS Desktops.
-3. NixOS Servers: virtual machines running on Proxmox/KubeVirt, with various services, such as
-   kubernetes, homepage, prometheus, grafana, etc.
-
-See [./hosts](./hosts) for details of each host.
-
-See [./Virtual-Machine.md](./Virtual-Machine.md) for details of how to create & manage KubeVirt's
-Virtual Machine from this flake.
-
-## Why NixOS & Flakes?
-
-Nix allows for easy-to-manage, collaborative, reproducible deployments. This means that once
-something is setup and configured once, it works (almost) forever. If someone else shares their
-configuration, anyone else can just use it (if you really understand what you're copying/referring
-now).
-
-As for Flakes, refer to
-[Introduction to Flakes - NixOS & Nix Flakes Book](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/introduction-to-flakes)
-
-**Want to know NixOS & Flakes in detail? Looking for a beginner-friendly tutorial or best practices?
-You don't have to go through the pain I've experienced again! Check out my
-[NixOS & Nix Flakes Book - 🛠️ ❤️ An unofficial & opinionated :book: for beginners](https://github.com/ryan4yin/nixos-and-flakes-book)!**
-
-> If you're using macOS, check out
-> [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter) for a quick
-> start.
+This repository is home to the nix code that builds my systems: NixOS with home-manager, niri, agenix, etc.
 
 ## Components
 
 |                                                                | NixOS(Wayland)                                                                                                      |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **Window Manager**                                             | [Niri][Niri]                                                                                                        |
-| **Terminal Emulator**                                          | [Zellij][Zellij] + [foot][foot]/[Kitty][Kitty]/[Alacritty][Alacritty]/[Ghostty][Ghostty]                            |
+| **Terminal Emulator**                                          | [Zellij][Zellij] + [Kitty][Kitty]           |
 | **Status Bar** / **Notifier** / **Launcher** / **lockscreens** | [noctalia-shell][noctalia-shell]                                                                                    |
 | **Display Manager**                                            | [tuigreet][tuigreet]                                                                                                |
-| **Color Scheme**                                               | [catppuccin-nix][catppuccin-nix]                                                                                    |
-| **network management tool**                                    | [NetworkManager][NetworkManager]                                                                                    |
-| **Input method framework**                                     | [Fcitx5][Fcitx5] + [rime][rime] + [小鹤音形 flypy][flypy]                                                           |
+| **Input method framework**                                     | [Fcitx5][Fcitx5] + [rime][rime]            |
 | **System resource monitor**                                    | [Btop][Btop]                                                                                                        |
-| **File Manager**                                               | [Yazi][Yazi] + [thunar][thunar]                                                                                     |
-| **Shell**                                                      | [Nushell][Nushell] + [Starship][Starship]                                                                           |
+| **File Manager**                                               | [Yazi][Yazi]     nnn     |
+| **Shell**                                                      | [zsh] + [Starship][Starship]                                                                           |
 | **Media Player**                                               | [mpv][mpv]                                                                                                          |
 | **Text Editor**                                                | [Neovim][Neovim]                                                                                                    |
-| **Fonts**                                                      | [Nerd fonts][Nerd fonts]                                                                                            |
 | **Image Viewer**                                               | [imv][imv]                                                                                                          |
 | **Screenshot Software**                                        | Niri's builtin function                                                                                             |
 | **Screen Recording**                                           | [OBS][OBS]                                                                                                          |
-| **Filesystem & Encryption**                                    | tmpfs as `/`, [Btrfs][Btrfs] subvolumes on a [LUKS][LUKS] encrypted partition for persistent, unlock via passphrase |
-| **Secure Boot**                                                | [lanzaboote][lanzaboote]                                                                                            |
-
-Wallpapers: https://github.com/ryan4yin/wallpapers
+Wallpapers: https://github.com/Jaanai-Liu/nix-config/wallpapers
 
 ## Screenshots
 
-![desktop](./_img/2026-01-05_niri-noctalia_desktop.webp)
-
-![overview](./_img/2026-01-04_niri-noctalia_overview.webp)
-
-![nvim](./_img/2026-01-04_niri-noctalia_nvim.webp)
-
-## Neovim
-
-See [./home/base/tui/editors/neovim/](./home/base/tui/editors/neovim/) for details.
 
 ## Secrets Management
 
@@ -98,10 +54,8 @@ See [./secrets](./secrets) for details.
 <!-- prettier-ignore -->
 > :red_circle: **IMPORTANT**: **You should NOT deploy this flake directly on your machine :exclamation:
 > It will not succeed.** This flake contains my hardware configuration(such as
-> [hardware-configuration.nix](hosts/idols-ai/hardware-configuration.nix),
-> [Nvidia Support](https://github.com/ryan4yin/nix-config/blob/v0.1.1/hosts/idols-ai/default.nix#L77-L91),
-> etc.) which is not suitable for your hardware, and requires my private secrets repository
-> [ryan4yin/nix-secrets](https://github.com/ryan4yin/nix-config/tree/main/secrets) to deploy. You
+> [hardware-configuration.nix](hosts/lz-pc/hardware-configuration.nix),
+> [Jaanai-Liu/nix-secrets](https://github.com/Jaanai-Liu/nix-config/tree/main/secrets) to deploy. You
 > may use this repo as a reference to build your own configuration.
 
 For NixOS:
@@ -111,30 +65,9 @@ For NixOS:
 
 ```bash
 # deploy one of the configuration based on the hostname
-sudo nixos-rebuild switch --flake .#ai-niri
+sudo nixos-rebuild switch --flake .#lz-pc
 
-# Deploy the niri nixosConfiguration by hostname match
-just niri
-
-# or we can deploy with details
-just niri debug
-```
-
-For macOS:
-
-```bash
-# If you are deploying for the first time,
-# 1. install nix & homebrew manually.
-# 2. prepare the deployment environment with essential packages available
-nix-shell -p just nushell
-# 3. comment home-manager's code in lib/macosSystem.nix to speed up the first deployment.
-# 4. comment out the proxy settings in scripts/darwin_set_proxy.py if the proxy is not ready yet.
-
-# Deploy the darwinConfiguration by hostname match
-just local
-
-# deploy with details
-just local debug
+需要修改hosts路径下的niri文件配置output.kdl
 ```
 
 > [What y'all will need when Nix drives you to drink.](https://www.youtube.com/watch?v=Eni9PPPPBpg)
