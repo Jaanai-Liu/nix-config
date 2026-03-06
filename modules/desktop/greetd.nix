@@ -3,7 +3,7 @@
   # 1. 开启 Gnome Keyring (非常重要，否则你每次开 Chrome 都要输密码)
   security.pam.services.greetd.enableGnomeKeyring = true;
 
-  services.xserver.displayManager.gdm.enable = false;
+  services.displayManager.gdm.enable = false;
 
 
   # services.greetd = {
@@ -23,7 +23,7 @@
         user = "greeter"; 
         # 加上--remember(记住上次登录)和--asterisks(密码显示星号)
         command = lib.concatStringsSep " " [
-          "${pkgs.greetd.tuigreet}/bin/tuigreet"
+          "${pkgs.tuigreet}/bin/tuigreet"
           "--time"
           "--remember"
           "--remember-session"

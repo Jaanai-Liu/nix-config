@@ -21,19 +21,19 @@
     imagemagick
     graphviz
 
+    gimp # ps in linux
+
     # video/audio tools
     libva-utils
     vdpauinfo
     vulkan-tools
     mesa-demos
 
+    darktable # pr in linux
+
 
     # lx-music-desktop
     
-    # photo
-    gimp
-    darktable
-
     # video
     kdePackages.kdenlive
     vlc
