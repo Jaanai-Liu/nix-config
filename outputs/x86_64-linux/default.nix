@@ -17,7 +17,7 @@ let
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit inputs mylib myvars mysecrets agenix; };
         # 动态引入对应主机的home配置
-        home-manager.users.zheng = import ../../hosts/${hostName}/home.nix;
+        home-manager.users.${myvars.username} = import ../../hosts/${hostName}/home.nix;
       }
     ];
   };

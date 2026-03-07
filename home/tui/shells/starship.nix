@@ -90,7 +90,7 @@
       };
 
       conda = {
-        ignore_base = false;
+        # ignore_base = false;
         style = "bg:color_bg3";
         format = "[[  $environment ](fg:color_fg1 bg:color_bg3)]($style)";
       };

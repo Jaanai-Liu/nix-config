@@ -27,7 +27,7 @@ binds {
     // Alt+Space { spawn "fuzzel"; }
 
     // Locker
-    CTRL+Alt+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -77,13 +77,13 @@ binds {
     // Mod+O repeat=false { toggle-overview; }
 
     Mod+Left { focus-column-left; }
-    Mod+Down { focus-window-down; }
-    Mod+Up { focus-window-up; }
+    // Mod+Down { focus-window-down; }
+    // Mod+Up { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
     Mod+K { focus-window-up; }
-    Mod+L { focus-column-right; }
+    // Mod+L { focus-column-right; }
     Mod+Ctrl+Left { move-column-left; }
     Mod+Ctrl+Down { move-window-down; }
     Mod+Ctrl+Up { move-window-up; }
@@ -131,6 +131,8 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
+    "Mod+Down"      { focus-workspace-down; }
+    "Mod+Up" { focus-workspace-up; }
     "Mod+Page_Down"      { focus-workspace-down; }
     "Mod+Page_Up" { focus-workspace-up; }
     Mod+U { focus-workspace-down; }
@@ -270,4 +272,9 @@ binds {
 
     Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+E { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+
+    // F2 { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H%M%S').png"; }
+    // F3 { spawn "sh" "-c" "f=$(mktemp /tmp/pin-XXXXXX.png); if wl-paste -t image/png > $f; then imv -b 00000000 $f; else rm $f; fi"; }
+
+    // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 }

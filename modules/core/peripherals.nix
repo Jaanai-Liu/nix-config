@@ -28,8 +28,12 @@
     #media-session.enable = true;
   };
 
-  #============================= Bluetooth =============================
 
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  #============================= Bluetooth =============================
   # enable bluetooth & gui paring tools - blueman
   # or you can use cli:
   # $ bluetoothctl
@@ -44,4 +48,9 @@
   # [bluetooth] # trust [hex-address]
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  # 性能模式切换引擎（控制 Performance/Balanced/Power Saver）
+  services.power-profiles-daemon.enable= true;
+  # 电池状态监听服务（读取百分比、充电状态）
+  services.upower.enable= true;
 }

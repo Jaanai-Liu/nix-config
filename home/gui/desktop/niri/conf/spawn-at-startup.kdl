@@ -4,6 +4,10 @@ spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "clash-verge" "--minimized"
+// spawn-at-startup "snipaste"
+// spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
+// spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+
 
 spawn-at-startup "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
 

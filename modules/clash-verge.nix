@@ -4,7 +4,7 @@
   programs.clash-verge = {
     enable = true;
     autoStart = false;
-    package = pkgs.clash-verge-rev;
+    # package = pkgs.clash-verge-rev;
     serviceMode = true;
     tunMode = true;
   };

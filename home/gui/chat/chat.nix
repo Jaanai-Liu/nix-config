@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     qq
     wechat-uos
-    telegram-desktop
+    # telegram-desktop
     discord
   ];
 }

@@ -68,5 +68,13 @@ in
         user = myvars.username;
       };
     };
+
+    age.secrets."rclone-alist" = {
+      file = "${mysecrets}/secrets/rclone-alist.age";
+      path = "/home/${myvars.username}/.config/rclone/rclone.conf";
+      owner = myvars.username;
+      group = "users";
+      mode = "0500";
+  };
   };
 }
