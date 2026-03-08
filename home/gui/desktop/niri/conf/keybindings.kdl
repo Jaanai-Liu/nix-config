@@ -28,7 +28,6 @@ binds {
 
     // Locker
     Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    // Mod+L { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -78,8 +77,8 @@ binds {
     // Mod+O repeat=false { toggle-overview; }
 
     Mod+Left { focus-column-left; }
-    // Mod+Down { focus-window-down; }
-    // Mod+Up { focus-window-up; }
+    Mod+Down { focus-window-down; }
+    Mod+Up { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H { focus-column-left; }
     Mod+J { focus-window-down; }
@@ -132,8 +131,6 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
-    "Mod+Down"      { focus-workspace-down; }
-    "Mod+Up" { focus-workspace-up; }
     "Mod+Page_Down"      { focus-workspace-down; }
     "Mod+Page_Up" { focus-workspace-up; }
     Mod+U { focus-workspace-down; }
