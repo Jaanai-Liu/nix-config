@@ -1,4 +1,4 @@
-# ❄️ LiuZheng's NixOS Config
+# ❄️ Jaanai-Liu's NixOS Config
 
 [![简体中文](https://img.shields.io/badge/语言-简体中文-fed.svg?style=flat-square)](README_zh.md)
 
