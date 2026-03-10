@@ -52,15 +52,18 @@
       color7 = "#f1f1f0";
       color15 = "#fffafa";
 
-    # 1. 开启光标尾迹动画（核心！）
-    cursor_trail = 3; 
-    # 尾迹衰减速度（0.1到1之间，数值越小越丝滑）
-    cursor_trail_decay = "0.1 0.4";
-    cursor_trail_start_threshold = 2;
+      # 1. 开启光标尾迹动画（核心！）
+      cursor_trail = 3; 
+      # 尾迹衰减速度（0.1到1之间，数值越小越丝滑）
+      cursor_trail_decay = "0.1 0.4";
+      cursor_trail_start_threshold = 2;
   
-    # 配合 Starship 的 line_break 效果，光标会像果冻一样弹到下一行
-    cursor_shape = "block";
-    cursor_blink_interval = 0; # 建议关闭闪烁，让平滑移动更明显
+      cursor_shape = "block";
+      cursor_blink_interval = 0; # 建议关闭闪烁，让平滑移动更明显
+
+      dynamic_background_opacity = "yes";
+      inactive_background_opacity = "0.93"; 
+      linux_display_server = "wayland";
     };
   };
 }
