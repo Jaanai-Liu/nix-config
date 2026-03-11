@@ -1,5 +1,6 @@
-spawn-at-startup "dbus-update-activation-environment --systemd --all"
-spawn-at-startup "noctalia-shell"
+// spawn-at-startup "dbus-update-activation-environment --systemd --all"
+spawn-at-startup "bash" "--login" "-c" "noctalia-shell"
+// spawn-at-startup "noctalia-shell"
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
 spawn-at-startup "xwayland-satellite"

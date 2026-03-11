@@ -17,7 +17,7 @@
       vim-airline              # vim-airline
       vim-airline-themes
       coc-nvim                 # neoclide/coc.nvim 
-      verilog_systemverilog-vim # vhda/verilog_systemverilog.vim (需要确认pkgs里具体名字，通常是这个)
+      verilog_systemverilog-vim
     ];
 
     # 将 vimrc 中的设置直接贴在这里
@@ -31,11 +31,16 @@
       set cursorline
       set ruler
       set nowrap
+
+      set cursorline   " 高亮行
+      set cursorcolumn " 高亮列
+      highlight CursorLine   guibg=#3b3b3b ctermbg=237
+      highlight CursorColumn guibg=#3b3b3b ctermbg=237
       
       " 字体设置 (从你的 vimrc 复制)
       if has("gui_running")
-        set guifont=DejaVu\ Sans\ Mono\ 11
-        set guifontwide=Noto\ Sans\ CJK\ SC\ 11
+        set guifont=DejaVu\ Sans\ Mono\ 13
+        set guifontwide=Noto\ Sans\ CJK\ SC\ 13
       endif
 
       " 缩进
@@ -54,8 +59,8 @@
       endtry
 
       " NERDTree 快捷键 [cite: 33]
-      nnoremap <F2> :NERDTreeToggle<CR>
-      autocmd VimEnter * NERDTree | if argc() > 0 | wincmd p | endif
+      nnoremap <F4> :NERDTreeToggle<CR>
+      " autocmd VimEnter * NERDTree | if argc() > 0 | wincmd p | endif
       autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
       " COC 补全设置 [cite: 35]
