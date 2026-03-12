@@ -15,7 +15,7 @@ in
   xdg.configFile =
     let
       mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-      confPath = "${config.home.homeDirectory}/nixos-config/home/gui/desktop/niri/noctalia";
+      confPath = "${config.home.homeDirectory}/nix-config/home/gui/desktop/niri/noctalia";
     in
     {
       "noctalia".source = mkSymlink "${confPath}/config";

@@ -5,7 +5,7 @@ let
     v = "nvim";
     vdiff = "nvim -d";
   };
-  configPath = "${config.home.homeDirectory}/nixos-config/home/tui/editors/neovim/nvim";
+  configPath = "${config.home.homeDirectory}/nix-config/home/tui/editors/neovim/nvim";
 in
 {
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;

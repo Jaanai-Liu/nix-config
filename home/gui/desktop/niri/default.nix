@@ -1,7 +1,7 @@
 { pkgs, config, lib, mylib, ... }:
 let
   # 关键：定义你本地仓库的绝对路径，确保和你的主机名、用户名对应
-  confPath = "${config.home.homeDirectory}/nixos-config/home/gui/desktop/niri/conf";
+  confPath = "${config.home.homeDirectory}/nix-config/home/gui/desktop/niri/conf";
   mkSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {

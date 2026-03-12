@@ -1,19 +1,8 @@
-{ config, pkgs, lib, ... }:
-
+{ config, lib, ... }:
+let
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+  confPath = "${config.home.homeDirectory}/nix-config/hosts/lz-pc/niri";
+in
 {
-  # ====================================================
-  # Niri 核心配置 (防弹语法格式)
-  # ====================================================
-  xdg.configFile."niri/output.kdl".text = ''
-    output "DP-2" {
-        // 开启最高刷新率
-        mode "2560x1440@180.001"
-        // 2K 分辨率在 27 寸左右的屏幕上 1.0 缩放是最完美的
-        scale 1.0
-        // 如果你需要旋转屏幕写代码，可以改成 "90" 或 "270"
-        transform "normal"
-        // 逻辑位置，单屏默认 0,0 即可
-        position x=0 y=0
-    }
-    '';
+  xdg.configFile."niri/output.kdl".source = mkSymlink "${confPath}/output.kdl";
 }
