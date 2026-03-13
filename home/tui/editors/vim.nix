@@ -5,12 +5,15 @@
     nodejs
     font-awesome
     font-awesome_6
+
+    nixd nixfmt-rfc-style # Nix
+    # rustc cargo rust-analyzer # Rust
+    # go gopls # Go
+    # jdk17 # Java (可以根据需求换成 jdk21)
   ];
   programs.vim = {
     enable = true;
-    # package = pkgs.vim-full; 
-    defaultEditor = true; # 会自动设置 EDITOR=vim
-    # 使用 Nix 管理插件，替代 vim-plug 
+    defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       nerdtree                 # Preservim/nerdtree
       gruvbox                  # morhetz/gruvbox
@@ -18,6 +21,9 @@
       vim-airline-themes
       coc-nvim                 # neoclide/coc.nvim 
       verilog_systemverilog-vim
+      vim-nix
+      rust-vim
+      vim-go
     ];
 
     # 将 vimrc 中的设置直接贴在这里
@@ -32,10 +38,16 @@
       set ruler
       set nowrap
 
+      set guioptions-=m " 隐藏菜单栏
+      set guioptions-=T " 隐藏工具栏
+      set guioptions-=r " 隐藏右侧滚动条
+      set guioptions-=L " 隐藏左侧滚动条
+
       set cursorline   " 高亮行
       set cursorcolumn " 高亮列
-      highlight CursorLine   guibg=#3b3b3b ctermbg=237
-      highlight CursorColumn guibg=#3b3b3b ctermbg=237
+      highlight CursorLine   guibg=#3e4452 ctermbg=236
+      highlight CursorColumn guibg=#3e4452 ctermbg=236
+      nnoremap <F3> :set cursorline! cursorcolumn!<CR>
       
       " 字体设置 (从你的 vimrc 复制)
       if has("gui_running")
@@ -49,6 +61,9 @@
       set shiftwidth=4
       set expandtab
       set autoindent
+
+      autocmd FileType nix,rust setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
 
       " 配色
       try

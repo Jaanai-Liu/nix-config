@@ -10,6 +10,7 @@
     wl-clipboard    # Wayland剪贴板支持(实现Neovim与系统复制粘贴互通)
     stylua          # Lua代码格式化(AstroNvim配置文件需要)
     fd
+    tree-sitter
 
     # 2.Nix系统级配置开发支持
     nil
