@@ -1,5 +1,5 @@
 # outputs/x86_64-linux/default.nix
-{ inputs, mylib, myvars, mysecrets, agenix, myfonts, nixpkgs, home-manager, ... }:
+{ inputs, mylib, myvars, mysecrets, agenix, myfonts, nixpkgs, home-manager, nixvim, ... }:
 
 let
   system = "x86_64-linux";
@@ -15,9 +15,15 @@ let
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit inputs mylib myvars mysecrets agenix; };
+        home-manager.extraSpecialArgs = { inherit inputs mylib myvars nixvim mysecrets agenix; };
         # 动态引入对应主机的home配置
-        home-manager.users.${myvars.username} = import ../../hosts/${hostName}/home.nix;
+        # home-manager.users.${myvars.username} = import ../../hosts/${hostName}/home.nix;
+        home-manager.users.${myvars.username} = { 
+          imports = [
+            ../../hosts/${hostName}/home.nix
+            inputs.nixvim.homeModules.nixvim
+          ];
+        };
       }
     ];
   };
@@ -25,5 +31,4 @@ in
 {
   "lz-pc" = mkHost "lz-pc";
   "lz-laptop" = mkHost "lz-laptop";
-  # 如果以后有第三台电脑，直接加一行 "新主机名" = mkHost "新主机名"; 即可
 }

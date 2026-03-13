@@ -12,8 +12,8 @@
     # jdk17 # Java (可以根据需求换成 jdk21)
   ];
   programs.vim = {
-    enable = true;
-    defaultEditor = true;
+    enable = false;
+    defaultEditor = false;
     plugins = with pkgs.vimPlugins; [
       nerdtree                 # Preservim/nerdtree
       gruvbox                  # morhetz/gruvbox

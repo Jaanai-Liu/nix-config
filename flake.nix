@@ -1,5 +1,5 @@
 {
-  description = "lz's flake! PS: A very basic flake";
+  description = "Jaanai-Liu's flake!";
 
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -10,6 +10,11 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";  # 使用相同的 nixpkgs
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11"; # 匹配你的 25.11 版本
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Agenix - secrets manager

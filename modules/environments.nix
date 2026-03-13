@@ -20,8 +20,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     fastfetch
-    vim-full
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # vim-full
+    # neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     tmux # Terminal split tool
     wget
     git
@@ -58,8 +58,8 @@
   # https://github.com/iovisor/bcc
   # programs.bcc.enable = true;
 
-  # replace default editor with neovim
-  environment.variables.EDITOR = "vim-full";
+  
+  # environment.variables.EDITOR = "vim-full";
 
 
   programs.dconf.enable = true;
