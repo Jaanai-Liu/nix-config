@@ -11,7 +11,6 @@
     wpsoffice-cn
     # wpsoffice-365
     # nur.repos.rewine.ttf-wps-fonts
-    
 
     # pkgs-stable.logseq
     # vikunja
@@ -21,6 +20,7 @@
     # edrawmax-cn
     siyuan
     tesseract # for siyuan OCR, ~1GB space consumption
+    drawio
   ];
 
   programs.zathura = {
