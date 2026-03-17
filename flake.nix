@@ -9,7 +9,7 @@
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";  # 使用相同的 nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs"; # 使用相同的 nixpkgs
     };
 
     nixvim = {
@@ -27,6 +27,8 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs"; # 让它使用你系统的 nixpkgs，节省空间
     };
+
+    xilinx-nix.url = "github:Jaanai-Liu/xilinx-nix";
 
     ########################  My own repositories  #########################################
     # my private secrets, it's a private repository, you need to replace it with your own.
