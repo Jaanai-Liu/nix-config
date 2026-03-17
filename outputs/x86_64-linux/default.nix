@@ -1,6 +1,7 @@
 # outputs/x86_64-linux/default.nix
 {
   inputs,
+  # overlays,
   mylib,
   myvars,
   mysecrets,
@@ -22,6 +23,7 @@ let
       specialArgs = {
         inherit
           inputs
+          # overlays
           mylib
           myvars
           mysecrets

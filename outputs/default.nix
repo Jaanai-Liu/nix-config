@@ -10,7 +10,19 @@ let
   mysecrets = inputs.mysecrets;
   myfonts = inputs.myfonts;
   # 把所有工具打包成一个通用参数包
-  args = { inherit inputs mylib myvars nixvim agenix mysecrets myfonts nixpkgs home-manager; };
+  args = {
+    inherit
+      inputs
+      mylib
+      myvars
+      nixvim
+      agenix
+      mysecrets
+      myfonts
+      nixpkgs
+      home-manager
+      ;
+  };
 in
 {
   nixosConfigurations = import ./x86_64-linux args;
