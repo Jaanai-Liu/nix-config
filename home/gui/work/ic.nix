@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, myvars, ... }:
 let
   # 🎯 核心路径：指向你本地拷贝过来的那个作者配置的文件夹
   # 【注意】请确认这个路径是你存放 xilinx 文件夹的真实绝对路径！
@@ -7,8 +7,8 @@ let
 in
 {
   home.sessionVariables = {
-    XILINX_STATIC_HOME = "/opt/Xilinx";
-    VC_STATIC_HOME = "/opt/synopsys";
+    XILINX_STATIC_HOME = "/home/${myvars.username}/eda/Xilinx";
+    VC_STATIC_HOME = "/home/${myvars.username}/eda/synopsys";
     LM_LICENSE_FILE = "27000@localhost";
   };
 

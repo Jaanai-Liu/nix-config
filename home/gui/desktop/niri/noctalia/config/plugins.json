@@ -8,7 +8,7 @@
     ],
     "states": {
         "fancy-audiovisualizer": {
-            "enabled": true,
+            "enabled": false,
             "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
         }
     },
