@@ -31,9 +31,8 @@
 
     darktable # pr in linux
 
-
     # lx-music-desktop
-    
+
     # video
     kdePackages.kdenlive
     vlc
@@ -86,6 +85,8 @@
       config = {
         osd-bar = "no";
         border = "no";
+        save-position-on-quit = true; # 退出时自动保存位置
+        watch-later-directory = "~/.cache/mpv/watch_later"; # 指定保存进度的目录
       };
       bindings = {
         space = "cycle pause; script-binding uosc/flash-pause-indicator";
@@ -108,7 +109,6 @@
   services.playerctld.enable = true;
   services.mpris-proxy.enable = true;
 
-
   # home.packages = [ pkgs.vlc ];
   home.file.".config/vlc/vlcrc".text = ''
     # 弹窗禁止
@@ -120,11 +120,11 @@
     ### 自动恢复播放进度
     # 0 = 从不, 1 = 询问, 2 = 总是
     qt-continue=2
-    
+
     [core]
     # 自动优先选择中文字幕
     sub-language=chi,zh,zh-cn,chs,sc
-    
+
     # 自动优先选择中文音轨（可选，建议也加上）
     audio-language=chi,zh,zh-cn,chs,sc
 
