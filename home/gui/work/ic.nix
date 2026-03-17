@@ -7,8 +7,8 @@ let
 in
 {
   home.sessionVariables = {
-    XILINX_STATIC_HOME = "/home/${myvars.username}/eda/Xilinx";
-    VC_STATIC_HOME = "/home/${myvars.username}/eda/synopsys";
+    XILINX_STATIC_HOME = "/opt/Xilinx";
+    VC_STATIC_HOME = "/opt/synopsys";
     LM_LICENSE_FILE = "27000@localhost";
   };
 
