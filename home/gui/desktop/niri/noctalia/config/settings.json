@@ -71,9 +71,9 @@
         "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
-        "showCapsule": false,
+        "showCapsule": true,
         "showOnWorkspaceSwitch": true,
-        "showOutline": true,
+        "showOutline": false,
         "useSeparateOpacity": false,
         "widgetSpacing": 6,
         "widgets": {
@@ -107,7 +107,7 @@
                     "colorName": "primary",
                     "hideWhenIdle": true,
                     "id": "AudioVisualizer",
-                    "width": 100
+                    "width": 145
                 }
             ],
             "left": [

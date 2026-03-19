@@ -108,3 +108,8 @@ window-rule {
     opacity 0.93
     draw-border-with-background false
 }
+window-rule {
+    match app-id="novas"
+    // open-on-workspace "5eda"
+    // open-maximized true
+}
