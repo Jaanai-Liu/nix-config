@@ -29,10 +29,7 @@
       c = "code";
       b = "cd ..";
       py = "python3";
-      # 注意：conda activate 最好在 initExtra 中处理，或直接在 shell 中使用
-      mlp = "conda activate mlp";
       nixclear = "sudo nix-collect-garbage -d";
-      # fixchrome = "pkill -f chrome; rm -rf ~/.config/google-chrome/Singleton*";
     };
 
     # 这里放入所有原本 zshrc 中无法标准化的脚本 (Conda, 函数, export 等)
@@ -83,15 +80,6 @@
       function cd() {
           builtin cd "$@" && ls
       }
-
-      # Micromamba 初始化
-      export MAMBA_ROOT_PREFIX=$HOME/micromamba
-      export MAMBA_CHANGE_PS1=false
-      eval "$(micromamba shell hook --shell zsh)"
-      alias conda="micromamba"
-
-      # auto-act & change color
-      micromamba activate base
     '';
   };
 }

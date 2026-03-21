@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     # vscode
-    micromamba
+    # micromamba
     antigravity
     android-studio
   ];
