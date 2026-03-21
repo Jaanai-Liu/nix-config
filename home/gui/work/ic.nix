@@ -49,8 +49,8 @@ in
     # 使用 VCS-MX 运行混合仿真 (2024版已集成进主程序)
     (writeShellScriptBin "ic-rtl-vcsmx" ''
       echo "🛠️ 正在使用 VCS 混合模式运行仿真..."
-      # 直接调用环境变量中的 vcs
-      exec vcs -full64 -sverilog "$@"
+      # 假设你在 targetFlake 里有对应的 vcs-fhs-env
+      exec nix run "${targetFlake}#vcs-fhs-env" --impure -- vcs -full64 -sverilog "$@"
     '')
 
     # 使用 VCS 运行仿真，并强制输出 FSDB 波形文件

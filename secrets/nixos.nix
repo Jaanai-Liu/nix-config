@@ -56,8 +56,21 @@ in
       # 定义你的私钥。file 路径指向你从 GitHub 下载的仓库
       "ssh-key.age" = {
         file = "${mysecrets}/secrets/ssh-key.age"; # 假设你存放在这个位置
-      } // user_readable;
+      }
+      // user_readable;
+      "github-token" = {
+        file = "${mysecrets}/secrets/github-token.age";
+      }
+      // high_security;
     };
+
+    # ==========================================
+    # 🌟 2. 将解密后的 Token 注入 Nix 系统配置
+    # ==========================================
+    # 我们使用 !include 语法，这样 Token 内容永远不会进入 /nix/store
+    nix.extraOptions = ''
+      !include ${config.age.secrets."github-token".path}
+    '';
 
     # 将解密后的私钥软链接到 /etc/ssh 或其它你想要的地方（可选）
     # 通常 SSH 会自动寻找 ~/.ssh/，你也可以在 home-manager 里处理软链接
@@ -75,6 +88,7 @@ in
       owner = myvars.username;
       group = "users";
       mode = "0500";
-  };
+    };
   };
 }
+
