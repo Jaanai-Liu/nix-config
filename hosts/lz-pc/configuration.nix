@@ -2,16 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, myvars, mysecrets, ... }:
+{
+  config,
+  pkgs,
+  myvars,
+  mysecrets,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules
-      ../../secrets/nixos.nix
-      # ../../modules/desktop/gaming.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../modules
+    ../../secrets/nixos.nix
+    # ../../modules/desktop/gaming.nix
+  ];
   modules.secrets.desktop.enable = true;
   modules.desktop.gaming.enable = true;
 
@@ -22,7 +28,6 @@
   boot.resumeDevice = "/dev/disk/by-uuid/8b14124f-e4c1-4f9d-9e9d-af852e1bc152";
   # 电源管理
   powerManagement.enable = true;
-
 
   # nix.settings.proxy = "http://127.0.0.1:7897"; # 换成你的代理端口
   networking.proxy.default = "http://127.0.0.1:7897";
@@ -38,14 +43,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  
-
-
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -56,8 +55,6 @@
   # };
 
   # List services that you want to enable:
-
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

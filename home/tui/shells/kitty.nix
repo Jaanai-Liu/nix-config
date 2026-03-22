@@ -21,7 +21,7 @@
       hide_window_decorations = "yes";
       background_opacity = "0.75";
       active_background_opacity = "0.75";
-      inactive_background_opacity = "0.75"; 
+      inactive_background_opacity = "0.75";
       background_blur = 1;
       enable_audio_bell = false;
       tab_bar_edge = "top";
@@ -53,16 +53,27 @@
       color15 = "#fffafa";
 
       # 1. 开启光标尾迹动画（核心！）
-      cursor_trail = 3; 
+      cursor_trail = 3;
       # 尾迹衰减速度（0.1到1之间，数值越小越丝滑）
       cursor_trail_decay = "0.1 0.4";
       cursor_trail_start_threshold = 2;
-  
+
       cursor_shape = "block";
       cursor_blink_interval = 0; # 建议关闭闪烁，让平滑移动更明显
 
       dynamic_background_opacity = "yes";
       linux_display_server = "wayland";
     };
+  };
+  xdg.desktopEntries.kitty = {
+    name = "kitty";
+    genericName = "Terminal emulator";
+    exec = "kitty";
+    icon = "utilities-terminal";
+    terminal = false;
+    categories = [
+      "System"
+      "TerminalEmulator"
+    ];
   };
 }
