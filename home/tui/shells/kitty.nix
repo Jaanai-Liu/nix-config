@@ -19,9 +19,9 @@
     };
     settings = {
       hide_window_decorations = "yes";
-      background_opacity = "0.75";
-      active_background_opacity = "0.75";
-      inactive_background_opacity = "0.75";
+      background_opacity = "0.50";
+      active_background_opacity = "0.50";
+      inactive_background_opacity = "0.50";
       background_blur = 1;
       enable_audio_bell = false;
       tab_bar_edge = "top";
