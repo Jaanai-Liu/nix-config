@@ -2,9 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    # 确保字体和分页器需要的工具都在
     nerd-fonts.jetbrains-mono
     source-code-pro
+    papirus-icon-theme
   ];
 
   programs.kitty = {
@@ -69,7 +69,7 @@
     name = "kitty";
     genericName = "Terminal emulator";
     exec = "kitty";
-    icon = "utilities-terminal";
+    icon = "${pkgs.papirus-icon-theme}/share/icons/Papirus/48x48/apps/utilities-terminal.svg";
     terminal = false;
     categories = [
       "System"
