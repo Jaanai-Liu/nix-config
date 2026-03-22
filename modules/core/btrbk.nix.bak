@@ -1,0 +1,53 @@
+{
+  # ==================================================================
+  # Btrbk configuration for single-disk setup
+  # Logic: Creates local snapshots and stores "backups" in a separate
+  # subvolume on the same physical drive.
+
+  # Usage:
+  #   1. btrbk will create snapshots on schedule
+  #   2. we can use `btrbk run` command to create a backup manually
+
+  # How to restore a snapshot:
+  #   1. Find the snapshot you want to restore in /snapshots
+  #   2. Use `btrfs subvol delete /btr_pool/@persistent` to delete the current subvolume
+  #   3. Use `btrfs subvol snapshot /snapshots/2021-01-01 /btr_pool/@persistent` to restore the snapshot
+  #   4. reboot the system or remount the filesystem to see the changes
+  #
+  # ==================================================================
+
+  services.btrbk.instances.btrbk = {
+    # Changed schedule to Tuesday and Saturday at 11:00 PM
+    onCalendar = "Tue,Sat *-*-* 23:00:00";
+
+    settings = {
+      # Local snapshot retention policy (Source side)
+      snapshot_preserve = "7d";
+      snapshot_preserve_min = "2d";
+
+      # Local "backup" retention policy (Target side on the same disk)
+      # Since it is the same disk, this provides version history
+      target_preserve = "9d 4w 2m";
+      target_preserve_min = "no";
+
+      volume = {
+        # Assuming your Btrfs root is mounted at "/"
+        "/" = {
+          # Directory where short-term snapshots are temporarily stored
+          snapshot_dir = ".btrbk_snapshots";
+
+          subvolume = {
+            # Backing up your home directory (Thesis, BP Neural Network code, etc.)
+            "home" = {
+              snapshot_create = "always";
+            };
+          };
+
+          # Since you have only one drive, the target is a local path.
+          # You should create this subvolume first: sudo btrfs subvolume create /btrbk_archive
+          target = "/btrbk_archive";
+        };
+      };
+    };
+  };
+}
