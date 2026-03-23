@@ -20,6 +20,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -28,7 +29,14 @@
     #media-session.enable = true;
   };
 
-
+  # services.pipewire.extraConfig.pipewire."92-low-latency" = {
+  #   "context.properties" = {
+  #     "default.clock.rate" = 48000;
+  #     "default.clock.quantum" = 1024;
+  #     "default.clock.min-quantum" = 32;
+  #     "default.clock.max-quantum" = 2048;
+  #   };
+  # };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -50,9 +58,9 @@
   services.blueman.enable = true;
 
   # 性能模式切换引擎（控制 Performance/Balanced/Power Saver）
-  services.power-profiles-daemon.enable= true;
+  services.power-profiles-daemon.enable = true;
   # 电池状态监听服务（读取百分比、充电状态）
-  services.upower.enable= true;
+  services.upower.enable = true;
 
   services.envfs.enable = true;
 }
