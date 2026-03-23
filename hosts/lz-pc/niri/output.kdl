@@ -5,7 +5,3 @@ output "DP-2" {
     position x=0 y=0
 }
 
-cursor {
-    xcursor-theme "Adwaita"
-    xcursor-size 24
-}
