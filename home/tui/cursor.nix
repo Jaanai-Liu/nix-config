@@ -2,12 +2,13 @@
 { pkgs, ... }:
 let
   cursorSize = 12;
-  # cursorName = "Bibata-Modern-Ice";
-  cursorName = "Adwaita";
+  cursorName = "Bibata-Modern-Ice";
+  # cursorName = "Adwaita";
 in
 {
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
+    # package = pkgs.adwaita-icon-theme;
     name = cursorName;
     size = cursorSize;
     gtk.enable = true;
