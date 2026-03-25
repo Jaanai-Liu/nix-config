@@ -8,7 +8,6 @@
   # https://man.archlinux.org/man/crypt.5.en
   initialHashedPassword = "$7$GU..../....zPxyeBYmPbzdBM1sGr5KY.$KUbKAZmO3bQV7u52vpvKYGwgHaADqDqTNOTzeuXSeZ2";
 
-
   # Public Keys that can be used to login to all my PCs, Macbooks, and servers.
   #
   # Since its authority is so large, we must strengthen its security:
@@ -24,8 +23,5 @@
   sshAuthorizedKeys = [
     # The main ssh keys for daily usage
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8B31wZficBJy4Tli3w+C0hsa7uhsMlff43JF6PSYBe liujaanai@gmail.com"
-    #"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIKlN+Q/GxvwxDX/OAjJHaNFEznEN4Tw4E4TwqQu/eD6 ryan@idols-ai"
-    #"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwoI5MAogEa726jwwHL5EgM1X/i2A5d2pgV7i7t8fzB ryan@shoukei"
-    #"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDc1PNTXzzvd93E+e9LXvnEzqgUI5gMTEF/IitvzgmL+ ryan@frieren"
   ];
 }

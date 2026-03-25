@@ -98,6 +98,12 @@ window-rule {
     match app-id="Clash-verge"
     open-on-workspace "0other"
 }
+
+window-rule {
+    match app-id="v2rayN"
+    open-on-workspace "0other"
+}
+
 window-rule {
     match app-id="Zoom Workplace"
     open-on-workspace "0other"

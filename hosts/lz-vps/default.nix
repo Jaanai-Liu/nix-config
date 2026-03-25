@@ -1,5 +1,6 @@
 # hosts/lz-vps/default.nix
 {
+  myvars,
   config,
   pkgs,
   modulesPath,
@@ -38,9 +39,7 @@
   ];
 
   users.users.root = {
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8B31wZficBJy4Tli3w+C0hsa7uhsMlff43JF6PSYBe liujaanai@gmail.com"
-    ];
+    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
   };
 
   services.openssh = {
