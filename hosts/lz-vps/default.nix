@@ -55,5 +55,48 @@
     settings.PasswordAuthentication = false;
   };
 
+  networking.firewall.allowedTCPPorts = [ 443 ];
+  networking.firewall.allowedUDPPorts = [ 443 ];
+
+  # 启用并配置 Sing-box (VLESS-REALITY)
+  services.sing-box = {
+    enable = true;
+    settings = {
+      inbounds = [
+        {
+          type = "vless";
+          tag = "vless-in";
+          listen = "::";
+          listen_port = 443;
+          users = [
+            {
+              uuid = "cd85c279-474c-4cb2-afec-36bd72a69404";
+              flow = "xtls-rprx-vision";
+            }
+          ];
+          tls = {
+            enabled = true;
+            server_name = "www.microsoft.com";
+            reality = {
+              enabled = true;
+              handshake = {
+                server = "www.microsoft.com";
+                server_port = 443;
+              };
+              private_key = "IIMEFCbo7r6oR6zaIrTpgV30RpftKnzsf-dpVcV83X8";
+              short_id = [ "648083e2b1791469" ];
+            };
+          };
+        }
+      ];
+      outbounds = [
+        {
+          type = "direct";
+          tag = "direct";
+        }
+      ];
+    };
+  };
+
   system.stateVersion = "25.11";
 }

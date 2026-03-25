@@ -42,14 +42,14 @@ nixpkgs.lib.nixosSystem {
           ;
       };
 
-      home-manager.users.root = {
-        imports = [
-          ../../home/base
-          ../../home/tui
-          inputs.nixvim.homeModules.nixvim
-        ];
-        home.stateVersion = "25.11";
-      };
+      # home-manager.users.root = {
+      #   imports = [
+      #     ../../home/base
+      #     ../../home/tui
+      #     inputs.nixvim.homeModules.nixvim
+      #   ];
+      #   home.stateVersion = "25.11";
+      # };
     }
   ];
 }
