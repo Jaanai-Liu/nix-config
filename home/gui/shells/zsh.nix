@@ -30,9 +30,6 @@
       b = "cd ..";
       py = "python3";
       nixclear = "sudo nix-collect-garbage -d";
-
-      sshvps = "ssh root@23.95.28.22";
-      sshpc = "ssh zheng@lz-pc";
     };
 
     # 这里放入所有原本 zshrc 中无法标准化的脚本 (Conda, 函数, export 等)
