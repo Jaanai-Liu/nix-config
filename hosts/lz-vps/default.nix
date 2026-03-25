@@ -4,11 +4,13 @@
   config,
   pkgs,
   modulesPath,
+  disko,
   ...
 }:
 
 {
   imports = [
+    disko.nixosModules.disko
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ../../secrets/nixos.nix

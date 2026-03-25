@@ -104,6 +104,27 @@
         "type": "github"
       }
     },
+    "haumea": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685133229,
+        "narHash": "sha256-FePm/Gi9PBSNwiDFq3N+DWdfxFq0UKsVVTJS3cQPn94=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "34dd58385092a23018748b50f9b23de6266dffc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "v0.2.2",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -177,10 +198,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1774455481,
-        "narHash": "sha256-XvSsgDQVALTxzPxb5a+lN63q9/5yN6e+UKYbYO0ujRY=",
+        "lastModified": 1774458669,
+        "narHash": "sha256-9ecBPdUxYcGZccdOPuhfEtY9sWXAmA/mFfsl+VtlYik=",
         "ref": "refs/heads/main",
-        "rev": "a5508e2bf5dd11a97c1293f3204d17d35aa785c3",
+        "rev": "aa6041fbbcc69d393783494e46d3e9abf79fdc27",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Jaanai-Liu/nix-secrets.git"
@@ -334,6 +355,7 @@
       "inputs": {
         "agenix": "agenix",
         "disko": "disko",
+        "haumea": "haumea",
         "home-manager": "home-manager_2",
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",

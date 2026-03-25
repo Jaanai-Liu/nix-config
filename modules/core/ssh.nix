@@ -1,4 +1,9 @@
-{ config, pkgs, myvars, ... }:
+{
+  config,
+  pkgs,
+  myvars,
+  ...
+}:
 {
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -10,6 +15,8 @@
     };
   };
 
-  # 安装并允许 SSH 调用 xauth 工具
   programs.ssh.setXAuthLocation = true;
+
+  programs.ssh.extraConfig = myvars.networking.sshExtraConfig;
 }
+

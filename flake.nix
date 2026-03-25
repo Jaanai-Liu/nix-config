@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs"; # 让它使用你系统的 nixpkgs，节省空间
     };
 
+    haumea = {
+      url = "github:nix-community/haumea/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,8 +50,6 @@
     #   url = "git+ssh://git@github.com/Jaanai-Liu/nixos-fonts.git?shallow=1";
     #   flake = false;
     # };
-
-    # niri.url = "github:YaLTeR/niri";
   };
 
   outputs = inputs: import ./outputs inputs;
