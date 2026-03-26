@@ -58,9 +58,9 @@ in
   colmena.${hostname} = {
     # 告诉 Colmena 怎么连接这台机器
     deployment = {
-      targetHost = "127.0.0.1";
-      targetUser = myvars.username; # 动态读取你的用户名 (zheng)
-      allowLocalDeployment = true; # 允许 apply-local 部署
+      targetHost = myvars.networking.hostsAddr.${hostname}.ipv4;
+      targetUser = myvars.networking.hostsAddr.${hostname}.user;
+      allowLocalDeployment = true;
     };
 
     imports = systemModules;
