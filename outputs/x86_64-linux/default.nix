@@ -14,7 +14,7 @@ let
 
   data = haumea.lib.load {
     src = ./hosts;
-    inputs = args; # 将 inputs, lib 等参数透传给子模块
+    inputs = args;
   };
 
   dataWithoutPaths = builtins.attrValues data;

@@ -1,4 +1,4 @@
-# outputs/x86_64-linux/lz-pc.nix
+# outputs/x86_64-linux/hosts/lz-pc.nix
 {
   inputs,
   mylib,
@@ -13,6 +13,31 @@
 }:
 let
   hostname = "lz-pc";
+
+  systemModules = [
+    ../../../hosts/${hostname}/configuration.nix
+    home-manager.nixosModules.home-manager
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.extraSpecialArgs = {
+        inherit
+          inputs
+          mylib
+          myvars
+          nixvim
+          mysecrets
+          agenix
+          ;
+      };
+      home-manager.users.${myvars.username} = {
+        imports = [
+          ../../../hosts/${hostname}/home.nix
+          inputs.nixvim.homeModules.nixvim
+        ];
+      };
+    }
+  ];
 in
 {
   nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
@@ -27,29 +52,30 @@ in
         agenix
         ;
     };
-    modules = [
-      ../../../hosts/${hostname}/configuration.nix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit
-            inputs
-            mylib
-            myvars
-            nixvim
-            mysecrets
-            agenix
-            ;
-        };
-        home-manager.users.${myvars.username} = {
-          imports = [
-            ../../../hosts/${hostname}/home.nix
-            inputs.nixvim.homeModules.nixvim
-          ];
-        };
-      }
-    ];
+    modules = systemModules;
+  };
+
+  colmena.${hostname} = {
+    # 告诉 Colmena 怎么连接这台机器
+    deployment = {
+      targetHost = "127.0.0.1";
+      targetUser = myvars.username; # 动态读取你的用户名 (zheng)
+      allowLocalDeployment = true; # 允许 apply-local 部署
+    };
+
+    imports = systemModules;
+  };
+
+  colmenaMeta = {
+    nodeSpecialArgs.${hostname} = {
+      inherit
+        inputs
+        mylib
+        myvars
+        mysecrets
+        myfonts
+        agenix
+        ;
+    };
   };
 }
