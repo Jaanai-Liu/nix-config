@@ -64,6 +64,11 @@
       # Disable spell checking
       spell = false;
 
+      # Ignore case in search patterns (treat 'test' and 'Test' the same)
+      ignorecase = true;
+      # Override the 'ignorecase' option if the search pattern contains upper case characters
+      smartcase = true;
+
       # Disable swap file creation
       swapfile = false;
 

@@ -55,15 +55,26 @@
         };
 
         mapping = {
-          "<C-Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-          "<C-j>" = "cmp.mapping.select_next_item()";
-          "<C-k>" = "cmp.mapping.select_prev_item()";
+          # "<C-Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          # "<C-j>" = "cmp.mapping.select_next_item()";
+          # "<C-k>" = "cmp.mapping.select_prev_item()";
+          # "<C-e>" = "cmp.mapping.abort()";
+          # "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+          # "<C-f>" = "cmp.mapping.scroll_docs(4)";
+          # "<C-Space>" = "cmp.mapping.complete()";
+          # "<C-CR>" = "cmp.mapping.confirm({ select = true })";
+          # "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
+
+          # 上下选择 (支持 Tab 和 Ctrl+n/p)
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+          # "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          # "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.abort()";
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-CR>" = "cmp.mapping.confirm({ select = true })";
-          "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })";
         };
       };
     };
@@ -80,7 +91,8 @@
       enable = true;
     }; # snippets
     cmp-cmdline = {
-      enable = false;
+      # enable = false;
+      enable = true;
     }; # autocomplete for cmdline
   };
   extraConfigLua = ''
