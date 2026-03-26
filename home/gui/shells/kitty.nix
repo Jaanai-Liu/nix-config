@@ -19,13 +19,11 @@
     };
     settings = {
       hide_window_decorations = "yes";
-      background_opacity = "0.50";
-      active_background_opacity = "0.50";
-      inactive_background_opacity = "0.50";
+      background_opacity = "0.70";
       background_blur = 1;
+      dynamic_background_opacity = "yes";
       enable_audio_bell = false;
       tab_bar_edge = "top";
-      # 保持你那个无敌的Shell启动逻辑，确保 Zsh 环境变量不丢
       shell = "${pkgs.bash}/bin/bash --login -c '${pkgs.zsh}/bin/zsh --login --interactive'";
 
       scrollback_lines = 10000;
@@ -59,9 +57,8 @@
       cursor_trail_start_threshold = 2;
 
       cursor_shape = "block";
-      cursor_blink_interval = 0; # 建议关闭闪烁，让平滑移动更明显
+      cursor_blink_interval = 0;
 
-      dynamic_background_opacity = "yes";
       linux_display_server = "wayland";
     };
   };
