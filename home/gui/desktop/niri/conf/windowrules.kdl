@@ -105,6 +105,10 @@ window-rule {
 }
 
 window-rule {
+    match app-id="Throne"
+    open-on-workspace "0other"
+}
+window-rule {
     match app-id="Zoom Workplace"
     open-on-workspace "0other"
 }

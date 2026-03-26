@@ -30,8 +30,8 @@
   powerManagement.enable = true;
 
   # nix.settings.proxy = "http://127.0.0.1:7897"; # 换成你的代理端口
-  networking.proxy.default = "http://127.0.0.1:7897";
-  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://127.0.0.1:7897";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   #nixpkgs.config.allowUnfree = true;
   # networking.hostName = "nixos"; # Define your hostname.
