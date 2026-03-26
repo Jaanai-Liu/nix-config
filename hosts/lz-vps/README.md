@@ -122,6 +122,43 @@ Your proxy server is now running! Create your connection link by replacing the b
 vless://[YOUR_UUID]@[YOUR_SERVER_IP]:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=[YOUR_PUBLIC_KEY]&sid=[YOUR_SHORT_ID]&type=tcp&headerType=none#My-NixOS-Proxy
 ```
 
+```
+# 1. 代理节点定义 (对应你的 Sing-box 服务器端配置)
+proxies:
+  - name: "NixOS-VLESS-Reality"
+    type: vless
+    server: "你的服务器IP"      # 填入你的 VPS IP
+    port: 443
+    uuid: "你的UUID"            # 填入生成的 UUID
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    servername: "www.microsoft.com" # 必须与服务器端 handshake.server 保持一致
+    client-fingerprint: chrome      # 伪装客户端指纹
+    reality-opts:
+      public-key: "你的PublicKey"   # 注意：这里必须填 公钥 (Public Key)！
+      short-id: "你的Short_ID"      # 填入生成的 8位/16位 Short ID
+
+# 2. 策略组定义 (控制面板里的切换按钮)
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - "NixOS-VLESS-Reality"
+      - DIRECT
+
+  - name: "🎯 漏网之鱼"
+    type: select
+    proxies:
+      - "🚀 节点选择"
+      - DIRECT
+
+# 3. 极简分流规则 (默认所有流量走代理，国内流量建议后续添加 GeoIP 规则)
+rules:
+  - MATCH,🚀 节点选择
+```
+
 - **Android**: Download **v2rayNG** (arm64 version). Copy the complete `vless://` link above, open the app, tap the `+` icon, and select **"Import profile from clipboard"**. Tap the V icon to connect.
 - **PC**: Open **Clash Verge Rev** or **NekoBox**, copy the link, and paste/import from clipboard to start routing your traffic.
 
@@ -252,6 +289,43 @@ vless://[YOUR_UUID]@[YOUR_SERVER_IP]:443?encryption=none&flow=xtls-rprx-vision&s
 
 ```text
 vless://[你的UUID]@[服务器IP]:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=[你的PublicKey]&sid=[你的Short_ID]&type=tcp&headerType=none#RackNerd-VPS
+```
+
+```
+# 1. 代理节点定义 (对应你的 Sing-box 服务器端配置)
+proxies:
+  - name: "NixOS-VLESS-Reality"
+    type: vless
+    server: "你的服务器IP"      # 填入你的 VPS IP
+    port: 443
+    uuid: "你的UUID"            # 填入生成的 UUID
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    servername: "www.microsoft.com" # 必须与服务器端 handshake.server 保持一致
+    client-fingerprint: chrome      # 伪装客户端指纹
+    reality-opts:
+      public-key: "你的PublicKey"   # 注意：这里必须填 公钥 (Public Key)！
+      short-id: "你的Short_ID"      # 填入生成的 8位/16位 Short ID
+
+# 2. 策略组定义 (控制面板里的切换按钮)
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - "NixOS-VLESS-Reality"
+      - DIRECT
+
+  - name: "🎯 漏网之鱼"
+    type: select
+    proxies:
+      - "🚀 节点选择"
+      - DIRECT
+
+# 3. 极简分流规则 (默认所有流量走代理，国内流量建议后续添加 GeoIP 规则)
+rules:
+  - MATCH,🚀 节点选择
 ```
 
 - **手机端 (安卓)**：推荐使用 **v2rayNG**（下载 arm64 版本）。在手机上完整复制上方拼接好的链接，打开软件，点击右上角 `+` 号，选择**“从剪贴板导入”**，然后点击右下角的 V 字圆形按钮即可起飞。
