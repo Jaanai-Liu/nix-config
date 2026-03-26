@@ -6,7 +6,7 @@
     autoStart = false;
     package = pkgs.clash-verge-rev;
     serviceMode = true;
-    #tunMode = true;
+    tunMode = true;
   };
   #networking.firewall.allowedTCPPortRanges = [
   #  {
