@@ -64,7 +64,7 @@
   #   after = [ "network.target" ];
   #   serviceConfig = {
   #     Type = "simple";
-  #     User = "zheng";
+  #     User = myvars.username;
   #     # -z 参数的意思是前台运行，正好配合 systemd 的后台管理
   #     ExecStart = "/opt/synopsys/scl/2024.06/linux64/bin/lmgrd -c /opt/synopsys/scl/2024.06/admin/license/Synopsys.dat -z";
   #     Restart = "always"; # 就算意外崩溃也会自动复活

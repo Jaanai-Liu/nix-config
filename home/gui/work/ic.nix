@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  myvars,
+  ...
+}:
 
 let
   # 🎯 核心 Flake 来源 (指向 xilinx-nix 模板)
   # targetFlake = "github:Jaanai-Liu/xilinx-nix?dir=templates/xilinx";
-  targetFlake = "/home/zheng/xilinx-nix?dir=templates/xilinx";
+  targetFlake = "/home/${myvars.username}/xilinx-nix?dir=templates/xilinx";
 in
 {
   # ==========================================
