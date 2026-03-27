@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  myvars,
+  ...
+}:
 let
-  # 【核心补丁】包装 udiskie，强行把图标路径塞进它的启动参数里
   udiskie-wrapped = pkgs.symlinkJoin {
     name = "udiskie";
-    paths = [ pkgs.udiskie ]; # 基础包
+    paths = [ pkgs.udiskie ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/udiskie \
@@ -14,26 +18,54 @@ let
 in
 {
   services.udisks2.enable = true;
+
   boot.supportedFilesystems = [
     "ntfs"
     "exfat"
   ];
+
   environment.systemPackages = with pkgs; [
-    ntfs3g # 增强型 NTFS 支持
-    exfat # exFAT 支持
-    udiskie # 自动挂载守护进程（前端）
+    ntfs3g
+    exfat
+    #udiskie
     udiskie-wrapped
+    papirus-icon-theme
   ];
-  # 3. 【核心】配置 Polkit 权限，允许 myvars.username 用户免密挂载
+
+  # security.polkit.extraConfig = ''
+  #   polkit.addRule(function(action, subject) {
+  #       if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
+  #            action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
+  #            action.id == "org.freedesktop.udisks2.eject-media" ||
+  #            action.id == "org.freedesktop.udisks2.power-off-drive") &&
+  #           subject.isInGroup("users")) {
+  #           return polkit.Result.YES;
+  #       }
+  #   });
+  # '';
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
-        if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
-             action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
-             action.id == "org.freedesktop.udisks2.eject-media" ||
-             action.id == "org.freedesktop.udisks2.power-off-drive") &&
-            subject.isInGroup("users")) {
-            return polkit.Result.YES;
+        var YES = polkit.Result.YES;
+        var permission = [
+            "org.freedesktop.udisks2.filesystem-mount",
+            "org.freedesktop.udisks2.filesystem-mount-system",
+            "org.freedesktop.udisks2.eject-media",
+            "org.freedesktop.udisks2.power-off-drive"
+        ];
+        if (permission.indexOf(action.id) > -1 && subject.user == "${myvars.username}") {
+            return YES;
         }
     });
   '';
+
+  home-manager.users.${myvars.username} = {
+    services.udiskie = {
+      enable = true;
+      # ⚠️ 关键：强制 HM 服务使用我们包装好图标的那个包
+      package = udiskie-wrapped;
+      tray = "auto";
+      notify = true;
+    };
+  };
 }
