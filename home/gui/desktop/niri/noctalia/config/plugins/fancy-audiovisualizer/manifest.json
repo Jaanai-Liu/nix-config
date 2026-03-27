@@ -1,14 +1,17 @@
 {
   "id": "fancy-audiovisualizer",
   "name": "Fancy Audiovisualizer",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "minNoctaliaVersion": "4.6.6",
   "author": "Noctalia Team",
   "official": true,
   "license": "MIT",
   "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "Lemmy's fancy circular audio visualizer.",
-  "tags": ["Desktop", "Audio"],
+  "tags": [
+    "Desktop",
+    "Audio"
+  ],
   "entryPoints": {
     "desktopWidget": "DesktopWidget.qml",
     "desktopWidgetSettings": "DesktopWidgetSettings.qml"
