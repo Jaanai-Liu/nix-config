@@ -16,7 +16,6 @@
     ./hardware-configuration.nix
     ../../modules
     ../../secrets/nixos.nix
-    # ../../modules/desktop/gaming.nix
   ];
   modules.secrets.desktop.enable = true;
   modules.desktop.gaming.enable = true;
@@ -29,12 +28,6 @@
   # 电源管理
   powerManagement.enable = true;
 
-  # nix.settings.proxy = "http://127.0.0.1:7897"; # 换成你的代理端口
-  # networking.proxy.default = "http://127.0.0.1:7897";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  #nixpkgs.config.allowUnfree = true;
-  # networking.hostName = "nixos"; # Define your hostname.
   networking.hostName = "lz-pc"; # Define your hostname.
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -42,6 +35,9 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # nix.settings.proxy = "http://127.0.0.1:7897"; # 换成你的代理端口
+  networking.proxy.default = "http://127.0.0.1:7897";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
