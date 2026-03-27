@@ -22,6 +22,7 @@
     graphviz
 
     gimp # ps in linux
+    krita
 
     # video/audio tools
     libva-utils
@@ -30,6 +31,7 @@
     mesa-demos
 
     darktable # pr in linux
+    rawtherapee
 
     # lx-music-desktop
 
