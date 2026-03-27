@@ -4,45 +4,33 @@
   myvars,
   ...
 }:
+
 let
-  udiskie-wrapped = pkgs.symlinkJoin {
-    name = "udiskie";
+  udiskie-with-icons = pkgs.symlinkJoin {
+    name = "udiskie-with-icons";
     paths = [ pkgs.udiskie ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/udiskie \
         --set XDG_DATA_DIRS "${pkgs.papirus-icon-theme}/share:$XDG_DATA_DIRS" \
-        --set GTK_ICON_THEME "Papirus-Dark"
+        --set GTK_ICON_THEME "Papirus-Dark" \
+        --add-flags "--notify" 
     '';
   };
 in
 {
   services.udisks2.enable = true;
-
   boot.supportedFilesystems = [
     "ntfs"
     "exfat"
   ];
 
-  environment.systemPackages = with pkgs; [
-    ntfs3g
-    exfat
-    #udiskie
-    udiskie-wrapped
-    papirus-icon-theme
+  environment.systemPackages = [
+    pkgs.ntfs3g
+    pkgs.exfat
+    pkgs.papirus-icon-theme
+    udiskie-with-icons
   ];
-
-  # security.polkit.extraConfig = ''
-  #   polkit.addRule(function(action, subject) {
-  #       if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
-  #            action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
-  #            action.id == "org.freedesktop.udisks2.eject-media" ||
-  #            action.id == "org.freedesktop.udisks2.power-off-drive") &&
-  #           subject.isInGroup("users")) {
-  #           return polkit.Result.YES;
-  #       }
-  #   });
-  # '';
 
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -60,12 +48,17 @@ in
   '';
 
   home-manager.users.${myvars.username} = {
+    home.sessionVariables = {
+      XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+    };
+
     services.udiskie = {
       enable = true;
-      # ⚠️ 关键：强制 HM 服务使用我们包装好图标的那个包
-      package = udiskie-wrapped;
+      package = udiskie-with-icons;
       tray = "auto";
       notify = true;
     };
+
+    home.packages = [ pkgs.papirus-icon-theme ];
   };
 }
