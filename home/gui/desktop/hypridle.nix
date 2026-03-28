@@ -27,10 +27,10 @@
           on-timeout = "loginctl lock-session";
         }
         # 15分钟(900s)睡眠
-        {
-          timeout = 900;
-          on-timeout = "systemctl suspend";
-        }
+        # {
+        #   timeout = 900;
+        #   on-timeout = "systemctl suspend";
+        # }
       ];
     };
   };
