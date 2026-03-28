@@ -20,7 +20,7 @@ let
       myvars = vars;
       inherit inputs;
 
-      pkgs-unstable = import nixpkgs {
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -34,6 +34,10 @@ let
       genSpecialArgs
       ;
     myvars = vars;
+    pkgs-unstable = import inputs.nixpkgs-unstable {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
   };
 
   nixosSystems = {
