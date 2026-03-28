@@ -49,6 +49,9 @@ in
       age.secrets = {
         "ssh-key.age" = {
           file = "${mysecrets}/secrets/ssh-key-${config.networking.hostName}.age";
+          path = "/home/${myvars.username}/.ssh/id_ed25519";
+          owner = myvars.username;
+          mode = "0400";
         }
         // user_readable;
 
@@ -70,13 +73,13 @@ in
         !include ${config.age.secrets."github-token".path}
       '';
 
-      environment.etc = {
-        "agenix/id_ed25519" = {
-          source = config.age.secrets."ssh-key.age".path;
-          mode = "0500";
-          user = myvars.username;
-        };
-      };
+      # environment.etc = {
+      #   "agenix/id_ed25519" = {
+      #     source = config.age.secrets."ssh-key.age".path;
+      #     mode = "0500";
+      #     user = myvars.username;
+      #   };
+      # };
     })
 
     # ==========================================
