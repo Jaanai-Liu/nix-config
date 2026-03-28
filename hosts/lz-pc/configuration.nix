@@ -36,8 +36,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # nix.settings.proxy = "http://127.0.0.1:7897"; # 换成你的代理端口
-  # networking.proxy.default = "http://127.0.0.1:7897";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.proxy.default = "http://127.0.0.1:7897";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
