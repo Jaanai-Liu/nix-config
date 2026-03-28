@@ -55,7 +55,6 @@
   networking.firewall.allowedTCPPorts = [ 443 ];
   networking.firewall.allowedUDPPorts = [ 443 ];
 
-  # 启用并配置 Sing-box (VLESS-REALITY)
   modules.secrets.server.proxy.enable = true;
   services.sing-box = {
     enable = true;

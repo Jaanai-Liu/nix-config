@@ -104,6 +104,11 @@ in
           file = "${mysecrets}/secrets/sing-box-short-id.age";
         }
         // high_security;
+
+        "sing-box-public-key" = {
+          file = "${mysecrets}/secrets/sing-box-public-key.age";
+        }
+        // high_security;
       };
     })
 
