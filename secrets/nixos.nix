@@ -48,7 +48,7 @@ in
 
       age.secrets = {
         "ssh-key.age" = {
-          file = "${mysecrets}/secrets/ssh-key.age";
+          file = "${mysecrets}/secrets/ssh-key-${config.networking.hostName}.age";
         }
         // user_readable;
 
