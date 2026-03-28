@@ -198,10 +198,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1774669259,
-        "narHash": "sha256-VDydoyYW/UJ+CTvidpqnaEhKerQzdX0i/Rx5HcKNAww=",
+        "lastModified": 1774670548,
+        "narHash": "sha256-h3V5KV1HrGyC9h0L4YeFkA/KpRIE6zTmIFbRxxhghT4=",
         "ref": "refs/heads/main",
-        "rev": "df89b93dbe5336cd92e414a7cc5ab393658587e6",
+        "rev": "19cd62af10ca0e456eccc8f1571b4bbfc9713554",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Jaanai-Liu/nix-secrets.git"
