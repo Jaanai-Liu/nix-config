@@ -14,6 +14,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ../../secrets/nixos.nix
+    ../../modules/core/nix.nix
   ];
 
   boot.loader.grub = {

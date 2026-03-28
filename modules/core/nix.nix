@@ -12,6 +12,5 @@
   nixpkgs.config.allowUnfree = true;
 
   # Flatpak
-  services.flatpak.enable = true; # 启用 Flatpak
+  # services.flatpak.enable = true; # 启用 Flatpak
 }
-
