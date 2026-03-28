@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  libs,
   myvars,
   ...
 }:
@@ -10,13 +11,18 @@
   services.openssh = {
     enable = true;
     settings = {
-      # 允许 X11 图形界面转发
       X11Forwarding = true;
+      # PasswordAuthentication = false;
     };
   };
 
-  programs.ssh.setXAuthLocation = true;
+  users.users."${myvars.username}" = {
+    description = myvars.userfullname;
+    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
+  };
 
+  security.polkit.enable = true;
+
+  programs.ssh.setXAuthLocation = true;
   programs.ssh.extraConfig = myvars.networking.sshExtraConfig;
 }
-
