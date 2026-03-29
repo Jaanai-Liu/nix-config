@@ -17,11 +17,22 @@
     ../../modules/core/nix.nix
   ];
 
-  users.users.root.shell = pkgs.zsh;
-  home-manager.users.root = {
+  programs.zsh.enable = true;
+  users.users.${myvars.username} = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
+  };
+
+  home-manager.users.${myvars.username} = {
+    programs.home-manager.enable = true;
+    home.username = myvars.username;
+    home.homeDirectory = "/home/${myvars.username}";
+    # fonts.fontconfig.enable = true;
     home.stateVersion = "25.11";
     imports = [
-      ../../home/base/shells/zsh.nix
+      ../../home/base/default.nix
     ];
   };
 

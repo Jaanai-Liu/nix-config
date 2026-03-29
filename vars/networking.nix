@@ -4,16 +4,20 @@ let
   # 1. 你的设备地址簿
   hostsAddr = {
     lz-pc = {
-      ipv4 = "100.81.104.63"; # Tailscale IP
+      ipv4 = "100.81.104.63";
       user = "myvars.username";
     };
     lz-nb = {
-      ipv4 = "100.x.y.z"; # 你的笔记本 IP
+      ipv4 = "100.x.y.z";
       user = "myvars.username";
     };
     lz-vps = {
-      ipv4 = "23.95.28.22"; # 🌟 你的 VPS 公网 IP
+      ipv4 = "23.95.28.22";
       user = "root";
+    };
+    lz-vps-home = {
+      ipv4 = "23.95.28.22";
+      user = "myvars.username";
     };
   };
 in
