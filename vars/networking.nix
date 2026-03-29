@@ -1,33 +1,45 @@
 # vars/networking.nix
+# vars/networking.nix
 { lib }:
 let
   sshDefault = {
     port = 22;
     user = "zheng";
   };
-in
-rec {
-  hostsAddr = {
+
+  rawHosts = {
     lz-pc.ipv4 = "100.81.104.63";
     lz-nb.ipv4 = "100.x.y.z";
     lz-vps = {
       ipv4 = "23.95.28.22";
-      ssh.user = "root";
+      ssh.user = "root"; # 只有它特殊
     };
     lz-vps-home.ipv4 = "23.95.28.22";
   };
 
+  resolvedHosts = lib.mapAttrs (
+    name: val:
+    let
+      sshConfig = sshDefault // (if val ? ssh then val.ssh else { });
+    in
+    {
+      ipv4 = val.ipv4;
+      user = sshConfig.user;
+      port = sshConfig.port;
+    }
+  ) rawHosts;
+
+in
+{
+  hostsAddr = resolvedHosts;
   sshExtraConfig = lib.attrsets.foldlAttrs (
     acc: host: val:
-    let
-      ssh = sshDefault // (if val ? ssh then val.ssh else { });
-    in
     acc
     + ''
       Host ${host}
         HostName ${val.ipv4}
-        Port ${toString (ssh.port or 22)}
-        User ${ssh.user}
+        Port ${toString val.port}
+        User ${val.user}
     ''
-  ) "" hostsAddr;
+  ) "" resolvedHosts;
 }
