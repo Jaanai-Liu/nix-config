@@ -35,6 +35,7 @@
     # 这里放入所有原本 zshrc 中无法标准化的脚本 (Conda, 函数, export 等)
     initContent = ''
       # PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%~%{$reset_color%} \$(git_prompt_info)"
+      export TERM=xterm-256color
 
       # 强制设置环境变量
       export IM_MODULE=fcitx
