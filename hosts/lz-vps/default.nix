@@ -18,7 +18,7 @@
     ../../modules/core/ssh.nix
   ];
 
-  modules.core.ssh.harden = true;
+  modules.core.ssh.harden = false;
 
   programs.zsh.enable = true;
   users.users.${myvars.username} = {
@@ -74,7 +74,10 @@
   #   settings.PasswordAuthentication = false;
   # };
 
-  networking.firewall.allowedTCPPorts = [ 443 ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    443
+  ];
   networking.firewall.allowedUDPPorts = [ 443 ];
 
   modules.secrets.server.proxy.enable = true;
