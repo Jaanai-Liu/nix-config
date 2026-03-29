@@ -35,7 +35,7 @@
     # fonts.fontconfig.enable = true;
     home.stateVersion = "25.11";
     imports = [
-      ../../home/base/default.nix
+      ../../home/base/shells/zsh.nix
     ];
   };
 
