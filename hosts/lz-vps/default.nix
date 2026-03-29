@@ -15,6 +15,7 @@
     ./disk-config.nix
     ../../secrets/nixos.nix
     ../../modules/core/nix.nix
+    ../../home/base/default.nix
   ];
 
   boot.loader.grub = {
