@@ -15,8 +15,13 @@
     ./disk-config.nix
     ../../secrets/nixos.nix
     ../../modules/core/nix.nix
-    ../../home/base/default.nix
   ];
+
+  home-manager.users.root = {
+    imports = [
+      ../../home/base/default.nix
+    ];
+  };
 
   boot.loader.grub = {
     enable = true;
