@@ -18,7 +18,7 @@
     ../../modules/core/ssh.nix
   ];
 
-  modules.core.ssh.harden = false;
+  modules.core.ssh.harden = true;
 
   programs.zsh.enable = true;
   users.users.${myvars.username} = {
