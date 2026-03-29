@@ -19,7 +19,7 @@
 
   home-manager.users.root = {
     imports = [
-      ../../home/base/default.nix
+      ../../home/base/shells/zsh.nix
     ];
   };
 
