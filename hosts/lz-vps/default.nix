@@ -15,14 +15,17 @@
     ./disk-config.nix
     ../../secrets/nixos.nix
     ../../modules/core/nix.nix
+    ../../modules/core/ssh.nix
   ];
+
+  modules.core.ssh.harden = true;
 
   programs.zsh.enable = true;
   users.users.${myvars.username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
+    # openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
   };
 
   home-manager.users.${myvars.username} = {
@@ -65,11 +68,11 @@
     openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
   };
 
-  services.openssh = {
-    enable = true;
-    settings.PermitRootLogin = "prohibit-password";
-    settings.PasswordAuthentication = false;
-  };
+  # services.openssh = {
+  #   enable = true;
+  #   settings.PermitRootLogin = "prohibit-password";
+  #   settings.PasswordAuthentication = false;
+  # };
 
   networking.firewall.allowedTCPPorts = [ 443 ];
   networking.firewall.allowedUDPPorts = [ 443 ];
