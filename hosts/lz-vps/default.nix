@@ -39,6 +39,18 @@
     ];
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ myvars.username ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
