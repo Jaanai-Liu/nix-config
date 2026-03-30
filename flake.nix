@@ -15,7 +15,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11"; # 匹配你的 25.11 版本
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
