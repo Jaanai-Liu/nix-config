@@ -3,7 +3,7 @@
   inputs,
   mylib,
   myvars,
-  pkgs-unstable,
+  pkgs-stable,
   mysecrets,
   agenix,
   myfonts,
@@ -26,7 +26,7 @@ let
           inputs
           mylib
           myvars
-          pkgs-unstable
+          pkgs-stable
           nixvim
           mysecrets
           agenix
@@ -49,7 +49,7 @@ in
         inputs
         mylib
         myvars
-        pkgs-unstable
+        pkgs-stable
         mysecrets
         myfonts
         agenix
@@ -75,7 +75,7 @@ in
         inputs
         mylib
         myvars
-        pkgs-unstable
+        pkgs-stable
         mysecrets
         myfonts
         agenix
