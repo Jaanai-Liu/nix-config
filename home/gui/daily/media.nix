@@ -80,7 +80,7 @@
       scripts = with pkgs.mpvScripts; [
         mpris
         encode
-        mpv-cheatsheet
+        mpv-cheatsheet-ng
         uosc
         thumbfast
       ];
