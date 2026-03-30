@@ -1,24 +1,20 @@
-# modules/zsh.nix
 { config, pkgs, ... }:
 {
-  # Zsh 配置 (替代 .zshrc)
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true; # 对应 zsh-autosuggestions
-    syntaxHighlighting.enable = true; # 对应 zsh-syntax-highlighting
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
-    # 对应 Oh My Zsh 配置 [cite: 3]
     oh-my-zsh = {
       enable = true;
-      # theme = "robbyrussell";          # 对应 ZSH_THEME [cite: 3]
+      # theme = "robbyrussell";
       plugins = [
         "git"
         "z"
-      ]; # 对应 plugins=(...)
+      ];
     };
 
-    # 对应 alias 配置 [cite: 21]
     shellAliases = {
       ll = "ls -alF";
       la = "ls -A";
@@ -32,12 +28,11 @@
       nixclear = "sudo nix-collect-garbage -d";
     };
 
-    # 这里放入所有原本 zshrc 中无法标准化的脚本 (Conda, 函数, export 等)
     initContent = ''
       # PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%~%{$reset_color%} \$(git_prompt_info)"
       export TERM=xterm-256color
 
-      # 强制设置环境变量
+      # Force set environment variables for input method
       export IM_MODULE=fcitx
       export GTK_IM_MODULE=fcitx
       export QT_IM_MODULE=fcitx
@@ -45,39 +40,38 @@
 
       function ma() {
         if [ -z "$1" ]; then
-          echo "用法：ma <包名1> [包名2] ..."
+          echo "Usage: ma <package1> [package2] ..."
           return 1
-        fi # <- 增加了闭合的 fi
+        fi # Added closing fi
 
-        local cmd="nix shell" # 统一变量名并初始化
-        for arg in "$@"; do   # <- 改为了小写的 do
+        local cmd="nix shell"
+        for arg in "$@"; do
           cmd="$cmd nixpkgs#$arg"
         done
         
-        echo "正在进入Nix环境：$cmd"
+        echo "Entering Nix environment: $cmd"
         eval "$cmd"
       }
 
       function mav() {
         if [ -z "$1" ]; then
-          echo "用法: mav <搜索关键词>"
+          echo "Usage: mav <search_keyword>"
           return 1
         fi
 
-        echo "🔍 正在Nixpkgs库中搜索'$1'..."
-        echo "提示：第一次搜索可能需要下载缓存索引，请耐心等待..."
+        echo "🔍 Searching for '$1' in Nixpkgs..."
+        echo "Tip: The first search may require downloading the cache index, please be patient..."
         echo "---------------------------------------------------"
 
-        # nix search的输出传递给grep，再传递给sed
+        # Pipe nix search output to grep, then to sed
         nix search nixpkgs "$1" 2>/dev/null |
         grep "^* " |
         sed -E 's/^\* (legacyPackages\.[^.]+\.|nixpkgs#)//'
 
         echo "---------------------------------------------------"
-        echo "👉 使用'ma <名字>'即可使用对应版本"
+        echo "👉 Use 'ma <name>' to enter the corresponding environment"
       }
 
-      # 自定义函数
       function cd() {
           builtin cd "$@" && ls
       }
