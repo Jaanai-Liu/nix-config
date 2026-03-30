@@ -12,7 +12,7 @@ let
     lz-nb.ipv4 = "100.x.y.z";
     lz-vps = {
       ipv4 = "23.95.28.22";
-      ssh.user = "root"; # 只有它特殊
+      # ssh.user = "root"; # 只有它特殊
     };
     lz-vps-home.ipv4 = "23.95.28.22";
   };
