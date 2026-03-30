@@ -64,15 +64,15 @@
         echo "---------------------------------------------------"
 
         # Pipe nix search output to grep, then to sed
-        # nix search nixpkgs "$1" 2>/dev/null |
-        # grep "^* " |
-        # sed -E 's/^\* (legacyPackages\.[^.]+\.|nixpkgs#)//'
-        NO_COLOR=1 nix search nixpkgs "$1" 2>/dev/null | awk '/^\* / {
-          sub(/^legacyPackages\.[^.]*\./, "", $2)
-          sub(/^nixpkgs#/, "", $2)
-          $1 = ""
-          print substr($0, 2)
-        }'
+        nix search nixpkgs "$1" 2>/dev/null |
+        grep "^* " |
+        sed -E 's/^\* (legacyPackages\.[^.]+\.|nixpkgs#)//'
+        # NO_COLOR=1 nix search nixpkgs "$1" 2>/dev/null | awk '/^\* / {
+        #   sub(/^legacyPackages\.[^.]*\./, "", $2)
+        #   sub(/^nixpkgs#/, "", $2)
+        #   $1 = ""
+        #   print substr($0, 2)
+        # }'
 
         echo "---------------------------------------------------"
         echo "👉 Use 'ma <name>' to enter the corresponding environment"
