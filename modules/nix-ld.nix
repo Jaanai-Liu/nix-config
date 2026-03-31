@@ -1,4 +1,9 @@
-{ config, pkgs, myvars, ... }:
+{
+  config,
+  pkgs,
+  myvars,
+  ...
+}:
 
 {
   # 开启 nix-ld，让传统 Linux 动态链接程序在 NixOS 上直接运行
@@ -61,25 +66,25 @@
   systemd.tmpfiles.rules = [
     "L+ /lib64/ld-lsb-x86-64.so.3 - - - - /lib64/ld-linux-x86-64.so.2"
   ];
-  
+
   systemd.services.synopsys-license = {
     description = "Synopsys License Server (lmgrd)";
     wantedBy = [ "multi-user.target" ];
-    
+
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
 
     serviceConfig = {
-      Type = "forking"; 
+      Type = "forking";
       User = myvars.username;
       ExecStart = "/opt/synopsys/scl/2023.09/linux64/bin/lmgrd -c /opt/synopsys/license/Synopsys.dat -l /opt/synopsys/license/lic.log";
-      
+
       Restart = "on-failure";
       RestartSec = "10s";
-      
+
       LimitNOFILE = 65535;
     };
-
+  };
   # systemd.services.synopsys-license = {
   #   description = "Synopsys License Server (lmgrd)";
   #   wantedBy = [ "multi-user.target" ];
