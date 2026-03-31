@@ -55,6 +55,7 @@ in
     deployment = {
       targetHost = nodeConf.ipv4;
       targetUser = nodeConf.user;
+      privilegeEscalationCommand = [ "sudo", "-E" ];
     };
   };
 }
