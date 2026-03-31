@@ -39,6 +39,12 @@
     ];
   };
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+    myvars.username
+  ];
+
   security.sudo.extraRules = [
     {
       users = [ myvars.username ];
