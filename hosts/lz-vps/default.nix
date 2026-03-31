@@ -133,35 +133,34 @@
             };
           };
         }
-        # {
-        #   type = "shadowsocks";
-        #   tag = "ss-udp-in";
-        #   listen = "::";
-        #   listen_port = 8443;
-        #   method = "2022-blake3-aes-128-gcm";
-        #   password._secret = config.age.secrets."sing-box-hy2-pass".path;
-        # }
         {
-          type = "hysteria2";
-          tag = "hy2-in";
+          type = "shadowsocks";
+          tag = "ss-udp-in";
           listen = "::";
-          listen_port = 443;
-          users = [
-            {
-              password._secret = config.age.secrets."sing-box-hy2-pass".path;
-            }
-          ];
-          tls = {
-            enabled = true;
-            certificate_path = "/var/lib/sing-box/cert.pem";
-            key_path = "/var/lib/sing-box/key.pem";
-          };
-          obfs = {
-            type = "salamander";
-            # password._secret = config.age.secrets."sing-box-uuid".path;
-            password = "a1418405-712a-4a36-9772-8ba589aeb40b";
-          };
+          listen_port = 8443;
+          method = "2022-blake3-aes-128-gcm";
+          password._secret = config.age.secrets."sing-box-hy2-pass".path;
         }
+        # {
+        #   type = "hysteria2";
+        #   tag = "hy2-in";
+        #   listen = "::";
+        #   listen_port = 443;
+        #   users = [
+        #     {
+        #       password._secret = config.age.secrets."sing-box-hy2-pass".path;
+        #     }
+        #   ];
+        #   tls = {
+        #     enabled = true;
+        #     certificate_path = "/var/lib/sing-box/cert.pem";
+        #     key_path = "/var/lib/sing-box/key.pem";
+        #   };
+        #   obfs = {
+        #     type = "salamander";
+        #     password._secret = config.age.secrets."sing-box-uuid".path;
+        #   };
+        # }
       ];
       outbounds = [
         {
