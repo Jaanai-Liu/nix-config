@@ -158,7 +158,8 @@
           };
           obfs = {
             type = "salamander";
-            password = config.age.secrets."sing-box-uuid".path;
+            # password = config.age.secrets."sing-box-uuid".path;
+            password = builtins.readFile "/run/agenix/sing-box-uuid";
           };
         }
       ];
