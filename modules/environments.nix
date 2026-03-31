@@ -5,16 +5,6 @@
   ...
 }:
 {
-  # 👇 定义一个 Overlay，把 unstable 的包打包放到 pkgs.unstable 下面
-  # nixpkgs.overlays = [
-  #  (final: prev: {
-  #   unstable = import inputs.nixpkgs-unstable {
-  #     system = prev.system;
-  #     config.allowUnfree = true;
-  #    };
-  #  })
-  #];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
