@@ -133,38 +133,35 @@
             };
           };
         }
-        {
-          type = "shadowsocks";
-          tag = "ss-udp-in";
-          listen = "::";
-          listen_port = 8443;
-          method = "2022-blake3-aes-128-gcm";
-          password._secret = config.age.secrets."sing-box-hy2-pass".path;
-        }
         # {
-        #   type = "hysteria2";
-        #   tag = "hy2-in";
+        #   type = "shadowsocks";
+        #   tag = "ss-udp-in";
         #   listen = "::";
         #   listen_port = 8443;
-        #   users = [
-        #     {
-        #       password._secret = config.age.secrets."sing-box-hy2-pass".path;
-        #     }
-        #   ];
-        #   # Hysteria2 必须配置有效的 TLS
-        #   tls = {
-        #     enabled = true;
-        #     # 方案 A: 使用自签名证书 (如果你没有域名证书)
-        #     # 你需要先在 VPS 上生成这两个文件，或者通过 Nix 生成
-        #     certificate_path = "/var/lib/sing-box/cert.pem";
-        #     key_path = "/var/lib/sing-box/key.pem";
-        #   };
-        #   # 核心防封：开启 Hysteria2 专有的混淆
-        #   obfs = {
-        #     type = "salamander"; # 推荐使用 salamander 算法
-        #     password = "一个复杂的混淆密码"; # 建议也放入 agenix
-        #   };
+        #   method = "2022-blake3-aes-128-gcm";
+        #   password._secret = config.age.secrets."sing-box-hy2-pass".path;
         # }
+        {
+          type = "hysteria2";
+          tag = "hy2-in";
+          listen = "::";
+          listen_port = 8443;
+          users = [
+            {
+              password._secret = config.age.secrets."sing-box-hy2-pass".path;
+            }
+          ];
+          tls = {
+            enabled = true;
+            certificate_path = "/var/lib/sing-box/cert.pem";
+            key_path = "/var/lib/sing-box/key.pem";
+          };
+          # 核心防封：开启 Hysteria2 专有的混淆
+          obfs = {
+            type = "salamander"; # 推荐使用 salamander 算法
+            password = "一个复杂的混淆密码"; # 建议也放入 agenix
+          };
+        }
       ];
       outbounds = [
         {
