@@ -156,10 +156,9 @@
             certificate_path = "/var/lib/sing-box/cert.pem";
             key_path = "/var/lib/sing-box/key.pem";
           };
-          # 核心防封：开启 Hysteria2 专有的混淆
           obfs = {
-            type = "salamander"; # 推荐使用 salamander 算法
-            password = "一个复杂的混淆密码"; # 建议也放入 agenix
+            type = "salamander";
+            password = config.age.secrets."sing-box-uuid".path;
           };
         }
       ];
