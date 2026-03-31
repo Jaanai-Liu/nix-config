@@ -121,5 +121,5 @@ window-rule {
 window-rule {
     match app-id="novas"
     // open-on-workspace "5eda"
-    // open-maximized true
+    open-maximized true
 }

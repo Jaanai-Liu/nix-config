@@ -96,7 +96,10 @@
     22
     443
   ];
-  networking.firewall.allowedUDPPorts = [ 443 ];
+  networking.firewall.allowedUDPPorts = [
+    443
+    8443
+  ];
 
   modules.secrets.server.proxy.enable = true;
   services.sing-box = {
@@ -127,6 +130,30 @@
               short_id = [
                 { _secret = config.age.secrets."sing-box-short-id".path; }
               ];
+            };
+          };
+        }
+        {
+          type = "hysteria2";
+          tag = "hy2-in";
+          listen = "::";
+          listen_port = 8443;
+          users = [
+            {
+              password._secret = config.age.secrets."sing-box-hy2-pass".path;
+            }
+          ];
+          tls = {
+            enabled = true;
+            server_name = "www.microsoft.com";
+            reality = {
+              enabled = true;
+              handshake = {
+                server = "www.microsoft.com";
+                server_port = 443;
+              };
+              private_key._secret = config.age.secrets."sing-box-private-key".path;
+              short_id = [ { _secret = config.age.secrets."sing-box-short-id".path; } ];
             };
           };
         }
