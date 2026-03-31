@@ -58,6 +58,10 @@
     libglvnd # 现代 OpenGL 支持
   ];
 
+  systemd.tmpfiles.rules = [
+    "L+ /lib64/ld-lsb-x86-64.so.3 - - - - /lib64/ld-linux-x86-64.so.2"
+  ];
+
   # systemd.services.synopsys-license = {
   #   description = "Synopsys License Server (lmgrd)";
   #   wantedBy = [ "multi-user.target" ];
