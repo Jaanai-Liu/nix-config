@@ -109,6 +109,11 @@ in
           file = "${mysecrets}/secrets/sing-box-public-key.age";
         }
         // high_security;
+
+        "sing-box-hy2-pass" = {
+          file = "${mysecrets}/secrets/sing-box-hy2-pass.age";
+        }
+        // high_security;
       };
     })
 
