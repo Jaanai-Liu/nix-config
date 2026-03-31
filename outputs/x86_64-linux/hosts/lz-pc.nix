@@ -14,23 +14,26 @@
 }:
 let
   hostname = "lz-pc";
-
-  systemModules = [
+  nodeConf = myvars.networking.hostsAddr.${hostname};
+  mySpecialArgs = {
+    inherit
+      inputs
+      mylib
+      myvars
+      pkgs-stable
+      mysecrets
+      myfonts
+      agenix
+      ;
+  };
+  myModules = [
     ../../../hosts/${hostname}/configuration.nix
     home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.extraSpecialArgs = {
-        inherit
-          inputs
-          mylib
-          myvars
-          pkgs-stable
-          nixvim
-          mysecrets
-          agenix
-          ;
+      home-manager.extraSpecialArgs = mySpecialArgs // {
+        inherit nixvim;
       };
       home-manager.users.${myvars.username} = {
         imports = [
@@ -44,42 +47,21 @@ in
 {
   nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = {
-      inherit
-        inputs
-        mylib
-        myvars
-        pkgs-stable
-        mysecrets
-        myfonts
-        agenix
-        ;
-    };
-    modules = systemModules;
+    specialArgs = mySpecialArgs;
+    modules = myModules;
   };
 
   colmena.${hostname} = {
-    # 告诉 Colmena 怎么连接这台机器
+    imports = myModules;
+
     deployment = {
-      targetHost = myvars.networking.hostsAddr.${hostname}.ipv4;
-      targetUser = myvars.networking.hostsAddr.${hostname}.user;
+      targetHost = nodeConf.ipv4;
+      targetUser = nodeConf.user;
       allowLocalDeployment = true;
     };
-
-    imports = systemModules;
   };
 
   colmenaMeta = {
-    nodeSpecialArgs.${hostname} = {
-      inherit
-        inputs
-        mylib
-        myvars
-        pkgs-stable
-        mysecrets
-        myfonts
-        agenix
-        ;
-    };
+    nodeSpecialArgs.${hostname} = mySpecialArgs;
   };
 }

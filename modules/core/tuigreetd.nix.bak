@@ -1,16 +1,21 @@
-{ pkgs, myvars, lib, ... }: {
-  
+{
+  pkgs,
+  myvars,
+  lib,
+  ...
+}:
+{
+
   # 1. 开启 Gnome Keyring (非常重要，否则你每次开 Chrome 都要输密码)
   security.pam.services.greetd.enableGnomeKeyring = true;
 
   services.displayManager.gdm.enable = false;
 
-
   # services.greetd = {
   #   enable = true;
   #   settings = {
   #     default_session = {
-  #       user = myvars.username; 
+  #       user = myvars.username;
   #       command = "$HOME/.wayland-session";
   #       # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd $HOME/.wayland-session";  # start wayland session with a TUI login manager
   #     };
@@ -20,7 +25,7 @@
     enable = true;
     settings = {
       default_session = {
-        user = "greeter"; 
+        user = "greeter";
         command = lib.concatStringsSep " " [
           "${pkgs.tuigreet}/bin/tuigreet"
           "--time"
@@ -47,3 +52,4 @@
     TTYVTDisallocate = true;
   };
 }
+

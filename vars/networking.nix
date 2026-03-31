@@ -10,11 +10,11 @@ let
   rawHosts = {
     lz-pc.ipv4 = "100.81.104.63";
     lz-nb.ipv4 = "100.x.y.z";
-    lz-vps = {
+    lz-vps-root = {
       ipv4 = "23.95.28.22";
       ssh.user = "root";
     };
-    lz-vps-home.ipv4 = "23.95.28.22";
+    lz-vps.ipv4 = "23.95.28.22";
   };
 
   resolvedHosts = lib.mapAttrs (

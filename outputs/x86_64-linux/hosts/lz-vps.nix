@@ -46,11 +46,11 @@ in
         agenix
         ;
     };
-    modules = myModules; # 👈 引用清单
+    modules = myModules;
   };
 
   colmena.${hostname} = {
-    imports = myModules; # 🌟 关键修复：把清单也给 Colmena 一份！
+    imports = myModules;
 
     deployment = {
       targetHost = nodeConf.ipv4;
