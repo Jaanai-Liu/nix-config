@@ -146,15 +146,15 @@
           tls = {
             enabled = true;
             server_name = "www.microsoft.com";
-            reality = {
-              enabled = true;
-              handshake = {
-                server = "www.microsoft.com";
-                server_port = 443;
-              };
-              private_key._secret = config.age.secrets."sing-box-private-key".path;
-              short_id = [ { _secret = config.age.secrets."sing-box-short-id".path; } ];
-            };
+            # reality = {
+            #   enabled = true;
+            #   handshake = {
+            #     server = "www.microsoft.com";
+            #     server_port = 443;
+            #   };
+            #   private_key._secret = config.age.secrets."sing-box-private-key".path;
+            #   short_id = [ { _secret = config.age.secrets."sing-box-short-id".path; } ];
+            # };
           };
         }
       ];
