@@ -16,10 +16,12 @@
     wantedBy = [ "default.target" ];
     serviceConfig = {
       Type = "simple";
+      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/.local/share/alist";
       ExecStart = "${pkgs.alist}/bin/alist server --data %h/.local/share/alist";
       # WorkingDirectory = "%h";
       Restart = "on-failure";
-      ProtectSystem = "full";
+      RestartSec = "5s";
+      # ProtectSystem = "full";
     };
   };
 }
