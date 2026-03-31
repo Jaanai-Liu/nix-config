@@ -158,7 +158,8 @@
           };
           obfs = {
             type = "salamander";
-            password._secret = config.age.secrets."sing-box-uuid".path;
+            # password._secret = config.age.secrets."sing-box-uuid".path;
+            password = "a1418405-712a-4a36-9772-8ba589aeb40b";
           };
         }
       ];
