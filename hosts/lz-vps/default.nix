@@ -145,7 +145,7 @@
           type = "hysteria2";
           tag = "hy2-in";
           listen = "::";
-          listen_port = 8443;
+          listen_port = 443;
           users = [
             {
               password._secret = config.age.secrets."sing-box-hy2-pass".path;
