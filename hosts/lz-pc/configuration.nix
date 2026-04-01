@@ -19,6 +19,7 @@
   ];
   modules.secrets.desktop.enable = true;
   modules.desktop.gaming.enable = true;
+  modules.synopsys.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

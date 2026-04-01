@@ -1,17 +1,23 @@
-
-{ config, pkgs, myvars, ... }:
+{
+  config,
+  pkgs,
+  myvars,
+  ...
+}:
 
 {
   imports = [
     ../../home
     ./niri
   ];
-  # 注意修改这里的用户名与用户目录
+
+  # modules.synopsys.enable = true;
+
   home.username = myvars.username;
   home.homeDirectory = "/home/${myvars.username}";
 
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
 
   ];
 
