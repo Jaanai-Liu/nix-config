@@ -1,27 +1,37 @@
 # modules/alist.nix
-{ config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    alist
-  ];
+  config,
+  pkgs,
+  myvars,
+  ...
+}:
+
+let
+  runUser = myvars.username;
+in
+{
+  environment.systemPackages = [ pkgs.alist ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "alist-${pkgs.alist.version}"
   ];
 
-  # 定义alist后台服务
-  systemd.user.services.alist = {
-    description = "Alist file server";
-    after = [ "network.target" ];
-    wantedBy = [ "default.target" ];
+  systemd.services.alist = {
+    description = "Alist File Server Daemon";
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+
     serviceConfig = {
       Type = "simple";
-      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/.local/share/alist";
-      ExecStart = "${pkgs.alist}/bin/alist server --data %h/.local/share/alist";
-      # WorkingDirectory = "%h";
+      User = runUser;
+
+      StateDirectory = "alist";
+
+      ExecStart = "${pkgs.alist}/bin/alist server --data /var/lib/alist";
+
       Restart = "on-failure";
       RestartSec = "5s";
-      # ProtectSystem = "full";
     };
   };
 }
