@@ -8,7 +8,6 @@
 let
   username = myvars.username;
   mountPath = "/mnt/alist";
-  # configPath = "/home/${myvars.username}/.config/rclone/rclone.conf";
   configPath = config.age.secrets."rclone-alist".path;
 in
 {
@@ -31,7 +30,9 @@ in
     serviceConfig = {
       Type = "simple";
       User = username;
-      # ExecStartPre = "-${pkgs.coreutils}/bin/mkdir -p ${mountPath}";
+
+      Environment = "PATH=/run/wrappers/bin:/run/current-system/sw/bin:${pkgs.coreutils}/bin";
+
       ExecStartPre = [
         "+${pkgs.coreutils}/bin/mkdir -p ${mountPath}"
         "+${pkgs.coreutils}/bin/chown ${username}:users ${mountPath}"
@@ -46,11 +47,10 @@ in
           --header "Referer:" \
           --vfs-read-chunk-size 128M \
           --buffer-size 32M \
-          --allow-other \
-          --fast-list
+          --allow-other
       '';
 
-      ExecStop = "${pkgs.fuse}/bin/fusermount -u ${mountPath}";
+      ExecStop = "/run/wrappers/bin/fusermount3 -u ${mountPath}";
 
       Restart = "on-failure";
       RestartSec = "15s";
