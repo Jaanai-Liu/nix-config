@@ -10,8 +10,8 @@
 let
   isSynopsysEnabled = osConfig.modules.synopsys.enable;
 
-  # targetFlake = "github:Jaanai-Liu/xilinx-nix?dir=templates/xilinx";
-  targetFlake = "/home/${myvars.username}/xilinx-nix?dir=templates/xilinx";
+  targetFlake = "github:Jaanai-Liu/xilinx-nix?dir=templates/xilinx";
+  # targetFlake = "/home/${myvars.username}/xilinx-nix?dir=templates/xilinx";
 in
 {
   # config = lib.mkIf cfg.enaddble {
