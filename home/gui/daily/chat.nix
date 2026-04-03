@@ -6,6 +6,5 @@
     feishu
     # telegram-desktop
     discord
-    wemeet
   ];
 }
