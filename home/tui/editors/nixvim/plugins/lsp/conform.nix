@@ -159,6 +159,14 @@
           bicep = {
             command = "${lib.getExe pkgs.bicep}";
           };
+          # verilog by jaanai
+          verible = {
+            command = "${pkgs.verible}/bin/verible-verilog-format";
+            args = [
+              "--wrap_end_else_clauses"
+              "-"
+            ];
+          };
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
           #};

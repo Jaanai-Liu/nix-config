@@ -68,7 +68,7 @@
           # 上下选择 (支持 Tab 和 Ctrl+n/p)
           "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-p>" = "cmp.mapping.select_prev_item()";
-          # "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           # "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-Space>" = "cmp.mapping.complete()";

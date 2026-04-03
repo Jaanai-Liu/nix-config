@@ -37,6 +37,9 @@
       # Enable smart indentation
       smartindent = true;
 
+      #--------------------- first line by jaanai -----------------------#
+      autoindent = true;
+
       # Number of spaces to use for each step of (auto)indent
       shiftwidth = 2;
 

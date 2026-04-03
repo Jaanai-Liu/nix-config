@@ -71,5 +71,27 @@
         '';
       };
     }
+
+    #------------------------------- verilog by jaanai -------------------------------------#
+    {
+      event = [ "FileType" ];
+      pattern = [
+        "verilog"
+        "systemverilog"
+      ];
+      callback = {
+        __raw = ''
+            function()
+          vim.schedule(function()
+                vim.bo.indentexpr = ""
+                vim.bo.smartindent = false
+                vim.bo.cindent = false
+                vim.bo.autoindent = true
+              end)
+            end
+        '';
+      };
+      desc = "Disable broken verilog indentexpr and use basic autoindent";
+    }
   ];
 }

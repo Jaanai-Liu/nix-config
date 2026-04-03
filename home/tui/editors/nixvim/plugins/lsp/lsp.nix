@@ -76,6 +76,10 @@
             };
           };
         };
+        # verilog by jaanai
+        verible = {
+          enable = true;
+        };
       };
 
       keymaps = {
