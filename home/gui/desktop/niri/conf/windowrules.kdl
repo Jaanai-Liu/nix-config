@@ -128,3 +128,8 @@ window-rule {
     // open-on-workspace "5eda"
     // open-maximized true
 }
+window-rule {
+    match app-id="jetbrains-studio"
+    // open-on-workspace "5eda"
+    open-maximized true
+}
