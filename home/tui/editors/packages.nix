@@ -13,7 +13,7 @@
 
     nil
     nixd
-    nixfmt-rfc-style
+    nixfmt
 
     # Markdown
     marksman

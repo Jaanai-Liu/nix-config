@@ -1,12 +1,13 @@
 # modules/vim.nix
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     nodejs
     font-awesome
     font-awesome_6
 
-    nixd nixfmt-rfc-style # Nix
+    nixd
+    nixfmt # Nix
     # rustc cargo rust-analyzer # Rust
     # go gopls # Go
     # jdk17 # Java (可以根据需求换成 jdk21)
@@ -15,11 +16,11 @@
     enable = false;
     defaultEditor = false;
     plugins = with pkgs.vimPlugins; [
-      nerdtree                 # Preservim/nerdtree
-      gruvbox                  # morhetz/gruvbox
-      vim-airline              # vim-airline
+      nerdtree # Preservim/nerdtree
+      gruvbox # morhetz/gruvbox
+      vim-airline # vim-airline
       vim-airline-themes
-      coc-nvim                 # neoclide/coc.nvim 
+      coc-nvim # neoclide/coc.nvim
       verilog_systemverilog-vim
       vim-nix
       rust-vim
@@ -48,7 +49,7 @@
       highlight CursorLine   guibg=#3e4452 ctermbg=236
       highlight CursorColumn guibg=#3e4452 ctermbg=236
       nnoremap <F3> :set cursorline! cursorcolumn!<CR>
-      
+
       " 字体设置 (从你的 vimrc 复制)
       if has("gui_running")
         set guifont=DejaVu\ Sans\ Mono\ 13
