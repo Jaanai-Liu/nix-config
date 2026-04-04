@@ -1,3 +1,4 @@
+# modules/desktop/portal.nix
 { pkgs, lib, ... }:
 let
   yazi-wrapper = pkgs.writeShellScript "yazi-wrapper" ''
@@ -29,9 +30,18 @@ in
 
       niri = {
         # default = lib.mkForce [ "gtk" ];
-        default = lib.mkForce [ "termfilechooser" ];
+        default = lib.mkForce [
+          "termfilechooser"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+
+        "org.freedesktop.impl.portal.Settings" = [
+          "gnome"
+          "gtk"
+        ];
+        # "org.freedesktop.impl.portal.Secret" = [ "gnome" ];
       };
     };
   };
