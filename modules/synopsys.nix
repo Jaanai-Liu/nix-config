@@ -24,27 +24,27 @@ in
       zlib
       libxcrypt-legacy
       e2fsprogs
-      xorg.libX11
-      xorg.libXext
-      xorg.libXrender
-      xorg.libXrandr
-      xorg.libXcursor
-      xorg.libXinerama
-      xorg.libXi
-      xorg.libSM
-      xorg.libICE
-      xorg.libXt
-      xorg.libXmu
-      xorg.libXp
-      xorg.libXtst
-      xorg.libXScrnSaver
-      xorg.libXft
+      libX11
+      libXext
+      libXrender
+      libXrandr
+      libXcursor
+      libXinerama
+      libXi
+      libSM
+      libICE
+      libXt
+      libXmu
+      libXp
+      libXtst
+      libXScrnSaver
+      libXft
       libxml2
-      xorg.xcbutil
-      xorg.xcbutilwm
-      xorg.xcbutilimage
-      xorg.xcbutilkeysyms
-      xorg.xcbutilrenderutil
+      xcbutil
+      xcbutilwm
+      xcbutilimage
+      xcbutilkeysyms
+      xcbutilrenderutil
       libpng12
       ncurses5
       freetype
@@ -57,7 +57,7 @@ in
       numactl
       libjpeg
       libtiff
-      xorg.libXp
+      libXp
       libglvnd
     ];
 

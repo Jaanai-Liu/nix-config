@@ -24,6 +24,7 @@ in
       "network-online.target"
       "alist.service"
     ];
+    wants = [ "network-online.target" ];
     requires = [ "alist.service" ];
     wantedBy = [ "multi-user.target" ];
 

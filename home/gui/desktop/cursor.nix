@@ -28,4 +28,6 @@ in
       size = cursorSize;
     };
   };
+
+  gtk.gtk4.theme = null;
 }

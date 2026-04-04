@@ -10,8 +10,9 @@
 
     # Home Manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs"; # 使用相同的 nixpkgs
+      # url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
@@ -27,7 +28,7 @@
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs"; # 让它使用你系统的 nixpkgs，节省空间
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     haumea = {
