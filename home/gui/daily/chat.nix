@@ -4,7 +4,7 @@
     qq
     wechat-uos
     feishu
-    # telegram-desktop
+    telegram-desktop
     discord
   ];
 }

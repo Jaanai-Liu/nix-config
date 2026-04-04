@@ -2,6 +2,19 @@
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
+// ============= Named Workspaces =============
+// workspace "2browser" { open-on-output "DP-2"; }
+workspace "1terminal" { }
+workspace "2browser" { }
+workspace "3chat" { }
+workspace "4gaming" { }
+workspace "5music" { }
+workspace "6file" { }
+workspace "7" { }
+workspace "8" { }
+workspace "9" { }
+workspace "0other" { }
+
 // Terminal applications - open in workspace 1
 window-rule {
     match app-id="foot"
@@ -14,8 +27,10 @@ window-rule {
     open-maximized true
 }
 window-rule {
-    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
     open-on-workspace "1terminal"
+    opacity 0.93
+    draw-border-with-background false
     open-maximized true
 }
 
@@ -27,11 +42,6 @@ window-rule {
 }
 window-rule {
     match app-id="google-chrome"
-    open-on-workspace "2browser"
-    open-maximized true
-}
-window-rule {
-    match app-id="chromium-browser"
     open-on-workspace "2browser"
     open-maximized true
 }
@@ -99,10 +109,6 @@ window-rule {
     open-on-workspace "0other"
 }
 
-window-rule {
-    match app-id="v2rayN"
-    open-on-workspace "0other"
-}
 
 window-rule {
     match app-id="Throne"
@@ -113,11 +119,6 @@ window-rule {
     open-on-workspace "0other"
 }
 
-window-rule {
-    match app-id="kitty"
-    opacity 0.93
-    draw-border-with-background false
-}
 window-rule {
     match app-id="novas"
     // open-on-workspace "5eda"

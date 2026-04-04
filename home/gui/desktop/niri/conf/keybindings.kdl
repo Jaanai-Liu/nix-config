@@ -156,8 +156,8 @@ binds {
     Mod+1 { focus-workspace "1terminal"; }
     Mod+2 { focus-workspace "2browser"; }
     Mod+3 { focus-workspace "3chat"; }
-    Mod+4 { focus-workspace "4music"; }
-    Mod+5 { focus-workspace "5mail"; }
+    Mod+4 { focus-workspace "4gaming"; }
+    Mod+5 { focus-workspace "5music"; }
     Mod+6 { focus-workspace "6file"; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
@@ -166,8 +166,8 @@ binds {
     Mod+Ctrl+1 { move-column-to-workspace "1terminal"; }
     Mod+Ctrl+2 { move-column-to-workspace "2browser"; }
     Mod+Ctrl+3 { move-column-to-workspace "3chat"; }
-    Mod+Ctrl+4 { move-column-to-workspace "4music"; }
-    Mod+Ctrl+5 { move-column-to-workspace "5mail"; }
+    Mod+Ctrl+4 { move-column-to-workspace "4gaming"; }
+    Mod+Ctrl+5 { move-column-to-workspace "5music"; }
     Mod+Ctrl+6 { move-column-to-workspace "6file"; }
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
