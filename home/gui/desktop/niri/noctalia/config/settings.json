@@ -9,7 +9,7 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
@@ -31,7 +31,7 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "spectrumFrameRate": 30,
+        "spectrumFrameRate": 60,
         "spectrumMirrored": true,
         "visualizerType": "mirrored",
         "volumeFeedback": false,
@@ -382,7 +382,7 @@
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
         "showChangelogOnStartup": true,
-        "showHibernateOnLockScreen": false,
+        "showHibernateOnLockScreen": true,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true,
         "smoothScrollEnabled": true,
@@ -416,6 +416,7 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": false,
         "firstDayOfWeek": 1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -426,7 +427,8 @@
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
         "bluetoothAutoConnect": false,

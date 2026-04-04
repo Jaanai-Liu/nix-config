@@ -60,6 +60,10 @@ window-rule {
     match app-id="QQ"
     open-on-workspace "3chat"
 }
+window-rule {
+    match app-id="Bytedance-feishu"
+    open-on-workspace "3chat"
+}
 
 // Gaming applications - open in workspace 4
 window-rule {

@@ -20,12 +20,12 @@ binds {
     Mod+T { spawn "kitty"; }
 
     // Launcher
-    Mod+D { spawn "noctalia-shell" "ipc" "call" "ltauncher" "toggle"; }
-    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    // Alt+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    // Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    // Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Alt+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     XF86Search { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
-    Alt+Space { spawn "fuzzel"; }
+    // Alt+Space { spawn "fuzzel"; }
 
     // Locker
     Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
@@ -267,7 +267,7 @@ binds {
 
     // Utility shortcuts
     Mod+Shift+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+C { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
+    // Mod+C { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
 
     Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+E { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
