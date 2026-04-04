@@ -5,7 +5,7 @@
   ...
 }:
 let
-  noctalia-pkg = inputs.noctalia.packages.${pkgs.system}.default;
+  noctalia-pkg = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   home.packages = [
