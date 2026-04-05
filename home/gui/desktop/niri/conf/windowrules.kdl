@@ -33,6 +33,17 @@ window-rule {
     draw-border-with-background false
     open-maximized true
 }
+window-rule {
+    match app-id="jetbrains-studio"
+    open-on-workspace "1terminal"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="novas"
+    open-on-workspace "1terminal"
+    open-maximized true
+}
 
 // Web browsers - open in workspace 2
 window-rule {
@@ -97,6 +108,13 @@ window-rule {
     open-on-workspace "4gaming"
 }
 
+// Media applications - open in workspace 5
+window-rule {
+  // Run music
+    match app-id="SPlayer"
+    open-on-workspace "5music"
+}
+
 // File management applications - open in workspace 6
 window-rule {
     match app-id="com.github.johnfactotum.Foliate"
@@ -106,6 +124,21 @@ window-rule {
     match app-id="thunar"
     open-on-workspace "6file"
 }
+window-rule {
+    match app-id="wpsoffice"
+    open-on-workspace "6file"
+    // open-maximized true
+}
+window-rule {
+    match app-id="gimp"
+    open-on-workspace "6file"
+    open-maximized true
+}
+window-rule {
+    match app-id="org.kde.kdenlive"
+    open-on-workspace "6file"
+    open-maximized true
+}
 
 // Other applications - open in workspace 0
 window-rule {
@@ -113,28 +146,8 @@ window-rule {
     open-on-workspace "0other"
 }
 
-
-window-rule {
-    match app-id="Throne"
-    open-on-workspace "0other"
-}
 window-rule {
     match app-id="Zoom Workplace"
     open-on-workspace "0other"
 }
 
-window-rule {
-    match app-id="novas"
-    // open-on-workspace "5eda"
-    open-maximized true
-}
-window-rule {
-    match app-id="wpsoffice"
-    // open-on-workspace "5eda"
-    // open-maximized true
-}
-window-rule {
-    match app-id="jetbrains-studio"
-    // open-on-workspace "5eda"
-    open-maximized true
-}
