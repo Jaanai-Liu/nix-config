@@ -15,6 +15,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # hardware optimization
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # NUR packages
+    nur.url = "github:nix-community/NUR";
+
+    nur-xddxdd = {
+      url = "github:xddxdd/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
