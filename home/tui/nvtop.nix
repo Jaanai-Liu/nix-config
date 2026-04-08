@@ -3,9 +3,7 @@
   ...
 }:
 {
-  programs.nvtopPackages = {
-    amd = {
-      enable = true;
-    };
-  };
+  home.packages = with pkgs; [
+    nvtopPackages.amd
+  ];
 }
