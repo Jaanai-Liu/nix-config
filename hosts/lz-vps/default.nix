@@ -14,8 +14,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ../../secrets/nixos.nix
-    ../../modules/base/nix.nix
-    ../../modules/base/ssh.nix
+    ../../modules/base
     ../../modules/server/sing-box.nix
   ];
 
