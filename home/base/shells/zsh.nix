@@ -33,10 +33,10 @@
       export TERM=xterm-256color
 
       # Force set environment variables for input method
-      export IM_MODULE=fcitx
-      export GTK_IM_MODULE=fcitx
-      export QT_IM_MODULE=fcitx
-      export XMODIFIERS="@im=fcitx"
+      #  export IM_MODULE=fcitx
+      #  export GTK_IM_MODULE=fcitx
+      #  export QT_IM_MODULE=fcitx
+      #  export XMODIFIERS="@im=fcitx"
 
       function ma() {
         if [ -z "$1" ]; then
