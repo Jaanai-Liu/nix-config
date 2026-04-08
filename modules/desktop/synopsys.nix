@@ -80,5 +80,8 @@ in
         LimitNOFILE = 65535;
       };
     };
+
+    # allow using net when building
+    nix.settings.sandbox = "relaxed";
   };
 }
