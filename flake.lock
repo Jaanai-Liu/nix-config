@@ -373,6 +373,26 @@
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775365369,
+        "narHash": "sha256-DgH5mveLoau20CuTnaU5RXZWgFQWn56onQ4Du2CqYoI=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "cef5cf82671e749ac87d69aadecbb75967e6f6c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
           "nur-xddxdd",
           "nixpkgs"
         ]
@@ -517,11 +537,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1775305101,
-        "narHash": "sha256-/74n1oQPtKG52Yw41cbToxspxHbYz6O3vi+XEw16Qe8=",
+        "lastModified": 1775525138,
+        "narHash": "sha256-BQb70+B378ECLO8iQT3P/b1hCC5/CJVHZdeulY8futc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "36a601196c4ebf49e035270e10b2d103fe39076b",
+        "rev": "d96b37bbeb9840f1c0ebfe90585ef5067b69bbb3",
         "type": "github"
       },
       "original": {
@@ -593,11 +613,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1775593740,
-        "narHash": "sha256-P2bAFa/lx2wzMVVHwIbUOBXTpejzWsAMJACDtEdHXMU=",
+        "lastModified": 1775637102,
+        "narHash": "sha256-c0S9RdaaaBuwD802V2kbcId0HwotpTFLeXQvJ3dSyJ4=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "48fe0f91a5fa514ca37863b2078b8c20a97fb66b",
+        "rev": "f3ed6d0a2f058ab68ee1b3cd3cc3520df009cadc",
         "type": "github"
       },
       "original": {
@@ -635,11 +655,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1775624604,
-        "narHash": "sha256-93d5vN8sSZ9d4RRNDNrn1/xOQTKPL9qASKQhQYJYrjw=",
+        "lastModified": 1775658579,
+        "narHash": "sha256-fQE5I2eD7BVifEnkVF/pfyRcM52Yx6d/jrTZ+5NZyfo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "a6e0843e31129b5c3bc5beb1c1deeb82cec70b21",
+        "rev": "6052a7da2d8f965184199a6911674a365edbeed7",
         "type": "github"
       },
       "original": {
@@ -653,7 +673,7 @@
         "devshell": "devshell",
         "flake-parts": "flake-parts_3",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nix-index-database": "nix-index-database",
+        "nix-index-database": "nix-index-database_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -705,6 +725,7 @@
         "home-manager": "home-manager_2",
         "myfonts": "myfonts",
         "mysecrets": "mysecrets",
+        "nix-index-database": "nix-index-database",
         "nix-matlab": "nix-matlab",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-generators": "nixos-generators",
