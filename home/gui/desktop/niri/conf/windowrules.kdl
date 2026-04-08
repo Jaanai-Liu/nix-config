@@ -1,0 +1,172 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// ============= Named Workspaces =============
+// workspace "2browser" { open-on-output "DP-2"; }
+workspace "1terminal" { }
+workspace "2browser" { }
+workspace "3chat" { }
+workspace "4gaming" { }
+workspace "5music" { }
+workspace "6file" { }
+workspace "7" { }
+workspace "8" { }
+workspace "9" { }
+workspace "0other" { }
+
+// Terminal applications - open in workspace 1
+window-rule {
+    match app-id="foot"
+    open-on-workspace "1terminal"
+    draw-border-with-background false
+    open-maximized true
+}
+window-rule {
+    match app-id="Alacritty"
+    open-on-workspace "1terminal"
+    // opacity 0.93
+    draw-border-with-background false
+    open-maximized true
+}
+window-rule {
+    match app-id="kitty"
+    open-on-workspace "1terminal"
+    // opacity 0.93
+    draw-border-with-background false
+    open-maximized true
+}
+window-rule {
+    match app-id="jetbrains-studio"
+    open-on-workspace "1terminal"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="novas"
+    open-on-workspace "1terminal"
+    open-maximized true
+}
+
+// Web browsers - open in workspace 2
+window-rule {
+    match app-id="firefox"
+    open-on-workspace "2browser"
+    open-maximized true
+}
+window-rule {
+    match app-id="google-chrome"
+    open-on-workspace "2browser"
+    open-maximized true
+}
+
+// Chat applications - open in workspace 3
+window-rule {
+    // match app-id="org.telegram.desktop"
+    match title="^Telegram"
+    open-on-workspace "3chat"
+}
+window-rule {
+    match app-id="wechat"
+    open-on-workspace "3chat"
+}
+window-rule {
+    match app-id="QQ"
+    open-on-workspace "3chat"
+}
+window-rule {
+    match app-id="Bytedance-feishu"
+    open-on-workspace "3chat"
+}
+
+// Gaming applications - open in workspace 4
+window-rule {
+    match app-id="steam"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    match app-id="steam_app_default"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    match app-id="heroic"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    match app-id="net.lutris.Lutris"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    match app-id="com.vysp3r.ProtonPlus"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    // Run anime games on Linux
+    match app-id="^moe.launcher"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    // All *.exe (Windows applications)
+    match app-id=".exe$"
+    open-on-workspace "4gaming"
+}
+window-rule {
+    match app-id="steam_app_553850"
+    open-on-workspace "4gaming"
+    open-maximized true
+}
+window-rule {
+    match app-id="discord"
+    open-on-workspace "4gaming"
+    // open-maximized true
+}
+
+// Media applications - open in workspace 5
+window-rule {
+    // Run music
+    match app-id="SPlayer"
+    open-on-workspace "5music"
+    open-maximized true
+}
+
+// File management applications - open in workspace 6
+window-rule {
+    match app-id="com.github.johnfactotum.Foliate"
+    open-on-workspace "6file"
+}
+window-rule {
+    match app-id="thunar"
+    open-on-workspace "6file"
+}
+window-rule {
+    match app-id="wpsoffice"
+    open-on-workspace "6file"
+    // open-maximized true
+}
+window-rule {
+    match app-id="gimp"
+    open-on-workspace "6file"
+    open-maximized true
+}
+window-rule {
+    match app-id="org.kde.kdenlive"
+    open-on-workspace "6file"
+    open-maximized true
+}
+window-rule {
+    match app-id="blender"
+    open-on-workspace "6file"
+    open-maximized true
+}
+
+// Other applications - open in workspace 0
+window-rule {
+    match app-id="clash-verge"
+    open-on-workspace "0other"
+}
+
+window-rule {
+    match app-id="Zoom Workplace"
+    open-on-workspace "0other"
+}
+

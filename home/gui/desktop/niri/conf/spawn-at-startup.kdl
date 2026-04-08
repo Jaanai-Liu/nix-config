@@ -1,0 +1,7 @@
+spawn-at-startup "noctalia-shell"
+spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "clash-verge" "--minimized"
+spawn-at-startup "systemctl" "--user" "start" "wayland-session.target"
+spawn-at-startup "sh" "-c" "while ! noctalia-shell ipc call lockScreen lock; do sleep 0.1; done"
