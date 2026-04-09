@@ -31,13 +31,13 @@ let
         inputs.disko.nixosModules.disko
         {
           modules.base.ssh.harden = true;
-          modules.secrets.server.proxy.enable = true;
-          modules.services.sing-box.enable = true;
+          # modules.secrets.server.proxy.enable = true;
+          # modules.services.sing-box.enable = true;
         }
       ];
     home-modules = [
       (mylib.relativeToRoot "hosts/${hostname}/home.nix")
-      # inputs.nixvim.homeModules.nixvim
+      inputs.nixvim.homeModules.nixvim
     ];
   };
   systemArgs = modules // args;
