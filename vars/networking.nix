@@ -15,7 +15,7 @@ let
       ssh.user = "root";
     };
     lz-vps.ipv4 = "23.95.28.22";
-    lz-aliyun-sh.ipv4 = "";
+    lz-aliyun-sh.ipv4 = "23.x.y.z";
     lz-wsl.ipv4 = "127.0.0.1";
   };
 
