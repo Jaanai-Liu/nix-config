@@ -15,7 +15,7 @@ let
       ssh.user = "root";
     };
     lz-vps.ipv4 = "23.95.28.22";
-    lz-aliyun-bj.ipv4 = "47.95.120.13";
+    lz-aliyun-sh.ipv4 = "";
   };
 
   resolvedHosts = lib.mapAttrs (

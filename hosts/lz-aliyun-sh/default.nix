@@ -1,4 +1,4 @@
-# hosts/lz-aliyun-bj/default.nix
+# hosts/lz-aliyun-sh/default.nix
 {
   myvars,
   config,
@@ -43,7 +43,7 @@
     device = "/dev/vda";
   };
 
-  networking.hostName = "lz-aliyun-bj";
+  networking.hostName = "lz-aliyun-sh";
   time.timeZone = "Asia/Shanghai";
 
   zramSwap.enable = true;

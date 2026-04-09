@@ -1,4 +1,4 @@
-# outputs/x86_64-linux/hosts/lz-aliyun-bj.nix
+# outputs/x86_64-linux/hosts/lz-aliyun-sh.nix
 {
   # NOTE: the args not used in this file CAN NOT be removed!
   # because haumea pass argument lazily,
@@ -17,7 +17,7 @@
   ...
 }@args:
 let
-  hostname = "lz-aliyun-bj";
+  hostname = "lz-aliyun-sh";
   nodeConf = myvars.networking.hostsAddr.${hostname};
 
   modules = {
