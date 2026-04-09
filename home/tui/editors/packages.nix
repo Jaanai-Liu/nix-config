@@ -1,8 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gcc
-    gnumake
+    # gcc
+    # gnumake
+
     ripgrep
     fzf
     gdu
@@ -18,12 +19,6 @@
     # Markdown
     marksman
     glow
-
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
-    clippy
 
     verible # verilog
   ];

@@ -11,6 +11,7 @@
   imports = [
     ../../secrets/nixos.nix
     ../../modules/base
+    ../../modules/desktop/networking/tailscale.nix
   ];
 
   # Enable NixOS-WSL integration
