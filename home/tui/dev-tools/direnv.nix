@@ -1,3 +1,4 @@
+# home/tui/dev-tools/direnv.nix
 { pkgs, ... }:
 
 {
@@ -9,9 +10,16 @@
     enableZshIntegration = true;
     enableBashIntegration = true;
 
+    stdlib = ''
+      use_devenv() {
+        watch_file devenv.nix
+        watch_file devenv.yaml
+        eval "$(devenv print-dev-env)"
+      }
+    '';
+
     config = {
       global = {
-        # 当进入目录时，不显示那一长串环境变量的变化（只保留加载提示）
         hide_env_diff = true;
       };
     };
