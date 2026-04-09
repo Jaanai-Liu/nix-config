@@ -31,7 +31,7 @@ let
 	inputs.nixos-wsl.nixosModules.default
         {
           # modules.base.ssh.harden = true;
-          # modules.secrets.server.proxy.enable = true;
+          # modules.secrets.desktop.enable = true;
         }
       ];
     home-modules = [
