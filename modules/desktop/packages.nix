@@ -23,6 +23,8 @@
     parted
     nvtopPackages.amd
 
+    # ventoy
+
     protontricks
   ];
 }
