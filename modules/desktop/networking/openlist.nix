@@ -1,4 +1,4 @@
-# modules/alist.nix
+# modules/openlist.nix
 {
   config,
   pkgs,
@@ -10,10 +10,10 @@ let
   runUser = myvars.username;
 in
 {
-  environment.systemPackages = [ pkgs.alist ];
+  environment.systemPackages = [ pkgs.openlist ];
 
-  systemd.services.alist = {
-    description = "Alist File Server Daemon";
+  systemd.services.openlist = {
+    description = "Openlist File Server Daemon";
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
@@ -22,9 +22,9 @@ in
       Type = "simple";
       User = runUser;
 
-      StateDirectory = "alist";
+      StateDirectory = "openlist";
 
-      ExecStart = "${pkgs.alist}/bin/alist server --data /var/lib/alist";
+      ExecStart = "${pkgs.openlist}/bin/openlist server --data /var/lib/openlist";
 
       Restart = "on-failure";
       RestartSec = "5s";

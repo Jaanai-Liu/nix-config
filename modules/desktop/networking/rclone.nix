@@ -19,13 +19,13 @@ in
   ];
 
   systemd.services.rclone-alist-mount = {
-    description = "Rclone mount Alist WebDAV to ${mountPath}";
+    description = "Rclone mount Openlist WebDAV to ${mountPath}";
     after = [
       "network-online.target"
-      "alist.service"
+      "openlist.service"
     ];
     wants = [ "network-online.target" ];
-    requires = [ "alist.service" ];
+    requires = [ "openlist.service" ];
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
