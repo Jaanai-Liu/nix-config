@@ -7,8 +7,8 @@
 
 let
   username = myvars.username;
-  mountPath = "/mnt/alist";
-  configPath = config.age.secrets."rclone-alist".path;
+  mountPath = "/mnt/openlist";
+  configPath = config.age.secrets."rclone-openlist".path;
 in
 {
   programs.fuse.userAllowOther = true;
@@ -18,7 +18,7 @@ in
     pkgs.fuse
   ];
 
-  systemd.services.rclone-alist-mount = {
+  systemd.services.rclone-openlist-mount = {
     description = "Rclone mount Openlist WebDAV to ${mountPath}";
     after = [
       "network-online.target"
@@ -40,7 +40,7 @@ in
       ];
 
       ExecStart = ''
-        ${pkgs.rclone}/bin/rclone mount alist:/ ${mountPath} \
+        ${pkgs.rclone}/bin/rclone mount openlist:/ ${mountPath} \
           --config ${configPath} \
           --vfs-cache-mode full \
           --vfs-cache-max-age 24h \

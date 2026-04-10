@@ -60,8 +60,8 @@ in
         }
         // high_security;
 
-        "rclone-alist" = {
-          file = "${mysecrets}/secrets/rclone-alist.age";
+        "rclone-openlist" = {
+          file = "${mysecrets}/secrets/rclone-openlist.age";
           path = "/home/${myvars.username}/.config/rclone/rclone.conf";
           owner = myvars.username;
           group = "users";

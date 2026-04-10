@@ -24,7 +24,7 @@ in
 
       StateDirectory = "openlist";
 
-      ExecStart = "${pkgs.openlist}/bin/openlist server --data /var/lib/openlist";
+      ExecStart = "${pkgs.openlist}/bin/OpenList server --data /var/lib/openlist";
 
       Restart = "on-failure";
       RestartSec = "5s";
