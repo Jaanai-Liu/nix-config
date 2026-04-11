@@ -16,7 +16,7 @@
     ./hardware-configuration.nix
 
     # disks
-    # ./disk-config.nix
+    ./disk-config.nix
   ];
   # modules.secrets.desktop.enable = true;
   # modules.desktop.gaming.enable = true;
