@@ -33,13 +33,22 @@ in
   };
 
   # Rime ice
-  xdg.dataFile."fcitx5/rime/default.custom.yaml".text = ''
-    patch:
-      "menu/page_size": 9
-      schema_list:
-        - schema: rime_ice
-        - schema: flypy
-  '';
+  xdg.dataFile = {
+    "fcitx5/rime/default.custom.yaml".text = ''
+      patch:
+        schema_list:
+          - schema: rime_ice
+          - schema: flypy
+    '';
+    "fcitx5/rime/rime_ice.custom.yaml".text = ''
+      patch:
+        "menu/page_size": 9
+    '';
+    "fcitx5/rime/flypy.custom.yaml".text = ''
+      patch:
+        "menu/page_size": 9
+    '';
+  };
 
   home.packages = with pkgs; [
     lxgw-wenkai
