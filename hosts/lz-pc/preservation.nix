@@ -156,7 +156,7 @@ in
         # IDE / Editors
         # ======================================
 
-        "~/.local/share/direnv"
+        ".local/share/direnv"
 
         # neovim plugins
         ".wakatime"
@@ -301,8 +301,8 @@ in
         ".local/share/remmina"
 
         ".config/LarkShell"
-        "~/.config/bytertc"
-        # ".cache/LarkShell"
+        ".config/bytertc"
+        ".cache/LarkShell"
 
         # ======================================
         # browsers

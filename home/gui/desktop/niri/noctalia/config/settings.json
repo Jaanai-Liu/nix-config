@@ -179,7 +179,6 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
-                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
                     "icon": "noctalia",
@@ -372,6 +371,7 @@
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
+            "DP-2"
         ],
         "lockScreenTint": 0,
         "passwordChars": true,
