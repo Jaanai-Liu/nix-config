@@ -1,4 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
+let
+  flypy-data = pkgs.runCommandLocal "rime-data-flypy" { } ''
+    mkdir -p $out/share/rime-data
+    cp -r ${./rime-data-flypy}/* $out/share/rime-data/
+  '';
+in
 {
   xdg.configFile = {
     "fcitx5/profile" = {
@@ -25,8 +35,10 @@
   # Rime ice
   xdg.dataFile."fcitx5/rime/default.custom.yaml".text = ''
     patch:
+      "menu/page_size": 9
       schema_list:
         - schema: rime_ice
+        - schema: flypy
   '';
 
   home.packages = with pkgs; [
@@ -42,9 +54,14 @@
       fcitx5-gtk # gtk im module
 
       # Chinese
-      # fcitx5-rime # for flypy chinese input method
+      fcitx5-rime # for flypy chinese input method
       # fcitx5-chinese-addons # we use rime instead
-      (fcitx5-rime.override { rimeDataPkgs = [ rime-ice ]; })
+      # (fcitx5-rime.override {
+      #   rimeDataPkgs = [
+      #     rime-ice
+      #     flypy-data
+      #   ];
+      # })
 
       # Japanese
       # ctrl-i / F7 - convert to takakana

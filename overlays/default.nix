@@ -9,5 +9,6 @@
     ./tools.nix
     ./packages.nix
     ./nurs.nix
+    ./fcitx5
   ];
 }
