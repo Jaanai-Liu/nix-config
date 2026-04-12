@@ -63,14 +63,7 @@ in
       fcitx5-gtk # gtk im module
 
       # Chinese
-      fcitx5-rime # for flypy chinese input method
-      # fcitx5-chinese-addons # we use rime instead
-      # (fcitx5-rime.override {
-      #   rimeDataPkgs = [
-      #     rime-ice
-      #     flypy-data
-      #   ];
-      # })
+      fcitx5-rime # for flypy chinese input method && rime-ice
 
       # Japanese
       # ctrl-i / F7 - convert to takakana
