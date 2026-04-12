@@ -23,6 +23,7 @@ let
       ])
       ++ [
         inputs.disko.nixosModules.disko
+        inputs.preservation.nixosModules.preservation
         {
           # modules.secrets.desktop.enable = true;
           modules.desktop.gaming.enable = true;

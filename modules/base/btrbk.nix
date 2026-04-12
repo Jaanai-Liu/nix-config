@@ -43,13 +43,13 @@
             #   snapshot_create = "always";
             # };
 
-            "@root" = {
-              snapshot_create = "always";
-            };
-            "@nix" = {
-              snapshot_create = "always";
-            };
-            "@persist" = {
+            # "@root" = {
+            #   snapshot_create = "always";
+            # };
+            # "@nix" = {
+            #   snapshot_create = "always";
+            # };
+            "@persistent" = {
               snapshot_create = "always";
             };
           };

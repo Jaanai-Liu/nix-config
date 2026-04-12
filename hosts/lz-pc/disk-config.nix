@@ -1,6 +1,15 @@
 # hosts/lz-pc/disk-config.nix
 {
   disko.devices = {
+    nodev."/" = {
+      fsType = "tmpfs";
+      mountOptions = [
+        "size=4G"
+        "relatime"
+        "mode=755"
+      ];
+    };
+
     disk = {
       main = {
         type = "disk";
@@ -48,13 +57,13 @@
                       "noatime"
                     ];
                   };
-                  "/@root" = {
-                    mountpoint = "/";
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                  };
+                  # "/@root" = {
+                  #   mountpoint = "/";
+                  #   mountOptions = [
+                  #     "compress=zstd"
+                  #     "noatime"
+                  #   ];
+                  # };
                   "/@nix" = {
                     mountpoint = "/nix";
                     mountOptions = [
@@ -62,8 +71,8 @@
                       "noatime"
                     ];
                   };
-                  "/@persist" = {
-                    mountpoint = "/persist";
+                  "/@persistent" = {
+                    mountpoint = "/persistent";
                     mountOptions = [
                       "compress=zstd"
                       "noatime"
