@@ -49,9 +49,9 @@ in
       age.secrets = {
         "ssh-key.age" = {
           file = "${mysecrets}/secrets/ssh-key-${config.networking.hostName}.age";
-          path = "/home/${myvars.username}/.ssh/id_ed25519";
-          owner = myvars.username;
-          mode = "0400";
+          # path = "/home/${myvars.username}/.ssh/id_ed25519";
+          # owner = myvars.username;
+          # mode = "0400";
         }
         // user_readable;
 
@@ -62,7 +62,7 @@ in
 
         "rclone-openlist" = {
           file = "${mysecrets}/secrets/rclone-openlist.age";
-          path = "/home/${myvars.username}/.config/rclone/rclone.conf";
+          # path = "/home/${myvars.username}/.config/rclone/rclone.conf";
           owner = myvars.username;
           group = "users";
           mode = "0500";
