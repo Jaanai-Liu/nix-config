@@ -57,9 +57,12 @@ in
           executable = true;
           text = ''
             #!/bin/sh
-            dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri
+            # dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri
+            # trying to stop a previous niri session
             systemctl --user is-active niri.service && systemctl --user stop niri.service
-            exec /run/current-system/sw/bin/niri-session
+            # and then we start a new one
+            # exec /run/current-system/sw/bin/niri-session
+            /run/current-system/sw/bin/niri-session
           '';
         };
       }

@@ -48,25 +48,10 @@
 
   # programs.fuse.userAllowOther = true;
 
-  security.pam.services.quickshell = {
-    fprintAuth = false;
-    enableGnomeKeyring = false;
-    text = ''
-      auth      include system-local-login
-      account   include system-local-login
-      password  include system-local-login
-      session   include system-local-login
-    '';
-  };
-
-  security.pam.services.noctalia-shell = {
-    fprintAuth = false;
-    enableGnomeKeyring = false;
-    text = ''
-      auth      include system-local-login
-      account   include system-local-login
-      password  include system-local-login
-      session   include system-local-login
-    '';
+  security.wrappers.quickshell = {
+    setuid = true;
+    owner = "root";
+    group = "root";
+    source = "${pkgs.quickshell}/bin/quickshell"; # 如果报错说找不到包，可能要改成你的 input 路径
   };
 }

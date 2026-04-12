@@ -1,3 +1,4 @@
+spawn-at-startup "sh" "-c" "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri DISPLAY"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "/run/current-system/sw/libexec/polkit-kde-authentication-agent-1"
