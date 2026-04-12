@@ -287,6 +287,7 @@ in
         # browsers
         # ======================================
         ".mozilla"
+        ".config/mozilla"
         ".config/google-chrome"
         ".config/chromium"
 
