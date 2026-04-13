@@ -31,6 +31,7 @@ in
 
   options.modules.secrets = {
     desktop.enable = mkEnableOption "NixOS Secrets for Desktops";
+    mail.enable = mkEnableOption "NixOS Secrets for Mail Clients";
     server.proxy.enable = mkEnableOption "NixOS Secrets for Proxy Server";
   };
 
