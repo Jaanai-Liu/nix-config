@@ -88,9 +88,9 @@ in
     # ==========================================
     (mkIf cfg.mail.enable {
       age.secrets = {
-        "aerc-accounts" = {
-          file = "${mysecrets}/secrets/aerc-accounts.age";
-          path = "/home/${myvars.username}/.config/aerc/accounts.conf";
+        "pass-gmail" = {
+          file = "${mysecrets}/secrets/pass-gmail.age";
+          path = "/home/${myvars.username}/.config/mail-secrets/gmail";
         }
         // user_readable;
       };
