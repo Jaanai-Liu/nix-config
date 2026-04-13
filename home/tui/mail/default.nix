@@ -17,6 +17,7 @@ in
     ./aerc
     ./imapnotify
     ./mbsync
+    # ./himalaya
   ];
 
   config = lib.mkIf cfg.enable {
@@ -62,9 +63,11 @@ in
         userName = "liuzheng2502@my.swjtu.edu.cn";
         realName = "Zheng Liu";
         passwordCommand = "${pkgs.coreutils}/bin/cat ${secretPath}/swjtu";
-        imap.host = "imap.my.swjtu.edu.cn";
+        # imap.host = "imap.my.swjtu.edu.cn";
+        imap.host = "imap.coremail.cn";
         imap.port = 993;
-        smtp.host = "smtp.my.swjtu.edu.cn";
+        # smtp.host = "smtp.my.swjtu.edu.cn";
+        smtp.host = "smtp.coremail.cn";
         smtp.port = 465;
       };
     };

@@ -51,11 +51,11 @@
     };
     "163" = {
       aerc.enable = true;
-      aerc.extraAccounts.source = "maildir://~/Mail/163";
+      # aerc.extraAccounts.source = "maildir://~/Mail/163";
     };
     "SWJTU" = {
       aerc.enable = true;
-      aerc.extraAccounts.source = "maildir://~/Mail/SWJTU";
+      # aerc.extraAccounts.source = "maildir://~/Mail/SWJTU";
     };
   };
 
