@@ -12,6 +12,7 @@
   ];
 
   modules.desktop.niri.enable = true;
+  home.tui.mail.enable = true;
 
   home.username = myvars.username;
   home.homeDirectory = "/home/${myvars.username}";
