@@ -45,6 +45,18 @@
       aerc.enable = true;
       aerc.extraAccounts.source = "maildir://~/Mail/Gmail";
     };
+    "QQ" = {
+      aerc.enable = true;
+      aerc.extraAccounts.source = "maildir://~/Mail/QQ";
+    };
+    "163" = {
+      aerc.enable = true;
+      aerc.extraAccounts.source = "maildir://~/Mail/163";
+    };
+    "SWJTU" = {
+      aerc.enable = true;
+      aerc.extraAccounts.source = "maildir://~/Mail/SWJTU";
+    };
   };
 
   xdg.configFile."aerc/stylesets/nord".source = ./style-nord;

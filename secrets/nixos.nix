@@ -88,9 +88,28 @@ in
     # ==========================================
     (mkIf cfg.mail.enable {
       age.secrets = {
+
         "pass-gmail" = {
           file = "${mysecrets}/secrets/pass-gmail.age";
           path = "/home/${myvars.username}/.config/mail-secrets/gmail";
+        }
+        // user_readable;
+
+        "pass-qqmail" = {
+          file = "${mysecrets}/secrets/pass-qqmail.age";
+          path = "/home/${myvars.username}/.config/mail-secrets/qq";
+        }
+        // user_readable;
+
+        "pass-163mail" = {
+          file = "${mysecrets}/secrets/pass-163mail.age";
+          path = "/home/${myvars.username}/.config/mail-secrets/163";
+        }
+        // user_readable;
+
+        "pass-swjtu-mail" = {
+          file = "${mysecrets}/secrets/pass-swjtu-mail.age";
+          path = "/home/${myvars.username}/.config/mail-secrets/swjtu";
         }
         // user_readable;
       };

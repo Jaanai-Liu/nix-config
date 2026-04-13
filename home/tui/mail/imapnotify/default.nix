@@ -22,9 +22,21 @@ in
         boxes = [ "INBOX" ];
         onNotify = notifyCmd "Gmail";
       };
-      # "QQ".imapnotify = { enable = true; boxes = [ "INBOX" ]; onNotify = notifyCmd "QQ"; };
-      # "163".imapnotify = { enable = true; boxes = [ "INBOX" ]; onNotify = notifyCmd "163"; };
-      # "SWJTU".imapnotify = { enable = true; boxes = [ "INBOX" ]; onNotify = notifyCmd "SWJTU"; };
+      "QQ".imapnotify = {
+        enable = true;
+        boxes = [ "INBOX" ];
+        onNotify = notifyCmd "QQ";
+      };
+      "163".imapnotify = {
+        enable = true;
+        boxes = [ "INBOX" ];
+        onNotify = notifyCmd "163";
+      };
+      "SWJTU".imapnotify = {
+        enable = true;
+        boxes = [ "INBOX" ];
+        onNotify = notifyCmd "SWJTU";
+      };
     };
   };
 }

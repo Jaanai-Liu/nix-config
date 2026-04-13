@@ -21,9 +21,21 @@ in
           "[Gmail]/Important"
         ];
       };
-      # "QQ".mbsync = { enable = true; create = "both"; expunge = "both"; };
-      # "163".mbsync = { enable = true; create = "both"; expunge = "both"; };
-      # "SWJTU".mbsync = { enable = true; create = "both"; expunge = "both"; };
+      "QQ".mbsync = {
+        enable = true;
+        create = "both";
+        expunge = "both";
+      };
+      "163".mbsync = {
+        enable = true;
+        create = "both";
+        expunge = "both";
+      };
+      "SWJTU".mbsync = {
+        enable = true;
+        create = "both";
+        expunge = "both";
+      };
     };
   };
 }
