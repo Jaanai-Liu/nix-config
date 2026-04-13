@@ -11,7 +11,7 @@
     ./niri
   ];
 
-  modules.desktop.niri.enable = true;
+  home.desktop.niri.enable = true;
   home.tui.mail.enable = true;
 
   home.username = myvars.username;

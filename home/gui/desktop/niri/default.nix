@@ -6,10 +6,10 @@
   ...
 }@args:
 let
-  cfg = config.modules.desktop.niri;
+  cfg = config.home.desktop.niri;
 in
 {
-  options.modules.desktop.niri = {
+  options.home.desktop.niri = {
     enable = lib.mkEnableOption "niri compositor";
   };
 
