@@ -17,6 +17,7 @@ in
     ./aerc
     ./offlineimap
     ./imapnotify
+    ./mbsync
   ];
 
   config = lib.mkIf cfg.enable {

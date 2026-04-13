@@ -37,6 +37,13 @@
     };
   };
 
+  accounts.email.accounts = {
+    "Gmail".aerc.enable = true;
+    # "QQ".aerc.enable = true;
+    # "163".aerc.enable = true;
+    # "SWJTU".aerc.enable = true;
+  };
+
   xdg.configFile."aerc/stylesets/nord".source = ./style-nord;
   xdg.configFile."aerc/binds.conf".source = ./binds.conf;
 
