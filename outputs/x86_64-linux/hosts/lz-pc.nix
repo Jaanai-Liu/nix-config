@@ -13,11 +13,11 @@
   ...
 }@args:
 let
-  hostname = "lz-pc";
+  name = "lz-pc";
   base-modules = {
     nixos-modules =
       (map mylib.relativeToRoot [
-        "hosts/${hostname}/default.nix"
+        "hosts/${name}/default.nix"
         "modules"
         "secrets/nixos.nix"
       ])
@@ -35,7 +35,7 @@ let
 
     home-modules =
       (map mylib.relativeToRoot [
-        "hosts/${hostname}/home.nix"
+        "home/hosts/${name}.nix"
       ])
       ++ [
         inputs.nixvim.homeModules.nixvim
@@ -52,7 +52,7 @@ let
 in
 {
   nixosConfigurations = {
-    "${hostname}" = mylib.nixosSystem (
+    "${name}" = mylib.nixosSystem (
       modules-niri
       // args
       // {

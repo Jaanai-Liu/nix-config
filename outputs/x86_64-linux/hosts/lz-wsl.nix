@@ -17,13 +17,13 @@
   ...
 }@args:
 let
-  hostname = "lz-wsl";
-  nodeConf = myvars.networking.hostsAddr.${hostname};
+  name = "lz-wsl";
+  nodeConf = myvars.networking.hostsAddr.${name};
 
   modules = {
     nixos-modules =
       (map mylib.relativeToRoot [
-        "hosts/${hostname}/default.nix"
+        "hosts/${name}/default.nix"
         # modules"
         "secrets/nixos.nix"
       ])
@@ -35,16 +35,16 @@ let
         }
       ];
     home-modules = [
-      (mylib.relativeToRoot "hosts/${hostname}/home.nix")
+      (mylib.relativeToRoot "hosts/hosts/${name}.nix")
       inputs.nixvim.homeModules.nixvim
     ];
   };
   systemArgs = modules // args;
 in
 {
-  nixosConfigurations.${hostname} = mylib.nixosSystem systemArgs;
+  nixosConfigurations.${name} = mylib.nixosSystem systemArgs;
 
-  colmena.${hostname} = mylib.colmenaSystem (
+  colmena.${name} = mylib.colmenaSystem (
     systemArgs
     // {
       targetHost = nodeConf.ipv4;

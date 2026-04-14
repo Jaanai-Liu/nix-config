@@ -8,7 +8,7 @@
 {
   imports = [
     ../../home
-    ./niri
+    # ./niri
   ];
 
   home.desktop.niri.enable = true;
@@ -16,6 +16,9 @@
 
   home.username = myvars.username;
   home.homeDirectory = "/home/${myvars.username}";
+
+  xdg.configFile."niri/output.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/lz-pc/niri/output.kdl";
 
   fonts.fontconfig.enable = true;
 
