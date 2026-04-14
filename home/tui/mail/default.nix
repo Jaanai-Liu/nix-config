@@ -17,7 +17,7 @@ in
     ./aerc
     # ./imapnotify
     # ./mbsync
-    # ./himalaya
+    ./himalaya
   ];
 
   config = lib.mkIf cfg.enable {
