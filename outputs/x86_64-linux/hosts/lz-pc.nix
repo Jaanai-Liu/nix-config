@@ -33,7 +33,7 @@ let
           # server
           modules.base.ssh.harden = false;
           modules.secrets.server.proxy.enable = false;
-          modules.services.sing-box.enable = false;
+          # modules.services.sing-box.enable = false;
         }
       ];
 
