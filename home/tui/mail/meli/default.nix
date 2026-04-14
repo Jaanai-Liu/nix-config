@@ -8,9 +8,9 @@ in
     programs.meli = {
       enable = true;
       settings = {
-        terminal = {
-          notifications = true;
-        };
+        # terminal = {
+        #   notifications = true;
+        # };
       };
     };
   };
