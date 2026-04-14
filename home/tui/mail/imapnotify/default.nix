@@ -1,42 +1,29 @@
 {
   config,
-  lib,
   pkgs,
+  lib,
   ...
 }:
+with lib;
 let
-  cfg = config.home.tui.mail;
-
-  notifyCmd =
-    account:
-    "mbsync ${account} && ${pkgs.libnotify}/bin/notify-send -u normal -a 'Mail' '📥 New Mail Notify' '${account} mail receive new message！'";
+  cfg.package = pkgs.goimapnotify;
 in
 {
-  config = lib.mkIf cfg.enable {
-
-    services.imapnotify.enable = true;
-
-    accounts.email.accounts = {
-      "Gmail".imapnotify = {
-        enable = true;
-        boxes = [ "INBOX" ];
-        onNotify = notifyCmd "Gmail";
-      };
-      "QQ".imapnotify = {
-        enable = true;
-        boxes = [ "INBOX" ];
-        onNotify = notifyCmd "QQ";
-      };
-      "163".imapnotify = {
-        enable = true;
-        boxes = [ "INBOX" ];
-        onNotify = notifyCmd "163";
-      };
-      "SWJTU".imapnotify = {
-        enable = true;
-        boxes = [ "INBOX" ];
-        onNotify = notifyCmd "SWJTU";
-      };
+  home.packages = [ cfg.package ];
+  systemd.user.services.nix-goimapnotify = {
+    Unit = {
+      Description = "goimapnotify";
+    };
+    Service = {
+      # Use the nix store path for config to ensure service restarts when it changes
+      Environment = "PATH=/run/current-system/sw/bin:/etc/profiles/per-user/%u/bin";
+      ExecStart = "${getExe cfg.package} -conf '${config.xdg.configHome}/goimapnotify/goimapnotify.yaml'";
+      Restart = "always";
+      RestartSec = 30;
+      Type = "simple";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
     };
   };
 }
