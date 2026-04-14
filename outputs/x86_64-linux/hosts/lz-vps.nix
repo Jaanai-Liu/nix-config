@@ -36,14 +36,14 @@ let
           modules.services.sing-box.enable = true;
 
           # btrbk
-          modules.btrbk.enable = true;
-          modules.btrbk.role = "server";
+          # modules.btrbk.enable = true;
+          # modules.btrbk.role = "server";
         }
       ];
-    home-modules = [
-      (mylib.relativeToRoot "home/hosts/${name}.nix")
-      # inputs.nixvim.homeModules.nixvim
-    ];
+    # home-modules = [
+    #   (mylib.relativeToRoot "home/hosts/${name}.nix")
+    #   # inputs.nixvim.homeModules.nixvim
+    # ];
   };
   systemArgs = modules // args;
 in
