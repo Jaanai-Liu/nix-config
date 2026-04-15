@@ -15,27 +15,7 @@
     ./disk-config.nix
     ../../secrets/nixos.nix
     ../../modules/base
-    # ../../modules/base/ssh.nix
-    # ../../modules/base/user.nix
-    ../../modules/server/sing-box.nix
-  ];
-
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
-    myvars.username
-  ];
-
-  security.sudo.extraRules = [
-    {
-      users = [ myvars.username ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
+    ../../modules/server
   ];
 
   boot.loader.grub = {
@@ -46,7 +26,6 @@
   };
 
   networking.hostName = "lz-vps";
-  time.timeZone = "Asia/Shanghai";
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
@@ -55,16 +34,6 @@
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";
-  };
-
-  environment.systemPackages = with pkgs; [
-    wget
-    curl
-    git
-  ];
-
-  users.users.root = {
-    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
   };
 
   system.stateVersion = "25.11";
