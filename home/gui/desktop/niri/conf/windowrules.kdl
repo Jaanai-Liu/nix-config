@@ -164,6 +164,13 @@ window-rule {
     // open-maximized true
 }
 
+// Obs - open in workspace 7
+window-rule {
+    match app-id="com.obsproject.Studio"
+    open-on-workspace "7"
+    open-maximized true
+}
+
 // Other applications - open in workspace 0
 window-rule {
     match app-id="clash-verge"
