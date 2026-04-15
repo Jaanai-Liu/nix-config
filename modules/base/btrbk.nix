@@ -90,7 +90,7 @@ in
               # Assuming your Btrfs root is mounted at "/"
               "/btr_pool" = {
                 # Directory where short-term snapshots are temporarily stored
-                snapshot_dir = ".snapshots";
+                snapshot_dir = "@snapshots";
 
                 subvolume = {
                   # Backing up your home directory (Thesis, BP Neural Network code, etc.)
