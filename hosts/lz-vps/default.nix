@@ -13,9 +13,11 @@
     disko.nixosModules.disko
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
-    ../../secrets/nixos.nix
-    ../../modules/base
-    ../../modules/server/sing-box.nix
+    # ../../secrets/nixos.nix
+    # ../../modules/base
+    ../../modules/base/ssh.nix
+    ../../modules/base/user.nix
+    # ../../modules/server/sing-box.nix
   ];
 
   nix.settings.trusted-users = [

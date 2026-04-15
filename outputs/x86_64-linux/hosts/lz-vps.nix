@@ -25,15 +25,15 @@ let
       (map mylib.relativeToRoot [
         "hosts/${name}/default.nix"
         # modules"
-        "secrets/nixos.nix"
+        # "secrets/nixos.nix"
       ])
       ++ [
         inputs.disko.nixosModules.disko
         {
           # server
-          modules.base.ssh.harden = true;
-          modules.secrets.server.proxy.enable = true;
-          modules.services.sing-box.enable = true;
+          # modules.base.ssh.harden = true;
+          # modules.secrets.server.proxy.enable = true;
+          # modules.services.sing-box.enable = true;
 
           # btrbk
           # modules.btrbk.enable = true;

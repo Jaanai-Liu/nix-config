@@ -141,11 +141,11 @@
             "right": [
                 {
                     "compactMode": false,
-                    "diskPath": "/",
+                    "diskPath": "/btr_pool",
                     "iconColor": "none",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
-                    "showCpuFreq": false,
+                    "showCpuFreq": true,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskAvailable": false,
