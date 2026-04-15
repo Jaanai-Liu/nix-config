@@ -24,7 +24,6 @@
   # 2. Or just use hardware security keys like Yubikey/CanoKey.
   sshAuthorizedKeys = [
     # The main ssh keys for daily usage
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDjbuIZ/9ha2bvTcx5ztL6ERUWsAHTNg9FHneFTWy7EO root@lz-pc"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8B31wZficBJy4Tli3w+C0hsa7uhsMlff43JF6PSYBe zheng@lz-pc"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/P3wcnTB34/GmfDNqObV85/OdmqvRKv0fooDOZr+cj zheng@lz-nb"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZdkOnvmQOiFYyWsWKCY+yfXDGt8mdYq3jlOOyshDjW zheng@lz-wsl"

@@ -2,6 +2,7 @@
 {
   config,
   lib,
+  myvars,
   pkgs,
   ...
 }:
@@ -119,6 +120,7 @@ in
                 subvolume."@" = { };
                 subvolume."@home" = { };
                 target = "/snapshots/lz-vps";
+                ssh_identity = "/home/${myvars.username}/.ssh/id_ed25519";
               };
             };
           };
