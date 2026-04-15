@@ -32,8 +32,10 @@ let
         {
           # server
           modules.base.ssh.harden = true;
-          modules.secrets.server.proxy.enable = true;
-          modules.services.sing-box.enable = true;
+
+          # secrets
+          # modules.secrets.server.proxy.enable = true;
+          # modules.services.sing-box.enable = true;
 
           # btrbk
           modules.btrbk.enable = true;
