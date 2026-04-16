@@ -124,6 +124,7 @@ in
         # ======================================
         "work" # for work contains a .gitconfig with my work email.
         "projects" # for personal code
+        "SiYuan"
         "nix-config"
         "tmp"
 
