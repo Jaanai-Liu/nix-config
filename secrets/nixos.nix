@@ -160,5 +160,18 @@ in
       };
     })
 
+    # ==========================================
+    # 📓 SiYuan Server Secrets
+    # ==========================================
+    (mkIf cfg.server.siyuan.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "siyuan-server-env" = {
+          file = "${mysecrets}/secrets/siyuan-server-env.age";
+        }
+        // high_security;
+      };
+    })
   ];
 }

@@ -35,9 +35,11 @@ let
 
           # secrets
           # modules.secrets.server.proxy.enable = true;
+          modules.secrets.siyuan-server.proxy.enable = true;
 
-          # sing-box
+          # services
           # modules.services.sing-box.enable = true;
+          modules.services.siyuan-server.enable = true;
 
           # btrbk
           modules.btrbk.enable = true;

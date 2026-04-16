@@ -62,6 +62,13 @@
                       "noatime"
                     ];
                   };
+                  "/@siyuan_data" = {
+                    mountpoint = "/siyuan_data";
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                  };
                 };
               };
             };
