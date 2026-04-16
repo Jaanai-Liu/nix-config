@@ -31,7 +31,7 @@ in
 
     virtualisation.oci-containers.containers.${name} = {
       # image = "b3log/siyuan:v3.1.0";
-      image = "m.daocloud.io/docker.io/b3log/siyuan:v3.1.0";
+      image = "m.daocloud.io/docker.io/b3log/siyuan";
 
       environment = {
         TZ = "Asia/Shanghai";
