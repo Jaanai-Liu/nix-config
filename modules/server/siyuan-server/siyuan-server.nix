@@ -22,6 +22,9 @@ in
 
   config = lib.mkIf cfg.enable {
 
+    virtualisation.docker.enable = true;
+    virtualisation.oci-containers.backend = "docker";
+
     systemd.tmpfiles.rules = [
       "d ${cfg.workspaceDir} 0755 1000 1000 -"
     ];
