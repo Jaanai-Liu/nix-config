@@ -68,7 +68,7 @@ in
       };
     };
 
-    # 4. Tailscale 防火墙隔离
     networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 6806 ];
+    # networking.firewall.allowedTCPPorts = [ 6806 ];
   };
 }
