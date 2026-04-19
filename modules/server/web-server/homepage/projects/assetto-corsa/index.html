@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assetto Corsa Linux Setup | 114132</title>
-    <link rel="stylesheet" href="/style.css?v=3.3" />
+    <link rel="stylesheet" href="/style.css?v=3.4" />
   </head>
   <body>
     <nav class="navbar">
@@ -28,22 +28,6 @@
     </nav>
 
     <div class="main-layout">
-      <aside class="sidebar">
-        <nav class="sidebar-nav">
-          <div class="sidebar-category">NixOS Scripts</div>
-          <a href="/projects/assetto-corsa/" class="sidebar-link active"
-            ><span class="zh-text">神力科莎部署脚本</span
-            ><span class="en-text">Assetto Corsa Setup</span></a
-          >
-
-          <div class="sidebar-category">Android (APK)</div>
-          <a href="/projects/altitude/" class="sidebar-link"
-            ><span class="zh-text">海拔高度表</span
-            ><span class="en-text">Altitude App</span></a
-          >
-        </nav>
-      </aside>
-
       <main class="content-area">
         <div class="card" style="cursor: default">
           <h1 class="zh-text" style="margin-bottom: 20px">
@@ -55,14 +39,11 @@
 
           <p class="zh-text">
             这是我基于原仓库 Fork 修改的版本。增加了
-            <code>nix-shell shebang</code> 支持，去除了写死的 apt/pacman
-            依赖检查，能够自动在隔离环境中拉取运行所需依赖（wget, unzip,
-            protontricks 等），完美适配 NixOS 系统。
+            <code>nix-shell shebang</code> 支持，完美适配 NixOS 系统。
           </p>
           <p class="en-text">
             Fork updated by Jaanai-Liu: Adds support for NixOS using the Nix
-            package manager via nix-shell shebang to automatically pull
-            dependencies in an isolated environment.
+            package manager via nix-shell shebang.
           </p>
 
           <hr
@@ -86,11 +67,7 @@
           >
             <li>自动安装 Proton-GE</li>
             <li>安装 Content Manager 并配置环境</li>
-            <li>安装 Custom Shaders Patch (CSP)</li>
-            <li>安装 DXVK 以提升图形性能</li>
-            <li>
-              将 Content Manager 添加至 mimeapps (支持网页直接拉起服务器连接)
-            </li>
+            <li>安装 Custom Shaders Patch (CSP) 和 DXVK</li>
           </ul>
 
           <div
@@ -112,9 +89,8 @@
                 compatdata 前缀文件夹。</span
               >
               <span class="en-text"
-                >You must launch the vanilla game at least once via Steam (using
-                any built-in Proton) to generate the compatdata prefix before
-                running this script.</span
+                >You must launch the vanilla game at least once via Steam to
+                generate the compatdata prefix before running this script.</span
               >
             </p>
           </div>
@@ -122,7 +98,6 @@
           <h2 class="zh-text">一键安装指令</h2>
           <h2 class="en-text">Installation Command</h2>
           <pre><code>curl -Os https://raw.githubusercontent.com/Jaanai-Liu/assettocorsa-linux-setup/main/assettocorsa-linux-setup.sh && chmod +x assettocorsa-linux-setup.sh && ./assettocorsa-linux-setup.sh</code></pre>
-
           <p style="margin-top: 25px; font-size: 0.9rem; opacity: 0.7">
             <span class="zh-text">开源地址：</span>
             <span class="en-text">Source code: </span>
@@ -134,7 +109,6 @@
             >
           </p>
         </div>
-
         <footer>
           <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
           <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>

@@ -1,9 +1,10 @@
+<!doctype html>
 <html lang="zh">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Altitude App | 114132</title>
-    <link rel="stylesheet" href="/style.css?v=3.2" />
+    <link rel="stylesheet" href="/style.css?v=3.4" />
   </head>
   <body>
     <nav class="navbar">
@@ -27,39 +28,13 @@
     </nav>
 
     <div class="main-layout">
-      <aside class="sidebar">
-        <nav class="sidebar-nav">
-          <div class="sidebar-category">NixOS Modules</div>
-          <a href="#" class="sidebar-link">Infrastructure</a>
-
-          <div class="sidebar-category">Android (APK)</div>
-          <a href="/projects/altitude/" class="sidebar-link active"
-            ><span class="zh-text">海拔高度表</span
-            ><span class="en-text">Altitude App</span></a
-          >
-        </nav>
-      </aside>
-
       <main class="content-area">
         <div class="card" style="cursor: default">
           <h1 style="margin-bottom: 20px" class="zh-text">Altitude (海拔仪)</h1>
           <h1 style="margin-bottom: 20px" class="en-text">Altitude App</h1>
-
-          <h2 class="zh-text" style="color: var(--accent); margin-bottom: 15px">
-            项目介绍
-          </h2>
-          <h2 class="en-text" style="color: var(--accent); margin-bottom: 15px">
-            About Project
-          </h2>
-
           <p class="zh-text" style="margin-bottom: 15px">
             这是一个简洁高效的安卓海拔高度测量工具。无广告，无多余权限。核心功能包括：
           </p>
-          <p class="en-text" style="margin-bottom: 15px">
-            A real-time altitude and compass application built with Jetpack
-            Compose.
-          </p>
-
           <ul
             class="zh-text"
             style="margin-left: 20px; opacity: 0.8; margin-bottom: 30px"
@@ -68,7 +43,6 @@
             <li>丝滑的动态指南针体验</li>
             <li>轻量级系统资源占用，保护隐私</li>
           </ul>
-
           <div
             style="
               margin-top: 30px;
@@ -101,7 +75,6 @@
             </p>
           </div>
         </div>
-
         <footer>
           <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
           <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
@@ -128,7 +101,7 @@
         localStorage.setItem("lang", newLang);
       }
 
-      // Fetch latest APK from GitHub API
+      // Fetch GitHub API
       async function fetchLatestApk() {
         try {
           const response = await fetch(
@@ -136,7 +109,6 @@
           );
           const data = await response.json();
           const apkAsset = data.assets.find((a) => a.name.endsWith(".apk"));
-
           if (apkAsset) {
             const btn = document.getElementById("apk-link");
             btn.href = apkAsset.browser_download_url;

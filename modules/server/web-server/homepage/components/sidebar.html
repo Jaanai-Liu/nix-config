@@ -1,0 +1,46 @@
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <div class="sidebar-category">NixOS Notes</div>
+    <a href="/notes/anywhere/" class="sidebar-link"
+      ><span class="zh-text">Anywhere 安装</span
+      ><span class="en-text">Anywhere Install</span></a
+    >
+    <a href="/notes/nix-config/" class="sidebar-link"
+      ><span class="zh-text">系统与桌面配置</span
+      ><span class="en-text">System Config</span></a
+    >
+
+    <div class="sidebar-category zh-text" style="margin-top: 25px">
+      嵌入式开发
+    </div>
+    <div class="sidebar-category en-text" style="margin-top: 25px">
+      Embedded Dev
+    </div>
+    <a href="#" class="sidebar-link">FPGA / ZYNQ</a>
+
+    <div class="sidebar-category" style="margin-top: 25px">
+      Projects & Scripts
+    </div>
+    <a href="/projects/assetto-corsa/" class="sidebar-link"
+      ><span class="zh-text">神力科莎脚本</span
+      ><span class="en-text">AC Setup</span></a
+    >
+    <a href="/projects/altitude/" class="sidebar-link"
+      ><span class="zh-text">海拔高度表</span
+      ><span class="en-text">Altitude App</span></a
+    >
+  </nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentPath = window.location.pathname;
+      const links = document.querySelectorAll(".sidebar-link");
+      links.forEach((link) => {
+        // If the href matches the current URL path, add the 'active' class
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</aside>

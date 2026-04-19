@@ -25,6 +25,8 @@ in
             port = 80;
           }
         ];
+        # Enable Server Side Includes (SSI) to assemble HTML components automatically
+        extraConfig = "ssi on;";
         locations."/" = {
           root = "${./homepage}";
           index = "index.html";
