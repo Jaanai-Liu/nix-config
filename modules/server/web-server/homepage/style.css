@@ -96,20 +96,21 @@ body {
   flex-direction: column;
 }
 
-/* 4. Main Layout (With Sidebar) */
+/* 4. Main Layout (完美居中三栏布局) */
 .main-layout {
   display: flex;
-  gap: 30px;
+  justify-content: center; /* 确保内容在屏幕正中 */
+  gap: 40px; /* 三栏之间的间距 */
   width: 100%;
-  max-width: 1200px; /* 调宽以容纳右侧新增加的自动目录 */
+  max-width: 1400px; /* 进一步加宽，让三栏有足够的呼吸感 */
   margin: 0 auto;
   padding: 100px 20px 40px 20px;
   min-height: 100vh;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles (左侧网站目录) */
 .sidebar {
-  width: 220px;
+  width: 240px; /* 与右侧目录严格同宽 */
   flex-shrink: 0;
   position: sticky;
   top: 100px;
@@ -118,6 +119,16 @@ body {
   padding-right: 15px;
   border-right: 1px solid var(--border);
 }
+
+/* Content Area Styles (中间文章正文) */
+.content-area {
+  flex: 1; /* 自动撑满剩余空间 */
+  max-width: 800px; /* 限制最大阅读宽度，防止文字太长看花眼 */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .sidebar-nav {
   list-style: none;
 }
@@ -301,7 +312,7 @@ footer {
  * 右侧文章目录 (Table of Contents)
  * ----------------------------------- */
 .article-toc {
-  width: 200px;
+  width: 240px;
   flex-shrink: 0;
   position: sticky;
   top: 100px;
