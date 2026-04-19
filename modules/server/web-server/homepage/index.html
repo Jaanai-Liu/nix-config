@@ -1,40 +1,66 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terminal | 114132</title>
+    <title>114132 Space</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>>_ Hello, World.</h1>
-        <p class="subtitle">Welcome to my personal space, powered by NixOS.</p>
+        <h1 class="zh-text">关于本站</h1>
+        <h1 class="en-text">About This Site</h1>
+        <p class="zh-text">
+          这里分享关于 NixOS 部署、安卓开发及个人方法论的笔记。
+        </p>
+        <p class="en-text">Notes on NixOS, Android dev, and methodologies.</p>
       </header>
 
-      <main>
-        <section class="card-grid">
-          <a href="/app/" class="card hover-effect">
-            <h2>📦 Altitude App</h2>
-            <p>我开发的一款安卓海拔高度表应用 (v1.1.0)。</p>
-          </a>
+      <section class="card-grid">
+        <a href="/anywhere/" class="card">
+          <h2 class="zh-text">NixOS Anywhere 教程</h2>
+          <h2 class="en-text">NixOS Anywhere Guide</h2>
+          <p class="zh-text">低内存 VPS 的“夺舍”安装方案。</p>
+          <p class="en-text">Bulletproof installation for low-RAM VPS.</p>
+        </a>
 
-          <a href="/notes/" class="card hover-effect">
-            <h2>📝 方法笔记</h2>
-            <p>记录开发、系统配置（如 NixOS / Niri）与折腾心得。</p>
-          </a>
-
-          <a href="/files/" class="card hover-effect">
-            <h2>📂 公开文件库</h2>
-            <p>存放可以直接下载的文档与安装包。</p>
-          </a>
-        </section>
-      </main>
+        <a href="/altitude/" class="card">
+          <h2 class="zh-text">海拔高度表 (Altitude)</h2>
+          <h2 class="en-text">Altitude App</h2>
+          <p class="zh-text">基于 Jetpack Compose 的实时高度仪。</p>
+          <p class="en-text">Real-time altimeter built with Compose.</p>
+        </a>
+      </section>
 
       <footer>
-        <p>© 2026 114132.xyz</p>
+        <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+        <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
       </footer>
     </div>
+
+    <script>
+      // 主题与语言控制逻辑
+      const html = document.documentElement;
+
+      // 初始化读取
+      if (localStorage.getItem("theme") === "dark")
+        html.setAttribute("data-theme", "dark");
+      if (localStorage.getItem("lang"))
+        html.setAttribute("lang", localStorage.getItem("lang"));
+
+      function toggleTheme() {
+        const isDark = html.getAttribute("data-theme") === "dark";
+        const newTheme = isDark ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      function toggleLang() {
+        const current = html.getAttribute("lang") || "zh";
+        const newLang = current === "zh" ? "en" : "zh";
+        html.setAttribute("lang", newLang);
+        localStorage.setItem("lang", newLang);
+      }
+    </script>
   </body>
 </html>
