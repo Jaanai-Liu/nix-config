@@ -1,13 +1,40 @@
 <!doctype html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <title>Liu Zheng's Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminal | 114132</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
-
   <body>
-    <h1>欢迎来到我的主页</h1>
-    <p>这是一个运行在NixOS上的站点。</p>
-    <a href="/files/">访问我的公开文件库</a>
+    <div class="container">
+      <header>
+        <h1>>_ Hello, World.</h1>
+        <p class="subtitle">Welcome to my personal space, powered by NixOS.</p>
+      </header>
+
+      <main>
+        <section class="card-grid">
+          <a href="/app/" class="card hover-effect">
+            <h2>📦 Altitude App</h2>
+            <p>我开发的一款安卓海拔高度表应用 (v1.1.0)。</p>
+          </a>
+
+          <a href="/notes/" class="card hover-effect">
+            <h2>📝 方法笔记</h2>
+            <p>记录开发、系统配置（如 NixOS / Niri）与折腾心得。</p>
+          </a>
+
+          <a href="/files/" class="card hover-effect">
+            <h2>📂 公开文件库</h2>
+            <p>存放可以直接下载的文档与安装包。</p>
+          </a>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2026 114132.xyz</p>
+      </footer>
+    </div>
   </body>
 </html>

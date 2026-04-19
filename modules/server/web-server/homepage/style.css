@@ -1,0 +1,82 @@
+/* 基础全局设置，重置默认边距 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 极简暗色终端风格 */
+body {
+  background-color: #0f0f13;
+  color: #e0e0e0;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.subtitle {
+  color: #888;
+  margin-top: 10px;
+}
+
+/* 网格布局：自动适应手机和电脑屏幕 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* 纯 CSS 打造的卡片特效 */
+.card {
+  background-color: #1a1a20;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
+  /* 核心：平滑过渡动画 */
+  transition: all 0.3s ease;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #4da6ff; /* 科技蓝 */
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* 纯手搓特效：鼠标悬浮时光效与上浮 */
+.hover-effect:hover {
+  transform: translateY(-5px);
+  border-color: #4da6ff;
+  box-shadow: 0 8px 20px rgba(77, 166, 255, 0.15);
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #555;
+  font-size: 0.85rem;
+}
