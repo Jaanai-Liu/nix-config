@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>114132 Space</title>
+    <title>Projects | 114132 Space</title>
     <link rel="stylesheet" href="/style.css?v=3.0" />
   </head>
   <body>
@@ -19,7 +19,7 @@
             ><span class="zh-text">笔记</span
             ><span class="en-text">Notes</span></a
           >
-          <a href="/projects/"
+          <a href="/projects/" style="color: var(--accent)"
             ><span class="zh-text">项目</span
             ><span class="en-text">Projects</span></a
           >
@@ -29,38 +29,20 @@
 
     <div class="container">
       <header>
-        <h1 class="zh-text">你好，我是 J. Liu</h1>
-        <h1 class="en-text">Hi, I'm J. Liu</h1>
-        <p
-          class="zh-text"
-          style="margin-top: 15px; font-size: 1.1rem; opacity: 0.8"
-        >
-          嵌入式系统工程师 / 持续折腾者。<br />
-          目前专注于 NixOS 声明式系统管理、硬件开发以及现代安卓应用构建。
-        </p>
-        <p
-          class="en-text"
-          style="margin-top: 15px; font-size: 1.1rem; opacity: 0.8"
-        >
-          Embedded Systems Engineer / Maker.<br />
-          Currently focusing on NixOS declarative management, hardware dev, and
-          modern Android apps.
-        </p>
+        <h1 class="zh-text">项目与应用</h1>
+        <h1 class="en-text">Projects & Apps</h1>
       </header>
 
-      <section class="card-grid" style="margin-top: 40px">
-        <a href="/notes/" class="card hover-effect">
-          <h2 class="zh-text">📝 笔记与沉淀</h2>
-          <h2 class="en-text">📝 Notes & Articles</h2>
-          <p class="zh-text">系统安装指南、开发填坑记录与个人方法论。</p>
-          <p class="en-text">System guides, dev logs, and methodologies.</p>
-        </a>
-
-        <a href="/projects/" class="card hover-effect">
-          <h2 class="zh-text">🛠️ 个人项目</h2>
-          <h2 class="en-text">🛠️ Projects</h2>
-          <p class="zh-text">Altitude 海拔仪等独立开发的小工具与应用。</p>
-          <p class="en-text">Altitude altimeter and other standalone tools.</p>
+      <section class="card-grid">
+        <a href="/projects/altitude/" class="card hover-effect">
+          <h2 class="zh-text">海拔高度表 (Altitude)</h2>
+          <h2 class="en-text">Altitude App</h2>
+          <p class="zh-text">
+            基于 Jetpack Compose 的实时高度仪，高精度 GPS 测算。
+          </p>
+          <p class="en-text">
+            Real-time altimeter built with Compose and GPS hardware data.
+          </p>
         </a>
       </section>
 
@@ -76,7 +58,6 @@
         html.setAttribute("data-theme", "dark");
       if (localStorage.getItem("lang"))
         html.setAttribute("lang", localStorage.getItem("lang"));
-
       function toggleTheme() {
         const newTheme =
           html.getAttribute("data-theme") === "dark" ? "light" : "dark";

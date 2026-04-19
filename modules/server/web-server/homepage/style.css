@@ -1,17 +1,17 @@
-/* 1. 基础重置 */
+/* 1. Reset and Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 2. 定义深浅双主题变量 */
 :root {
   --bg: #f5f5f7;
   --text: #1d1d1f;
   --card-bg: #ffffff;
-  --accent: #0071e3; /* 科技蓝 */
+  --accent: #0071e3;
   --border: #d2d2d7;
+  --nav-bg: rgba(255, 255, 255, 0.8);
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   --card-hover-shadow: 0 8px 20px rgba(0, 113, 227, 0.15);
 }
@@ -22,15 +22,14 @@
   --card-bg: #1c1c1e;
   --accent: #0a84ff;
   --border: #38383a;
+  --nav-bg: rgba(0, 0, 0, 0.8);
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --card-hover-shadow: 0 8px 20px rgba(10, 132, 255, 0.15);
 }
 
-/* 3. 全局页面样式 */
 body {
   background-color: var(--bg);
   color: var(--text);
-  /* 丝滑的深浅色切换动画 */
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -39,28 +38,70 @@ body {
   line-height: 1.6;
 }
 
-/* Flex 布局确保 Footer 永远在最底部 */
+/* 2. Navigation Bar (Frosted Glass) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  opacity: 0.8;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* 3. Layout */
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 40px 20px;
+  /* Add padding top to account for fixed navbar */
+  padding: 100px 20px 40px 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-header {
-  margin-bottom: 50px;
-}
-h1 {
-  font-size: 2.5rem;
-}
-.subtitle {
-  color: #888;
-  margin-top: 10px;
-}
-
-/* 4. 卡片网格布局 */
+/* 4. Cards & Categories */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -84,20 +125,49 @@ h1 {
   margin-bottom: 10px;
   color: var(--accent);
 }
-
-.card p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* 悬浮动效 */
 .hover-effect:hover {
   transform: translateY(-5px);
   border-color: var(--accent);
   box-shadow: var(--card-hover-shadow);
 }
 
-/* 5. 多语言控制开关 */
+/* Category List Styles */
+.category-section {
+  margin-bottom: 40px;
+}
+.category-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+.subcategory {
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 3px solid var(--accent);
+}
+.subcategory-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+.post-list {
+  list-style: none;
+}
+.post-list li {
+  margin-bottom: 8px;
+}
+.post-list a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.post-list a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* 5. Utility & Footer */
 [lang="zh"] .en-text {
   display: none;
 }
@@ -105,9 +175,8 @@ h1 {
   display: none;
 }
 
-/* 6. 底部 Footer & 按钮 */
 footer {
-  margin-top: auto; /* 自动推到最底部 */
+  margin-top: auto;
   padding-top: 60px;
   padding-bottom: 20px;
   display: flex;
@@ -123,14 +192,10 @@ footer {
   background: var(--card-bg);
   color: var(--text);
   font-size: 13px;
-  transition: all 0.2s ease;
 }
-
 .switch-btn:hover {
   border-color: var(--accent);
 }
-
-/* 下载按钮特殊样式 */
 .download-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -140,9 +205,4 @@ footer {
   border-radius: 6px;
   font-weight: bold;
   margin-top: 15px;
-  transition: opacity 0.2s;
-}
-.download-btn:hover {
-  opacity: 0.8;
-  color: #fff;
 }

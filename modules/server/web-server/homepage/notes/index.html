@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>114132 Space</title>
+    <title>Notes | 114132 Space</title>
     <link rel="stylesheet" href="/style.css?v=3.0" />
   </head>
   <body>
@@ -15,7 +15,7 @@
             ><span class="zh-text">首页</span
             ><span class="en-text">Home</span></a
           >
-          <a href="/notes/"
+          <a href="/notes/" style="color: var(--accent)"
             ><span class="zh-text">笔记</span
             ><span class="en-text">Notes</span></a
           >
@@ -29,39 +29,50 @@
 
     <div class="container">
       <header>
-        <h1 class="zh-text">你好，我是 J. Liu</h1>
-        <h1 class="en-text">Hi, I'm J. Liu</h1>
-        <p
-          class="zh-text"
-          style="margin-top: 15px; font-size: 1.1rem; opacity: 0.8"
-        >
-          嵌入式系统工程师 / 持续折腾者。<br />
-          目前专注于 NixOS 声明式系统管理、硬件开发以及现代安卓应用构建。
-        </p>
-        <p
-          class="en-text"
-          style="margin-top: 15px; font-size: 1.1rem; opacity: 0.8"
-        >
-          Embedded Systems Engineer / Maker.<br />
-          Currently focusing on NixOS declarative management, hardware dev, and
-          modern Android apps.
-        </p>
+        <h1 class="zh-text">个人笔记</h1>
+        <h1 class="en-text">Notes & Articles</h1>
       </header>
 
-      <section class="card-grid" style="margin-top: 40px">
-        <a href="/notes/" class="card hover-effect">
-          <h2 class="zh-text">📝 笔记与沉淀</h2>
-          <h2 class="en-text">📝 Notes & Articles</h2>
-          <p class="zh-text">系统安装指南、开发填坑记录与个人方法论。</p>
-          <p class="en-text">System guides, dev logs, and methodologies.</p>
-        </a>
+      <section class="category-section">
+        <h2 class="category-title">NixOS</h2>
 
-        <a href="/projects/" class="card hover-effect">
-          <h2 class="zh-text">🛠️ 个人项目</h2>
-          <h2 class="en-text">🛠️ Projects</h2>
-          <p class="zh-text">Altitude 海拔仪等独立开发的小工具与应用。</p>
-          <p class="en-text">Altitude altimeter and other standalone tools.</p>
-        </a>
+        <div class="subcategory">
+          <h3 class="subcategory-title zh-text">系统安装相关</h3>
+          <h3 class="subcategory-title en-text">System Installation</h3>
+          <ul class="post-list">
+            <li>
+              <a href="/notes/anywhere/"
+                ><span class="zh-text"
+                  >低内存 VPS 上 NixOS Anywhere 安装指南</span
+                ><span class="en-text"
+                  >NixOS-Anywhere Installation Guide for Low-RAM VPS</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="subcategory">
+          <h3 class="subcategory-title zh-text">桌面环境配置 (Niri/Wayland)</h3>
+          <h3 class="subcategory-title en-text">Desktop Env (Niri/Wayland)</h3>
+          <ul class="post-list">
+            <li>
+              <span style="opacity: 0.5" class="zh-text">敬请期待...</span
+              ><span style="opacity: 0.5" class="en-text">Coming soon...</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2 class="category-title zh-text">嵌入式开发</h2>
+        <h2 class="category-title en-text">Embedded Dev</h2>
+        <div class="subcategory">
+          <h3 class="subcategory-title">FPGA / ZYNQ</h3>
+          <ul class="post-list">
+            <li><span style="opacity: 0.5">Coming soon...</span></li>
+          </ul>
+        </div>
       </section>
 
       <footer>
@@ -76,7 +87,6 @@
         html.setAttribute("data-theme", "dark");
       if (localStorage.getItem("lang"))
         html.setAttribute("lang", localStorage.getItem("lang"));
-
       function toggleTheme() {
         const newTheme =
           html.getAttribute("data-theme") === "dark" ? "light" : "dark";
