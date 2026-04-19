@@ -3,102 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Altitude | 114132</title>
-    <link rel="stylesheet" href="/style.css?v=3.0" />
+    <title>Altitude App | 114132</title>
+    <link rel="stylesheet" href="/style.css?v=3.2" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <a
-          href="/"
-          style="color: var(--accent); text-decoration: none; font-weight: bold"
-          >&larr; 返回 / Back</a
-        >
-        <h1 style="margin-top: 20px" class="zh-text">Altitude (海拔仪)</h1>
-        <h1 style="margin-top: 20px" class="en-text">Altitude App</h1>
-      </header>
-
-      <main class="card" style="cursor: default">
-        <h2 class="zh-text">项目介绍</h2>
-        <h2 class="en-text">About Project</h2>
-
-        <p class="zh-text" style="margin-bottom: 15px">
-          这是一个简洁高效的安卓海拔高度测量工具。无广告，无多余权限。核心功能包括：
-        </p>
-        <p class="en-text" style="margin-bottom: 15px">
-          A real-time altitude and compass application built with Jetpack
-          Compose.
-        </p>
-
-        <ul
-          class="zh-text"
-          style="margin-left: 20px; opacity: 0.8; margin-bottom: 30px"
-        >
-          <li>实时高精度高度读取 (基于 GPS)</li>
-          <li>丝滑的动态指南针体验</li>
-          <li>轻量级系统资源占用，保护隐私</li>
-        </ul>
-
-        <div
-          style="
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-          "
-        >
-          <h2 class="zh-text">下载最新版本</h2>
-          <h2 class="en-text">Download Latest Release</h2>
-
-          <a
-            id="apk-link"
-            href="https://github.com/Jaanai-Liu/altitude/releases"
-            class="download-btn"
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">114132 Space</a>
+        <div class="nav-links">
+          <a href="/"
+            ><span class="zh-text">首页</span
+            ><span class="en-text">Home</span></a
           >
-            <span class="zh-text">正在从 GitHub 获取最新版本...</span>
-            <span class="en-text">Fetching from GitHub...</span>
-          </a>
-          <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6">
-            <span class="zh-text">开源地址：</span>
-            <span class="en-text">Source code: </span>
-            <a
-              href="https://github.com/Jaanai-Liu/altitude"
-              target="_blank"
-              style="color: var(--accent)"
-              >Jaanai-Liu/altitude</a
-            >
-          </p>
+          <a href="/notes/"
+            ><span class="zh-text">笔记</span
+            ><span class="en-text">Notes</span></a
+          >
+          <a href="/projects/" class="active"
+            ><span class="zh-text">项目</span
+            ><span class="en-text">Projects</span></a
+          >
         </div>
-      </main>
+      </div>
+    </nav>
 
-      <footer>
-        <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
-        <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
-      </footer>
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS Modules</div>
+          <a href="#" class="sidebar-link">Infrastructure</a>
+
+          <div class="sidebar-category">Android (APK)</div>
+          <a href="/projects/altitude/" class="sidebar-link active"
+            ><span class="zh-text">海拔高度表</span
+            ><span class="en-text">Altitude App</span></a
+          >
+        </nav>
+      </aside>
+
+      <main class="content-area">
+        <div class="card" style="cursor: default">
+          <h1 style="margin-bottom: 20px" class="zh-text">Altitude (海拔仪)</h1>
+          <h1 style="margin-bottom: 20px" class="en-text">Altitude App</h1>
+
+          <h2 class="zh-text" style="color: var(--accent); margin-bottom: 15px">
+            项目介绍
+          </h2>
+          <h2 class="en-text" style="color: var(--accent); margin-bottom: 15px">
+            About Project
+          </h2>
+
+          <p class="zh-text" style="margin-bottom: 15px">
+            这是一个简洁高效的安卓海拔高度测量工具。无广告，无多余权限。核心功能包括：
+          </p>
+          <p class="en-text" style="margin-bottom: 15px">
+            A real-time altitude and compass application built with Jetpack
+            Compose.
+          </p>
+
+          <ul
+            class="zh-text"
+            style="margin-left: 20px; opacity: 0.8; margin-bottom: 30px"
+          >
+            <li>实时高精度高度读取 (基于 GPS)</li>
+            <li>丝滑的动态指南针体验</li>
+            <li>轻量级系统资源占用，保护隐私</li>
+          </ul>
+
+          <div
+            style="
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid var(--border);
+            "
+          >
+            <h2 class="zh-text" style="color: var(--accent)">获取最新版本</h2>
+            <h2 class="en-text" style="color: var(--accent)">
+              Download Latest Release
+            </h2>
+
+            <a
+              id="apk-link"
+              href="https://github.com/Jaanai-Liu/altitude/releases"
+              class="download-btn"
+            >
+              <span class="zh-text">正在从 GitHub 获取最新版本...</span>
+              <span class="en-text">Fetching from GitHub...</span>
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7">
+              <span class="zh-text">开源地址：</span>
+              <span class="en-text">Source code: </span>
+              <a
+                href="https://github.com/Jaanai-Liu/altitude"
+                target="_blank"
+                style="color: var(--accent); font-weight: bold"
+                >Jaanai-Liu/altitude</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
     </div>
 
     <script>
-      // 保持主题状态的代码
       const html = document.documentElement;
       if (localStorage.getItem("theme") === "dark")
         html.setAttribute("data-theme", "dark");
       if (localStorage.getItem("lang"))
         html.setAttribute("lang", localStorage.getItem("lang"));
-
       function toggleTheme() {
-        const isDark = html.getAttribute("data-theme") === "dark";
-        const newTheme = isDark ? "light" : "dark";
+        const newTheme =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
         html.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
       }
-
       function toggleLang() {
-        const current = html.getAttribute("lang") || "zh";
-        const newLang = current === "zh" ? "en" : "zh";
+        const newLang =
+          (html.getAttribute("lang") || "zh") === "zh" ? "en" : "zh";
         html.setAttribute("lang", newLang);
         localStorage.setItem("lang", newLang);
       }
 
-      // GitHub API 获取脚本
+      // Fetch latest APK from GitHub API
       async function fetchLatestApk() {
         try {
           const response = await fetch(

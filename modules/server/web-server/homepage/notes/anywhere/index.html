@@ -4,95 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NixOS Anywhere Guide | 114132</title>
-    <link rel="stylesheet" href="/style.css?v=3.0" />
-    <style>
-      pre {
-        background-color: #1e1e1e;
-        color: #d4d4d4;
-        padding: 15px;
-        border-radius: 8px;
-        overflow-x: auto;
-        margin: 15px 0 25px 0;
-        font-family: "Fira Code", monospace, Consolas;
-        font-size: 0.9rem;
-      }
-      code {
-        font-family: inherit;
-      }
-      .step-title {
-        margin-top: 25px;
-        color: var(--accent);
-      }
-    </style>
+    <link rel="stylesheet" href="/style.css?v=3.2" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <a
-          href="/"
-          style="color: var(--accent); text-decoration: none; font-weight: bold"
-          >&larr; 返回 / Back</a
-        >
-      </header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">114132 Space</a>
+        <div class="nav-links">
+          <a href="/"
+            ><span class="zh-text">首页</span
+            ><span class="en-text">Home</span></a
+          >
+          <a href="/notes/" class="active"
+            ><span class="zh-text">笔记</span
+            ><span class="en-text">Notes</span></a
+          >
+          <a href="/projects/"
+            ><span class="zh-text">项目</span
+            ><span class="en-text">Projects</span></a
+          >
+        </div>
+      </div>
+    </nav>
 
-      <main class="card" style="cursor: default">
-        <h1 class="zh-text" style="margin-bottom: 20px">
-          低内存及受限网络 VPS 上 NixOS Anywhere 安装指南
-        </h1>
-        <h1 class="en-text" style="margin-bottom: 20px">
-          NixOS-Anywhere Installation Guide for Low-RAM & Network-Restricted VPS
-        </h1>
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS</div>
+          <a href="/notes/anywhere/" class="sidebar-link active"
+            ><span class="zh-text">Anywhere 安装</span
+            ><span class="en-text">Anywhere Install</span></a
+          >
+          <a href="#" class="sidebar-link"
+            ><span class="zh-text">桌面环境配置</span
+            ><span class="en-text">Desktop Config</span></a
+          >
 
-        <p class="zh-text">
-          本指南提供了一套针对低内存 VPS（如 1GB 内存）及连接 GitHub
-          网络较差的机器（如国内阿里云、腾讯云）安装 NixOS
-          的完美工作流。本方案通过分步执行、利用本地算力代工，以及在内存系统中开启
-          ZRAM 虚拟内存或手动推送镜像，完美解决了卡死问题。
-        </p>
-        <p class="en-text">
-          This guide provides a bulletproof workflow for installing NixOS on
-          low-memory VPS (e.g., 1GB RAM) and servers with restricted network
-          access to GitHub. It solves OOM errors and network timeouts by
-          splitting the installation into phases, utilizing local computation,
-          and creating a temporary ZRAM swap space.
-        </p>
+          <div class="sidebar-category zh-text">嵌入式开发</div>
+          <div class="sidebar-category en-text">Embedded Dev</div>
+          <a href="#" class="sidebar-link">FPGA / ZYNQ</a>
+        </nav>
+      </aside>
 
-        <hr
-          style="
-            margin: 30px 0;
-            border: none;
-            border-top: 1px solid var(--border);
-          "
-        />
+      <main class="content-area">
+        <div class="card" style="cursor: default">
+          <h1 class="zh-text" style="margin-bottom: 20px">
+            低内存及受限网络 VPS 上 NixOS Anywhere 安装指南
+          </h1>
+          <h1 class="en-text" style="margin-bottom: 20px">
+            NixOS-Anywhere Installation Guide for Low-RAM & Network-Restricted
+            VPS
+          </h1>
 
-        <h2 class="zh-text">方法一：标准 kexec 流程</h2>
-        <h2 class="en-text">Method 1: Standard kexec</h2>
-        <p class="zh-text" style="opacity: 0.8">
-          适用于连接 GitHub 网络良好的海外 VPS。
-        </p>
-        <p class="en-text" style="opacity: 0.8">
-          For overseas servers with good GitHub connection.
-        </p>
+          <p class="zh-text">
+            本指南提供了一套针对低内存 VPS（如 1GB 内存）及连接 GitHub
+            网络较差的机器（如国内阿里云、腾讯云）安装 NixOS
+            的完美工作流。本方案通过分步执行、利用本地算力代工，以及在内存系统中开启
+            ZRAM 虚拟内存或手动推送镜像，完美解决了卡死问题。
+          </p>
+          <p class="en-text">
+            This guide provides a bulletproof workflow for installing NixOS on
+            low-memory VPS (e.g., 1GB RAM) and servers with restricted network
+            access to GitHub. It solves OOM errors and network timeouts by
+            splitting the installation into phases, utilizing local computation,
+            and creating a temporary ZRAM swap space.
+          </p>
 
-        <h3 class="step-title zh-text">第一步：准备工作与 SSH 密钥管理</h3>
-        <h3 class="step-title en-text">
-          Step 1: Preparation & SSH Key Management
-        </h3>
-        <pre><code>ssh-keygen -R &lt;YOUR_VPS_IP&gt;</code></pre>
+          <hr
+            style="
+              margin: 30px 0;
+              border: none;
+              border-top: 1px solid var(--border);
+            "
+          />
 
-        <h3 class="step-title zh-text">
-          第二步：注入 NixOS 内存系统 (kexec 阶段)
-        </h3>
-        <h3 class="step-title en-text">Step 2: Inject NixOS Memory System</h3>
-        <pre><code>nix run github:nix-community/nixos-anywhere -- --phases kexec --flake .#&lt;YOUR_FLAKE_HOST&gt; root@&lt;YOUR_VPS_IP&gt; --no-substitute-on-destination</code></pre>
+          <h2 class="zh-text">方法一：标准 kexec 流程</h2>
+          <h2 class="en-text">Method 1: Standard kexec</h2>
+          <p class="zh-text" style="opacity: 0.8">
+            适用于连接 GitHub 网络良好的海外 VPS。
+          </p>
+          <p class="en-text" style="opacity: 0.8">
+            For overseas servers with good GitHub connection.
+          </p>
 
-        <h3 class="step-title zh-text">
-          第三步：开启 ZRAM 极限扩容（可选但强烈建议）
-        </h3>
-        <h3 class="step-title en-text">
-          Step 3: Enable ZRAM Extreme Expansion (Recommended)
-        </h3>
-        <pre><code>mount -o remount,size=2G /nix/.rw-store
+          <h3 class="step-title zh-text">第一步：准备工作与 SSH 密钥管理</h3>
+          <h3 class="step-title en-text">
+            Step 1: Preparation & SSH Key Management
+          </h3>
+          <pre><code>ssh-keygen -R &lt;YOUR_VPS_IP&gt;</code></pre>
+
+          <h3 class="step-title zh-text">
+            第二步：注入 NixOS 内存系统 (kexec 阶段)
+          </h3>
+          <h3 class="step-title en-text">Step 2: Inject NixOS Memory System</h3>
+          <pre><code>nix run github:nix-community/nixos-anywhere -- --phases kexec --flake .#&lt;YOUR_FLAKE_HOST&gt; root@&lt;YOUR_VPS_IP&gt; --no-substitute-on-destination</code></pre>
+
+          <h3 class="step-title zh-text">
+            第三步：开启 ZRAM 极限扩容（可选但强烈建议）
+          </h3>
+          <h3 class="step-title en-text">
+            Step 3: Enable ZRAM Extreme Expansion (Recommended)
+          </h3>
+          <pre><code>mount -o remount,size=2G /nix/.rw-store
 modprobe zram
 echo zstd > /sys/block/zram0/comp_algorithm
 echo 1500M > /sys/block/zram0/disksize
@@ -100,64 +113,65 @@ mkswap /dev/zram0
 swapon /dev/zram0
 exit</code></pre>
 
-        <h3 class="step-title zh-text">第四步：执行硬盘分区与系统安装</h3>
-        <h3 class="step-title en-text">
-          Step 4: Execute Disk Formatting and Installation
-        </h3>
-        <pre><code>nix run github:nix-community/nixos-anywhere -- --phases disko,install --flake .#&lt;YOUR_FLAKE_HOST&gt; root@&lt;YOUR_VPS_IP&gt; --no-substitute-on-destination</code></pre>
+          <h3 class="step-title zh-text">第四步：执行硬盘分区与系统安装</h3>
+          <h3 class="step-title en-text">
+            Step 4: Execute Disk Formatting and Installation
+          </h3>
+          <pre><code>nix run github:nix-community/nixos-anywhere -- --phases disko,install --flake .#&lt;YOUR_FLAKE_HOST&gt; root@&lt;YOUR_VPS_IP&gt; --no-substitute-on-destination</code></pre>
 
-        <hr
-          style="
-            margin: 40px 0;
-            border: none;
-            border-top: 1px solid var(--border);
-          "
-        />
+          <hr
+            style="
+              margin: 40px 0;
+              border: none;
+              border-top: 1px solid var(--border);
+            "
+          />
 
-        <h2 class="zh-text">方法二：手动 kexec 流程 (夺舍)</h2>
-        <h2 class="en-text">Method 2: Manual kexec (For Domestic Servers)</h2>
-        <p class="zh-text" style="opacity: 0.8">
-          适用于国内云服务器等连接 GitHub 极慢的 VPS。避开 `Scheme missing`
-          报错。
-        </p>
-        <p class="en-text" style="opacity: 0.8">
-          For servers in China with poor GitHub connections. Avoids Scheme
-          missing errors.
-        </p>
+          <h2 class="zh-text">方法二：手动 kexec 流程 (夺舍)</h2>
+          <h2 class="en-text">Method 2: Manual kexec (For Domestic Servers)</h2>
+          <p class="zh-text" style="opacity: 0.8">
+            适用于国内云服务器等连接 GitHub 极慢的 VPS。避开 `Scheme missing`
+            报错。
+          </p>
+          <p class="en-text" style="opacity: 0.8">
+            For servers in China with poor GitHub connections. Avoids Scheme
+            missing errors.
+          </p>
 
-        <h3 class="step-title zh-text">第一步：在本地下载 kexec 镜像文件</h3>
-        <h3 class="step-title en-text">
-          Step 1: Download the kexec image locally
-        </h3>
-        <pre><code>curl -L https://mirror.ghproxy.com/https://github.com/nix-community/nixos-images/releases/download/nixos-25.05/nixos-kexec-installer-noninteractive-x86_64-linux.tar.gz -o nixos-kexec.tar.gz</code></pre>
+          <h3 class="step-title zh-text">第一步：在本地下载 kexec 镜像文件</h3>
+          <h3 class="step-title en-text">
+            Step 1: Download the kexec image locally
+          </h3>
+          <pre><code>curl -L https://mirror.ghproxy.com/https://github.com/nix-community/nixos-images/releases/download/nixos-25.05/nixos-kexec-installer-noninteractive-x86_64-linux.tar.gz -o nixos-kexec.tar.gz</code></pre>
 
-        <h3 class="step-title zh-text">
-          第二步：通过 SCP 将镜像手动推送到服务器
-        </h3>
-        <h3 class="step-title en-text">Step 2: SCP the image to the VPS</h3>
-        <pre><code>scp ./nixos-kexec.tar.gz root@&lt;YOUR_VPS_IP&gt;:/root/</code></pre>
+          <h3 class="step-title zh-text">
+            第二步：通过 SCP 将镜像手动推送到服务器
+          </h3>
+          <h3 class="step-title en-text">Step 2: SCP the image to the VPS</h3>
+          <pre><code>scp ./nixos-kexec.tar.gz root@&lt;YOUR_VPS_IP&gt;:/root/</code></pre>
 
-        <h3 class="step-title zh-text">第三步：SSH 登录并手动触发 kexec</h3>
-        <h3 class="step-title en-text">
-          Step 3: Trigger kexec manually via SSH
-        </h3>
-        <pre><code>ssh root@&lt;YOUR_VPS_IP&gt; "mkdir -p /root/kexec && tar -zxf /root/nixos-kexec.tar.gz -C /root/kexec && /root/kexec/kexec/run"</code></pre>
+          <h3 class="step-title zh-text">第三步：SSH 登录并手动触发 kexec</h3>
+          <h3 class="step-title en-text">
+            Step 3: Trigger kexec manually via SSH
+          </h3>
+          <pre><code>ssh root@&lt;YOUR_VPS_IP&gt; "mkdir -p /root/kexec && tar -zxf /root/nixos-kexec.tar.gz -C /root/kexec && /root/kexec/kexec/run"</code></pre>
 
-        <h3 class="step-title zh-text">第四步：执行硬盘分区与系统安装</h3>
-        <h3 class="step-title en-text">
-          Step 4: Execute Disk Formatting and Installation
-        </h3>
-        <pre><code>nix run github:nix-community/nixos-anywhere -- \
+          <h3 class="step-title zh-text">第四步：执行硬盘分区与系统安装</h3>
+          <h3 class="step-title en-text">
+            Step 4: Execute Disk Formatting and Installation
+          </h3>
+          <pre><code>nix run github:nix-community/nixos-anywhere -- \
   --flake .#&lt;YOUR_FLAKE_HOST&gt; \
   --phases disko,install \
   --no-substitute-on-destination \
   root@&lt;YOUR_VPS_IP&gt;</code></pre>
-      </main>
+        </div>
 
-      <footer>
-        <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
-        <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
-      </footer>
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
     </div>
 
     <script>
@@ -166,17 +180,15 @@ exit</code></pre>
         html.setAttribute("data-theme", "dark");
       if (localStorage.getItem("lang"))
         html.setAttribute("lang", localStorage.getItem("lang"));
-
       function toggleTheme() {
-        const isDark = html.getAttribute("data-theme") === "dark";
-        const newTheme = isDark ? "light" : "dark";
+        const newTheme =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
         html.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
       }
-
       function toggleLang() {
-        const current = html.getAttribute("lang") || "zh";
-        const newLang = current === "zh" ? "en" : "zh";
+        const newLang =
+          (html.getAttribute("lang") || "zh") === "zh" ? "en" : "zh";
         html.setAttribute("lang", newLang);
         localStorage.setItem("lang", newLang);
       }

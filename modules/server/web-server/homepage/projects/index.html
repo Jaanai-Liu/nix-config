@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | 114132 Space</title>
-    <link rel="stylesheet" href="/style.css?v=3.0" />
+    <link rel="stylesheet" href="/style.css?v=3.2" />
   </head>
   <body>
     <nav class="navbar">
@@ -19,7 +19,7 @@
             ><span class="zh-text">笔记</span
             ><span class="en-text">Notes</span></a
           >
-          <a href="/projects/" style="color: var(--accent)"
+          <a href="/projects/" class="active"
             ><span class="zh-text">项目</span
             ><span class="en-text">Projects</span></a
           >
@@ -27,29 +27,52 @@
       </div>
     </nav>
 
-    <div class="container">
-      <header>
-        <h1 class="zh-text">项目与应用</h1>
-        <h1 class="en-text">Projects & Apps</h1>
-      </header>
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS Modules</div>
+          <a href="#" class="sidebar-link">Infrastructure</a>
 
-      <section class="card-grid">
-        <a href="/projects/altitude/" class="card hover-effect">
-          <h2 class="zh-text">海拔高度表 (Altitude)</h2>
-          <h2 class="en-text">Altitude App</h2>
-          <p class="zh-text">
-            基于 Jetpack Compose 的实时高度仪，高精度 GPS 测算。
-          </p>
-          <p class="en-text">
-            Real-time altimeter built with Compose and GPS hardware data.
-          </p>
-        </a>
-      </section>
+          <div class="sidebar-category">Android (APK)</div>
+          <a href="/projects/altitude/" class="sidebar-link"
+            ><span class="zh-text">海拔高度表</span
+            ><span class="en-text">Altitude App</span></a
+          >
+        </nav>
+      </aside>
 
-      <footer>
-        <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
-        <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
-      </footer>
+      <main class="content-area">
+        <header style="margin-bottom: 30px">
+          <h1 class="zh-text">项目列表</h1>
+          <h1 class="en-text">Projects & Software</h1>
+        </header>
+
+        <section class="category-section">
+          <h2 class="category-title">Android (APK)</h2>
+          <div class="card-grid">
+            <a href="/projects/altitude/" class="card hover-effect">
+              <h2 class="zh-text">海拔高度表 (Altitude)</h2>
+              <h2 class="en-text">Altitude App</h2>
+              <p class="zh-text">
+                基于 Jetpack Compose 的实时高度仪，高精度 GPS 测算。
+              </p>
+              <p class="en-text">
+                Real-time altimeter built with Compose and GPS hardware data.
+              </p>
+            </a>
+          </div>
+        </section>
+
+        <section class="category-section">
+          <h2 class="category-title">NixOS Modules</h2>
+          <div class="card-grid"></div>
+        </section>
+
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
     </div>
 
     <script>

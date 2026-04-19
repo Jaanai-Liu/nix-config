@@ -56,7 +56,7 @@ body {
 
 .nav-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,12 +69,10 @@ body {
   text-decoration: none;
   color: var(--text);
 }
-
 .nav-links {
   display: flex;
   gap: 20px;
 }
-
 .nav-links a {
   text-decoration: none;
   color: var(--text);
@@ -84,30 +82,87 @@ body {
     opacity 0.2s,
     color 0.2s;
 }
-
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   opacity: 1;
   color: var(--accent);
 }
 
-/* 3. Layout */
+/* 3. Global Container (No Sidebar) */
 .container {
   max-width: 800px;
   margin: 0 auto;
-  /* Add padding top to account for fixed navbar */
   padding: 100px 20px 40px 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* 4. Cards & Categories */
+/* 4. Main Layout (With Sidebar) */
+.main-layout {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 20px 40px 20px;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding-right: 15px;
+  border-right: 1px solid var(--border);
+}
+.sidebar-nav {
+  list-style: none;
+}
+.sidebar-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 20px 0 10px 0;
+  letter-spacing: 1px;
+}
+.sidebar-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+.sidebar-link:hover,
+.sidebar-link.active {
+  opacity: 1;
+  background-color: var(--card-bg);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Content Area Styles */
+.content-area {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 5. Cards & Lists */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
-
 .card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
@@ -119,7 +174,6 @@ body {
   box-shadow: var(--card-shadow);
   display: block;
 }
-
 .card h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
@@ -131,14 +185,13 @@ body {
   box-shadow: var(--card-hover-shadow);
 }
 
-/* Category List Styles */
 .category-section {
   margin-bottom: 40px;
 }
 .category-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 20px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 10px;
 }
 .subcategory {
@@ -147,7 +200,7 @@ body {
   border-left: 3px solid var(--accent);
 }
 .subcategory-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 10px;
   opacity: 0.9;
 }
@@ -167,7 +220,26 @@ body {
   text-decoration: underline;
 }
 
-/* 5. Utility & Footer */
+/* 6. Markdown Content Styles (Pre / Code) */
+pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 15px 0 25px 0;
+  font-family: "Fira Code", monospace, Consolas;
+  font-size: 0.9rem;
+}
+code {
+  font-family: inherit;
+}
+.step-title {
+  margin-top: 25px;
+  color: var(--accent);
+}
+
+/* 7. Utilities & Footer */
 [lang="zh"] .en-text {
   display: none;
 }
@@ -182,8 +254,8 @@ footer {
   display: flex;
   justify-content: center;
   gap: 20px;
+  width: 100%;
 }
-
 .switch-btn {
   cursor: pointer;
   padding: 8px 16px;
@@ -192,6 +264,7 @@ footer {
   background: var(--card-bg);
   color: var(--text);
   font-size: 13px;
+  transition: all 0.2s ease;
 }
 .switch-btn:hover {
   border-color: var(--accent);
@@ -205,4 +278,25 @@ footer {
   border-radius: 6px;
   font-weight: bold;
   margin-top: 15px;
+  transition: opacity 0.2s;
+}
+.download-btn:hover {
+  opacity: 0.8;
+}
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    padding-top: 80px;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
 }

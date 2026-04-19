@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes | 114132 Space</title>
-    <link rel="stylesheet" href="/style.css?v=3.0" />
+    <link rel="stylesheet" href="/style.css?v=3.2" />
   </head>
   <body>
     <nav class="navbar">
@@ -15,7 +15,7 @@
             ><span class="zh-text">首页</span
             ><span class="en-text">Home</span></a
           >
-          <a href="/notes/" style="color: var(--accent)"
+          <a href="/notes/" class="active"
             ><span class="zh-text">笔记</span
             ><span class="en-text">Notes</span></a
           >
@@ -27,58 +27,82 @@
       </div>
     </nav>
 
-    <div class="container">
-      <header>
-        <h1 class="zh-text">个人笔记</h1>
-        <h1 class="en-text">Notes & Articles</h1>
-      </header>
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS</div>
+          <a href="/notes/anywhere/" class="sidebar-link"
+            ><span class="zh-text">Anywhere 安装</span
+            ><span class="en-text">Anywhere Install</span></a
+          >
+          <a href="#" class="sidebar-link"
+            ><span class="zh-text">桌面环境配置</span
+            ><span class="en-text">Desktop Config</span></a
+          >
 
-      <section class="category-section">
-        <h2 class="category-title">NixOS</h2>
+          <div class="sidebar-category zh-text">嵌入式开发</div>
+          <div class="sidebar-category en-text">Embedded Dev</div>
+          <a href="#" class="sidebar-link">FPGA / ZYNQ</a>
+        </nav>
+      </aside>
 
-        <div class="subcategory">
-          <h3 class="subcategory-title zh-text">系统安装相关</h3>
-          <h3 class="subcategory-title en-text">System Installation</h3>
-          <ul class="post-list">
-            <li>
-              <a href="/notes/anywhere/"
-                ><span class="zh-text"
-                  >低内存 VPS 上 NixOS Anywhere 安装指南</span
-                ><span class="en-text"
-                  >NixOS-Anywhere Installation Guide for Low-RAM VPS</span
-                ></a
-              >
-            </li>
-          </ul>
-        </div>
+      <main class="content-area">
+        <header style="margin-bottom: 30px">
+          <h1 class="zh-text">所有笔记</h1>
+          <h1 class="en-text">All Notes & Articles</h1>
+        </header>
 
-        <div class="subcategory">
-          <h3 class="subcategory-title zh-text">桌面环境配置 (Niri/Wayland)</h3>
-          <h3 class="subcategory-title en-text">Desktop Env (Niri/Wayland)</h3>
-          <ul class="post-list">
-            <li>
-              <span style="opacity: 0.5" class="zh-text">敬请期待...</span
-              ><span style="opacity: 0.5" class="en-text">Coming soon...</span>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section class="category-section">
+          <h2 class="category-title">NixOS</h2>
+          <div class="subcategory">
+            <h3 class="subcategory-title zh-text">系统安装相关</h3>
+            <h3 class="subcategory-title en-text">System Installation</h3>
+            <ul class="post-list">
+              <li>
+                <a href="/notes/anywhere/"
+                  ><span class="zh-text"
+                    >低内存 VPS 上 NixOS Anywhere 安装指南</span
+                  ><span class="en-text"
+                    >NixOS-Anywhere Installation Guide for Low-RAM VPS</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="subcategory">
+            <h3 class="subcategory-title zh-text">
+              桌面环境配置 (Niri/Wayland)
+            </h3>
+            <h3 class="subcategory-title en-text">
+              Desktop Env (Niri/Wayland)
+            </h3>
+            <ul class="post-list">
+              <li>
+                <span style="opacity: 0.5" class="zh-text">敬请期待...</span
+                ><span style="opacity: 0.5" class="en-text"
+                  >Coming soon...</span
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
 
-      <section class="category-section">
-        <h2 class="category-title zh-text">嵌入式开发</h2>
-        <h2 class="category-title en-text">Embedded Dev</h2>
-        <div class="subcategory">
-          <h3 class="subcategory-title">FPGA / ZYNQ</h3>
-          <ul class="post-list">
-            <li><span style="opacity: 0.5">Coming soon...</span></li>
-          </ul>
-        </div>
-      </section>
+        <section class="category-section">
+          <h2 class="category-title zh-text">嵌入式开发</h2>
+          <h2 class="category-title en-text">Embedded Dev</h2>
+          <div class="subcategory">
+            <h3 class="subcategory-title">FPGA / ZYNQ</h3>
+            <ul class="post-list">
+              <li><span style="opacity: 0.5">Coming soon...</span></li>
+            </ul>
+          </div>
+        </section>
 
-      <footer>
-        <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
-        <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
-      </footer>
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
     </div>
 
     <script>
