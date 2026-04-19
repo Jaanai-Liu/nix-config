@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assetto Corsa Linux Setup | 114132</title>
+    <link rel="stylesheet" href="/style.css?v=3.3" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">114132 Space</a>
+        <div class="nav-links">
+          <a href="/"
+            ><span class="zh-text">首页</span
+            ><span class="en-text">Home</span></a
+          >
+          <a href="/notes/"
+            ><span class="zh-text">笔记</span
+            ><span class="en-text">Notes</span></a
+          >
+          <a href="/projects/" class="active"
+            ><span class="zh-text">项目</span
+            ><span class="en-text">Projects</span></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS Scripts</div>
+          <a href="/projects/assetto-corsa/" class="sidebar-link active"
+            ><span class="zh-text">神力科莎部署脚本</span
+            ><span class="en-text">Assetto Corsa Setup</span></a
+          >
+
+          <div class="sidebar-category">Android (APK)</div>
+          <a href="/projects/altitude/" class="sidebar-link"
+            ><span class="zh-text">海拔高度表</span
+            ><span class="en-text">Altitude App</span></a
+          >
+        </nav>
+      </aside>
+
+      <main class="content-area">
+        <div class="card" style="cursor: default">
+          <h1 class="zh-text" style="margin-bottom: 20px">
+            🏎️ Assetto Corsa Linux Setup (NixOS Fork)
+          </h1>
+          <h1 class="en-text" style="margin-bottom: 20px">
+            🏎️ Assetto Corsa Linux Setup (NixOS Fork)
+          </h1>
+
+          <p class="zh-text">
+            这是我基于原仓库 Fork 修改的版本。增加了
+            <code>nix-shell shebang</code> 支持，去除了写死的 apt/pacman
+            依赖检查，能够自动在隔离环境中拉取运行所需依赖（wget, unzip,
+            protontricks 等），完美适配 NixOS 系统。
+          </p>
+          <p class="en-text">
+            Fork updated by Jaanai-Liu: Adds support for NixOS using the Nix
+            package manager via nix-shell shebang to automatically pull
+            dependencies in an isolated environment.
+          </p>
+
+          <hr
+            style="
+              margin: 30px 0;
+              border: none;
+              border-top: 1px solid var(--border);
+            "
+          />
+
+          <h2 class="zh-text" style="color: var(--accent); margin-bottom: 15px">
+            功能特性 (What it does)
+          </h2>
+          <h2 class="en-text" style="color: var(--accent); margin-bottom: 15px">
+            Features
+          </h2>
+
+          <ul
+            class="zh-text"
+            style="margin-left: 20px; opacity: 0.9; margin-bottom: 30px"
+          >
+            <li>自动安装 Proton-GE</li>
+            <li>安装 Content Manager 并配置环境</li>
+            <li>安装 Custom Shaders Patch (CSP)</li>
+            <li>安装 DXVK 以提升图形性能</li>
+            <li>
+              将 Content Manager 添加至 mimeapps (支持网页直接拉起服务器连接)
+            </li>
+          </ul>
+
+          <div
+            style="
+              background-color: rgba(255, 149, 0, 0.1);
+              border-left: 4px solid #ff9500;
+              padding: 15px;
+              margin-bottom: 30px;
+              border-radius: 4px;
+            "
+          >
+            <strong style="color: #ff9500"
+              >⚠️ 前置要求 (Crucial First Step)</strong
+            >
+            <p style="margin-top: 5px; font-size: 0.9rem">
+              <span class="zh-text"
+                >在运行脚本之前，你必须通过 Steam
+                至少运行一次原版游戏（使用内置的任意 Proton 版本），以生成
+                compatdata 前缀文件夹。</span
+              >
+              <span class="en-text"
+                >You must launch the vanilla game at least once via Steam (using
+                any built-in Proton) to generate the compatdata prefix before
+                running this script.</span
+              >
+            </p>
+          </div>
+
+          <h2 class="zh-text">一键安装指令</h2>
+          <h2 class="en-text">Installation Command</h2>
+          <pre><code>curl -Os https://raw.githubusercontent.com/Jaanai-Liu/assettocorsa-linux-setup/main/assettocorsa-linux-setup.sh && chmod +x assettocorsa-linux-setup.sh && ./assettocorsa-linux-setup.sh</code></pre>
+
+          <p style="margin-top: 25px; font-size: 0.9rem; opacity: 0.7">
+            <span class="zh-text">开源地址：</span>
+            <span class="en-text">Source code: </span>
+            <a
+              href="https://github.com/Jaanai-Liu/assettocorsa-linux-setup"
+              target="_blank"
+              style="color: var(--accent); font-weight: bold"
+              >Jaanai-Liu/assettocorsa-linux-setup</a
+            >
+          </p>
+        </div>
+
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const html = document.documentElement;
+      if (localStorage.getItem("theme") === "dark")
+        html.setAttribute("data-theme", "dark");
+      if (localStorage.getItem("lang"))
+        html.setAttribute("lang", localStorage.getItem("lang"));
+      function toggleTheme() {
+        const newTheme =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+      function toggleLang() {
+        const newLang =
+          (html.getAttribute("lang") || "zh") === "zh" ? "en" : "zh";
+        html.setAttribute("lang", newLang);
+        localStorage.setItem("lang", newLang);
+      }
+    </script>
+  </body>
+</html>

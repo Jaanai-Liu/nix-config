@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | 114132 Space</title>
-    <link rel="stylesheet" href="/style.css?v=3.2" />
+    <link rel="stylesheet" href="/style.css?v=3.3" />
   </head>
   <body>
     <nav class="navbar">
@@ -30,8 +30,11 @@
     <div class="main-layout">
       <aside class="sidebar">
         <nav class="sidebar-nav">
-          <div class="sidebar-category">NixOS Modules</div>
-          <a href="#" class="sidebar-link">Infrastructure</a>
+          <div class="sidebar-category">NixOS Scripts</div>
+          <a href="/projects/assetto-corsa/" class="sidebar-link"
+            ><span class="zh-text">神力科莎部署脚本</span
+            ><span class="en-text">Assetto Corsa Setup</span></a
+          >
 
           <div class="sidebar-category">Android (APK)</div>
           <a href="/projects/altitude/" class="sidebar-link"
@@ -43,7 +46,7 @@
 
       <main class="content-area">
         <header style="margin-bottom: 30px">
-          <h1 class="zh-text">项目列表</h1>
+          <h1 class="zh-text">项目与软件</h1>
           <h1 class="en-text">Projects & Software</h1>
         </header>
 
@@ -64,8 +67,20 @@
         </section>
 
         <section class="category-section">
-          <h2 class="category-title">NixOS Modules</h2>
-          <div class="card-grid"></div>
+          <h2 class="category-title">NixOS Scripts</h2>
+          <div class="card-grid">
+            <a href="/projects/assetto-corsa/" class="card hover-effect">
+              <h2 class="zh-text">Assetto Corsa Linux Setup</h2>
+              <h2 class="en-text">Assetto Corsa Linux Setup</h2>
+              <p class="zh-text">
+                在 NixOS 环境下一键部署神力科莎 (Proton, Content Manager, CSP)。
+              </p>
+              <p class="en-text">
+                One-click deployment script for Assetto Corsa on NixOS using
+                nix-shell.
+              </p>
+            </a>
+          </div>
         </section>
 
         <footer>

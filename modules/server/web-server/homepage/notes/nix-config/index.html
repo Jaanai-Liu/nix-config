@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NixOS Config | 114132 Space</title>
+    <link rel="stylesheet" href="/style.css?v=3.3" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">114132 Space</a>
+        <div class="nav-links">
+          <a href="/"
+            ><span class="zh-text">首页</span
+            ><span class="en-text">Home</span></a
+          >
+          <a href="/notes/" class="active"
+            ><span class="zh-text">笔记</span
+            ><span class="en-text">Notes</span></a
+          >
+          <a href="/projects/"
+            ><span class="zh-text">项目</span
+            ><span class="en-text">Projects</span></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-category">NixOS</div>
+          <a href="/notes/anywhere/" class="sidebar-link"
+            ><span class="zh-text">Anywhere 安装</span
+            ><span class="en-text">Anywhere Install</span></a
+          >
+          <a href="/notes/nix-config/" class="sidebar-link active"
+            ><span class="zh-text">系统与桌面配置</span
+            ><span class="en-text">System Config</span></a
+          >
+
+          <div class="sidebar-category zh-text">嵌入式开发</div>
+          <div class="sidebar-category en-text">Embedded Dev</div>
+          <a href="#" class="sidebar-link">FPGA / ZYNQ</a>
+        </nav>
+      </aside>
+
+      <main class="content-area">
+        <div class="card" style="cursor: default">
+          <h1 class="zh-text" style="margin-bottom: 20px">
+            ❄️ 我的 NixOS 声明式系统配置
+          </h1>
+          <h1 class="en-text" style="margin-bottom: 20px">
+            ❄️ My NixOS Configuration
+          </h1>
+
+          <p class="zh-text">
+            本仓库包含了我的个人模块化 NixOS 配置文件。基于 Niri
+            窗口管理器、Home-manager 以及 Agenix 进行构建。深度定制了工作流和 UI
+            体验。
+          </p>
+          <p class="en-text">
+            This repository contains my personal, modularized NixOS
+            configurations built with Niri, Home-manager, and Agenix. Deeply
+            customized for workflow and UI experience.
+          </p>
+
+          <hr
+            style="
+              margin: 30px 0;
+              border: none;
+              border-top: 1px solid var(--border);
+            "
+          />
+
+          <h2 class="zh-text" style="color: var(--accent); margin-bottom: 15px">
+            🧩 核心软件栈
+          </h2>
+          <h2 class="en-text" style="color: var(--accent); margin-bottom: 15px">
+            🧩 Software Stack
+          </h2>
+
+          <ul
+            class="zh-text"
+            style="
+              margin-left: 20px;
+              opacity: 0.9;
+              margin-bottom: 30px;
+              line-height: 1.8;
+            "
+          >
+            <li>
+              <strong>窗口管理器 (WM):</strong> Niri (滚动平铺 Wayland 合成器)
+            </li>
+            <li><strong>状态栏/Shell:</strong> Noctalia-shell</li>
+            <li><strong>终端:</strong> Kitty + Zsh + Starship Prompt</li>
+            <li><strong>编辑器:</strong> Neovim + VS Code</li>
+            <li><strong>文件管理:</strong> Yazi & nnn</li>
+            <li><strong>全局主题:</strong> Catppuccin Macchiato 配色方案</li>
+            <li>
+              <strong>密钥管理:</strong> Agenix (保护 Wi-Fi 密码与 API keys)
+            </li>
+          </ul>
+
+          <ul
+            class="en-text"
+            style="
+              margin-left: 20px;
+              opacity: 0.9;
+              margin-bottom: 30px;
+              line-height: 1.8;
+            "
+          >
+            <li>
+              <strong>Window Manager:</strong> Niri (Scrollable Tiling Wayland
+              Compositor)
+            </li>
+            <li><strong>Status Bar/Shell:</strong> Noctalia-shell</li>
+            <li><strong>Terminal:</strong> Kitty + Zsh + Starship Prompt</li>
+            <li><strong>Editor:</strong> Neovim + VS Code</li>
+            <li><strong>File Manager:</strong> Yazi & nnn</li>
+            <li><strong>Theme:</strong> Catppuccin Macchiato color palette</li>
+            <li>
+              <strong>Secrets:</strong> Agenix (protecting Wi-Fi passwords and
+              API keys)
+            </li>
+          </ul>
+
+          <div
+            style="
+              background-color: rgba(255, 59, 48, 0.1);
+              border-left: 4px solid #ff3b30;
+              padding: 15px;
+              margin-bottom: 30px;
+              border-radius: 4px;
+            "
+          >
+            <strong style="color: #ff3b30">⚠️ Critical Warnings</strong>
+            <p style="margin-top: 5px; font-size: 0.9rem">
+              <span class="zh-text"
+                >请勿直接部署此 Flake。它包含特定于硬件的配置（如 CPU 微码、GPU
+                驱动）以及需要我的私钥才能解密的 Agenix 密钥。</span
+              >
+              <span class="en-text"
+                >Do not deploy this flake directly. It contains
+                hardware-specific configurations and encrypted secrets managed
+                by Agenix that require my private keys.</span
+              >
+            </p>
+          </div>
+
+          <a
+            href="https://github.com/Jaanai-Liu/nix-config"
+            target="_blank"
+            class="download-btn"
+          >
+            <span class="zh-text">访问 GitHub 仓库源码</span>
+            <span class="en-text">View Source on GitHub</span>
+          </a>
+        </div>
+
+        <footer>
+          <button class="switch-btn" onclick="toggleTheme()">🌓 Theme</button>
+          <button class="switch-btn" onclick="toggleLang()">🌐 Language</button>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const html = document.documentElement;
+      if (localStorage.getItem("theme") === "dark")
+        html.setAttribute("data-theme", "dark");
+      if (localStorage.getItem("lang"))
+        html.setAttribute("lang", localStorage.getItem("lang"));
+      function toggleTheme() {
+        const newTheme =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+      function toggleLang() {
+        const newLang =
+          (html.getAttribute("lang") || "zh") === "zh" ? "en" : "zh";
+        html.setAttribute("lang", newLang);
+        localStorage.setItem("lang", newLang);
+      }
+    </script>
+  </body>
+</html>
