@@ -2,9 +2,11 @@
 <html lang="zh">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>114132 Space</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
+
   <body>
     <div class="container">
       <header>
@@ -17,14 +19,14 @@
       </header>
 
       <section class="card-grid">
-        <a href="/anywhere/" class="card">
+        <a href="/anywhere/" class="card hover-effect">
           <h2 class="zh-text">NixOS Anywhere 教程</h2>
           <h2 class="en-text">NixOS Anywhere Guide</h2>
           <p class="zh-text">低内存 VPS 的“夺舍”安装方案。</p>
           <p class="en-text">Bulletproof installation for low-RAM VPS.</p>
         </a>
 
-        <a href="/altitude/" class="card">
+        <a href="/altitude/" class="card hover-effect">
           <h2 class="zh-text">海拔高度表 (Altitude)</h2>
           <h2 class="en-text">Altitude App</h2>
           <p class="zh-text">基于 Jetpack Compose 的实时高度仪。</p>
@@ -39,10 +41,8 @@
     </div>
 
     <script>
-      // 主题与语言控制逻辑
       const html = document.documentElement;
 
-      // 初始化读取
       if (localStorage.getItem("theme") === "dark")
         html.setAttribute("data-theme", "dark");
       if (localStorage.getItem("lang"))

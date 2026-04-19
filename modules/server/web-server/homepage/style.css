@@ -1,115 +1,103 @@
-/* 基础全局设置，重置默认边距 */
+/* 1. 基础重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 极简暗色终端风格 */
-body {
-  background-color: #0f0f13;
-  color: #e0e0e0;
-  font-family:
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    sans-serif;
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-header {
-  margin-bottom: 50px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #ffffff;
-}
-
-.subtitle {
-  color: #888;
-  margin-top: 10px;
-}
-
-/* 网格布局：自动适应手机和电脑屏幕 */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* 纯 CSS 打造的卡片特效 */
-.card {
-  background-color: #1a1a20;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 25px;
-  text-decoration: none;
-  color: inherit;
-  /* 核心：平滑过渡动画 */
-  transition: all 0.3s ease;
-}
-
-.card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #4da6ff; /* 科技蓝 */
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #aaa;
-}
-
-/* 纯手搓特效：鼠标悬浮时光效与上浮 */
-.hover-effect:hover {
-  transform: translateY(-5px);
-  border-color: #4da6ff;
-  box-shadow: 0 8px 20px rgba(77, 166, 255, 0.15);
-}
-
-footer {
-  margin-top: 60px;
-  text-align: center;
-  color: #555;
-  font-size: 0.85rem;
-}
-
-/* 默认变量（浅色） */
+/* 2. 定义深浅双主题变量 */
 :root {
-  --bg: #ffffff;
+  --bg: #f5f5f7;
   --text: #1d1d1f;
-  --card-bg: #f5f5f7;
-  --accent: #0071e3;
+  --card-bg: #ffffff;
+  --accent: #0071e3; /* 科技蓝 */
   --border: #d2d2d7;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 8px 20px rgba(0, 113, 227, 0.15);
 }
 
-/* 深色模式变量 */
 [data-theme="dark"] {
   --bg: #000000;
   --text: #f5f5f7;
   --card-bg: #1c1c1e;
   --accent: #0a84ff;
   --border: #38383a;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 8px 20px rgba(10, 132, 255, 0.15);
 }
 
+/* 3. 全局页面样式 */
 body {
   background-color: var(--bg);
   color: var(--text);
+  /* 丝滑的深浅色切换动画 */
   transition:
-    background 0.3s,
-    color 0.3s;
+    background 0.3s ease,
+    color 0.3s ease;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-/* 隐藏不属于当前语言的内容 */
+/* Flex 布局确保 Footer 永远在最底部 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 50px;
+}
+h1 {
+  font-size: 2.5rem;
+}
+.subtitle {
+  color: #888;
+  margin-top: 10px;
+}
+
+/* 4. 卡片网格布局 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  display: block;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* 悬浮动效 */
+.hover-effect:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* 5. 多语言控制开关 */
 [lang="zh"] .en-text {
   display: none;
 }
@@ -117,11 +105,11 @@ body {
   display: none;
 }
 
-/* 底部开关栏样式 */
+/* 6. 底部 Footer & 按钮 */
 footer {
-  margin-top: 100px;
-  padding: 20px;
-  border-top: 1px solid var(--border);
+  margin-top: auto; /* 自动推到最底部 */
+  padding-top: 60px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -129,10 +117,32 @@ footer {
 
 .switch-btn {
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 8px 16px;
   border-radius: 20px;
   border: 1px solid var(--border);
   background: var(--card-bg);
   color: var(--text);
-  font-size: 12px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.switch-btn:hover {
+  border-color: var(--accent);
+}
+
+/* 下载按钮特殊样式 */
+.download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: opacity 0.2s;
+}
+.download-btn:hover {
+  opacity: 0.8;
+  color: #fff;
 }
