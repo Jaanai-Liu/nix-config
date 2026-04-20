@@ -40,14 +40,12 @@ in
       after = [ "network-online.target" ];
       wants = [ "network-online.target" ];
       serviceConfig = {
-        # ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token YOUR_TOKEN";
-        ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token eyJhIjoiYjA2YzE5MWIzMjA0OTRhMzQ3OTdlYTQ3MWIzYzYzYmEiLCJ0IjoiNDhiNDk0MzEtMTk0OC00NzdmLTgwYzYtYzUxNGIyMDkxYWVjIiwicyI6Ik5XSmlOMlJsTXpRdE1qQXhZaTAwTm1GaUxUbGlZbVl0TkRjd01EUmhOVE5rWldReiJ9";
+        EnvironmentFile = config.age.secrets."cf-tunnel-env".path;
+        ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run";
         Restart = "always";
         RestartSec = "5s";
         DynamicUser = true;
       };
     };
-
-    # networking.firewall.allowedTCPPorts = [ 80 443 ]; # 删掉或注释掉这行
   };
 }

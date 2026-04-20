@@ -34,6 +34,7 @@ in
     mail.enable = mkEnableOption "NixOS Secrets for Mail Clients";
     server.proxy.enable = mkEnableOption "NixOS Secrets for Proxy Server";
     server.siyuan.enable = mkEnableOption "NixOS Secrets for SiYuan Server";
+    server.web-server.enable = mkEnableOption "NixOS Secrets for Web Server";
   };
 
   config = mkMerge [
@@ -171,6 +172,20 @@ in
       age.secrets = {
         "siyuan-server-env" = {
           file = "${mysecrets}/secrets/siyuan-server-env.age";
+        }
+        // high_security;
+      };
+    })
+
+    # ==========================================
+    # 🌐 Web Server Secrets
+    # ==========================================
+    (mkIf cfg.server.web-server.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "cf-tunnel-env" = {
+          file = "${mysecrets}/secrets/cf-tunnel-env.age";
         }
         // high_security;
       };

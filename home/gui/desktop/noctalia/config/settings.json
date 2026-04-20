@@ -111,31 +111,20 @@
                     "unfocusedIconsOpacity": 1
                 },
                 {
-                    "colorizeIcons": false,
-                    "hideMode": "hidden",
-                    "id": "ActiveWindow",
-                    "maxWidth": 145,
-                    "scrollingMode": "hover",
-                    "showIcon": true,
-                    "showText": true,
-                    "textColor": "none",
-                    "useFixedWidth": false
-                },
-                {
                     "compactMode": false,
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 145,
+                    "maxWidth": 150,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": false,
+                    "showVisualizer": true,
                     "textColor": "none",
-                    "useFixedWidth": false,
-                    "visualizerType": "linear"
+                    "useFixedWidth": true,
+                    "visualizerType": "wave"
                 }
             ],
             "right": [
