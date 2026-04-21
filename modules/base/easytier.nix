@@ -19,17 +19,18 @@ in
       description = "EasyTier Static Virtual IP";
     };
 
-    networkName = lib.mkOption {
-      type = lib.types.str;
-      default = "zheng_net";
-      description = "EasyTier Network Name";
-    };
+    # networkName = lib.mkOption {
+    #   type = lib.types.str;
+    #   default = "zheng_net";
+    #   description = "EasyTier Network Name";
+    # };
 
-    peers = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [ myvars.networking.easytierSeed ];
-      description = "List of peers to connect to (Seed Nodes)";
-    };
+    # peers = lib.mkOption {
+    #   type = lib.types.listOf lib.types.str;
+    #   # default = [ myvars.networking.easytierSeed ];
+    #   default = [ ];
+    #   description = "List of peers to connect to (Seed Nodes)";
+    # };
 
     listeners = lib.mkOption {
       type = lib.types.listOf lib.types.str;
@@ -51,13 +52,20 @@ in
 
       script = ''
         SECRET=$(cat ${config.age.secrets."easytier-secret".path})
+        NETWORK_NAME=$(cat ${config.age.secrets."easytier-name".path})
+        PEERS_STR=$(cat ${config.age.secrets."easytier-peers".path})
+
+        PEER_ARGS=""
+        if [ -n "$PEERS_STR" ]; then
+          PEER_ARGS="--peers $PEERS_STR"
+        fi
 
         exec ${pkgs.easytier}/bin/easytier-core \
           --ipv4 ${cfg.ipv4} \
-          --network-name "${cfg.networkName}" \
+          --network-name "$NETWORK_NAME" \
           --network-secret "$SECRET" \
           ${lib.concatMapStringsSep " " (l: "--listeners ${l}") cfg.listeners} \
-          ${lib.concatMapStringsSep " " (p: "--peers ${p}") cfg.peers}
+          $PEER_ARGS
       '';
 
       serviceConfig = {

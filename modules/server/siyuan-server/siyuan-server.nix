@@ -48,7 +48,8 @@ in
         "${./siyuan-server-entry.sh}:/siyuan/entrypoint.sh:ro"
       ];
 
-      ports = [ "6806:6806" ];
+      # ports = [ "6806:6806" ];
+      ports = [ "127.0.0.1:6806:6806" ];
 
       entrypoint = "/siyuan/entrypoint.sh";
 

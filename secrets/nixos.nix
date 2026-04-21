@@ -47,8 +47,18 @@ in
       age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
       age.secrets = {
+        "easytier-name" = {
+          file = "${mysecrets}/secrets/easytier-name.age";
+        }
+        // high_security;
+
         "easytier-secret" = {
           file = "${mysecrets}/secrets/easytier-secret.age";
+        }
+        // high_security;
+
+        "easytier-peers" = {
+          file = "${mysecrets}/secrets/easytier-peers.age";
         }
         // high_security;
       };
