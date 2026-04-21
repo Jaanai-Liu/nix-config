@@ -64,7 +64,7 @@ let
     lz-vps-root = {
       ipv4 = "10.126.0.2";
       ssh.user = "root";
-    }; # 特殊用户
+    };
     lz-vps = {
       ipv4 = "10.126.0.2";
     };
@@ -78,21 +78,6 @@ let
       ipv4 = "10.126.0.21";
     };
   };
-
-  # rawPublic = {
-  #   lz-pc = {
-  #     ipv4 = "100.81.104.63";
-  #   };
-  #   lz-vps = {
-  #     ipv4 = "23.95.28.22";
-  #   };
-  #   lz-ali = {
-  #     ipv4 = "47.116.41.155";
-  #   };
-  #   lz-wsl = {
-  #     ipv4 = "100.85.72.62";
-  #   };
-  # };
 
   resolveHosts =
     rawData:
@@ -114,11 +99,8 @@ let
 
 in
 {
-  easytierSeed = "tcp://47.116.41.155:11010";
-
   hostsAddr = {
     easytier = resolvedEasytier;
-    # public = resolvedPublic;
   };
 
   sshExtraConfig = lib.attrsets.foldlAttrs (
