@@ -60,7 +60,7 @@ in
             --ipv4 ${cfg.ipv4} \
             --network-name "${cfg.networkName}" \
             --network-secret "${cfg.networkSecret}" \
-            ${lib.concatMapStringsSep " " (l: "--listener ${l}") cfg.listeners} \
+            ${lib.concatMapStringsSep " " (l: "--listeners ${l}") cfg.listeners} \
             ${lib.concatMapStringsSep " " (p: "--peers ${p}") cfg.peers}
         '';
         Restart = "always";
