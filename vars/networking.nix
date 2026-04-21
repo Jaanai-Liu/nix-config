@@ -50,9 +50,8 @@ let
     port = 22;
     user = "zheng";
   };
-in
-rec {
-  hostsAddr.easytier = {
+
+  rawEasytier = {
     lz-pc = {
       ipv4 = "10.126.0.10";
     };
@@ -65,14 +64,13 @@ rec {
     lz-vps-root = {
       ipv4 = "10.126.0.2";
       ssh.user = "root";
-    };
+    }; # 特殊用户
     lz-vps = {
       ipv4 = "10.126.0.2";
     };
     lz-ali = {
       ipv4 = "10.126.0.1";
     };
-    # 非 Nix 节点记录
     lz-android = {
       ipv4 = "10.126.0.20";
     };
@@ -81,7 +79,7 @@ rec {
     };
   };
 
-  hostsAddr.public = {
+  rawPublic = {
     lz-pc = {
       ipv4 = "100.81.104.63";
     };
@@ -96,19 +94,39 @@ rec {
     };
   };
 
-  ssh = {
-    extraConfig = lib.attrsets.foldlAttrs (
-      acc: host: val:
+  resolveHosts =
+    rawData:
+    lib.mapAttrs (
+      name: val:
       let
-        ssh = sshDefault // (if builtins.hasAttr "ssh" val then val.ssh else { });
+        customSsh = if val ? ssh then val.ssh else { };
+        mergedSsh = sshDefault // customSsh;
       in
-      acc
-      + ''
-        Host ${host}
-          HostName ${val.ipv4}
-          Port ${toString ssh.port}
-          User ${ssh.user}
-      ''
-    ) "" hostsAddr.easytier;
+      val
+      // {
+        user = mergedSsh.user;
+        port = mergedSsh.port;
+      }
+    ) rawData;
+
+  resolvedEasytier = resolveHosts rawEasytier;
+  resolvedPublic = resolveHosts rawPublic;
+
+in
+{
+  hostsAddr = {
+    easytier = resolvedEasytier;
+    public = resolvedPublic;
   };
+
+  sshExtraConfig = lib.attrsets.foldlAttrs (
+    acc: host: val:
+    acc
+    + ''
+      Host ${host}
+        HostName ${val.ipv4}
+        Port ${toString val.port}
+        User ${val.user}
+    ''
+  ) "" resolvedEasytier;
 }
