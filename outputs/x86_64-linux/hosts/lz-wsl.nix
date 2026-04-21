@@ -60,8 +60,7 @@ in
   colmena.${name} = mylib.colmenaSystem (
     systemArgs
     // {
-      # targetHost = nodeConf.ipv4;
-      targetHost = "100.85.72.62";
+      targetHost = nodeConf.ipv4;
       targetUser = nodeConf.user;
       ssh-user = nodeConf.user;
       privilegeEscalationCommand = [
