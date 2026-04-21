@@ -18,7 +18,8 @@
 }@args:
 let
   name = "lz-wsl";
-  nodeConf = myvars.networking.hostsAddr.${name};
+  # nodeConf = myvars.networking.hostsAddr.${name};
+  nodeConf = myvars.networking.hostsAddr.easytier.${name};
 
   modules = {
     nixos-modules =
@@ -38,6 +39,12 @@ let
           # modules.desktop.gaming.enable = false;
           # modules.desktop.synopsys.enable = false;
           # modules.desktop.ai.enable = false;
+
+          modules.base.easytier = {
+            enable = true;
+            ipv4 = nodeConf.ipv4;
+            peers = [ "tcp://47.116.41.155:11010" ];
+          };
         }
       ];
     home-modules = [
@@ -53,7 +60,8 @@ in
   colmena.${name} = mylib.colmenaSystem (
     systemArgs
     // {
-      targetHost = nodeConf.ipv4;
+      # targetHost = nodeConf.ipv4;
+      targetHost = "100.85.72.62";
       targetUser = nodeConf.user;
       ssh-user = nodeConf.user;
       privilegeEscalationCommand = [
