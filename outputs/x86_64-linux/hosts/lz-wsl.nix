@@ -32,6 +32,7 @@ let
         inputs.nixos-wsl.nixosModules.default
         {
           # secrets
+          modules.secrets.base.enable = true;
           modules.secrets.desktop.enable = true;
           modules.secrets.mail.enable = false;
 

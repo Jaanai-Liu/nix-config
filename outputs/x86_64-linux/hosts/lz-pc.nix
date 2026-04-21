@@ -16,7 +16,7 @@ let
   name = "lz-pc";
 
   easytierConf = myvars.networking.hostsAddr.easytier.${name};
-  aliPublicIp = myvars.networking.hostsAddr.public.lz-ali.ipv4;
+  # aliPublicIp = myvars.networking.hostsAddr.public.lz-ali.ipv4;
 
   base-modules = {
     nixos-modules =
@@ -30,6 +30,7 @@ let
         # inputs.preservation.nixosModules.preservation
         {
           # secret
+          modules.secrets.base.enable = true;
           modules.secrets.desktop.enable = true;
           modules.secrets.mail.enable = true;
 
@@ -50,7 +51,8 @@ let
           modules.base.easytier = {
             enable = true;
             ipv4 = easytierConf.ipv4;
-            peers = [ "tcp://${aliPublicIp}:11010" ];
+            # peers = [ "tcp://${aliPublicIp}:11010" ];
+            peers = [ "tcp://47.116.41.155:11010" ];
           };
         }
       ];

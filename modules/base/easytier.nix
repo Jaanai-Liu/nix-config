@@ -24,12 +24,6 @@ in
       description = "EasyTier Network Name";
     };
 
-    networkSecret = lib.mkOption {
-      type = lib.types.str;
-      default = "Zheng_Test_2026_!@#";
-      description = "EasyTier Network Secret";
-    };
-
     peers = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
@@ -53,16 +47,19 @@ in
       description = "EasyTier P2P Network Node";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
+
+      script = ''
+        SECRET=$(cat ${config.age.secrets."easytier-secret".path})
+
+        exec ${pkgs.easytier}/bin/easytier-core \
+          --ipv4 ${cfg.ipv4} \
+          --network-name "${cfg.networkName}" \
+          --network-secret "$SECRET" \
+          ${lib.concatMapStringsSep " " (l: "--listeners ${l}") cfg.listeners} \
+          ${lib.concatMapStringsSep " " (p: "--peers ${p}") cfg.peers}
+      '';
+
       serviceConfig = {
-        Type = "simple";
-        ExecStart = ''
-          ${pkgs.easytier}/bin/easytier-core \
-            --ipv4 ${cfg.ipv4} \
-            --network-name "${cfg.networkName}" \
-            --network-secret "${cfg.networkSecret}" \
-            ${lib.concatMapStringsSep " " (l: "--listeners ${l}") cfg.listeners} \
-            ${lib.concatMapStringsSep " " (p: "--peers ${p}") cfg.peers}
-        '';
         Restart = "always";
         RestartSec = "5";
       };

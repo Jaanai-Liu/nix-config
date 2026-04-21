@@ -30,6 +30,7 @@ in
   ];
 
   options.modules.secrets = {
+    base.enable = mkEnableOption "Base NixOS Secrets (All Devices)";
     desktop.enable = mkEnableOption "NixOS Secrets for Desktops";
     mail.enable = mkEnableOption "NixOS Secrets for Mail Clients";
     server.proxy.enable = mkEnableOption "NixOS Secrets for Proxy Server";
@@ -38,6 +39,20 @@ in
   };
 
   config = mkMerge [
+
+    # ==========================================
+    # 🌍 【全局基础专区】所有设备共用的机密
+    # ==========================================
+    (mkIf cfg.base.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "easytier-secret" = {
+          file = "${mysecrets}/secrets/easytier-secret.age";
+        }
+        // high_security;
+      };
+    })
 
     # ==========================================
     # 🖥️ 【台式机专区】只有开启 desktop.enable 才加载

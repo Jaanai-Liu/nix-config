@@ -35,6 +35,7 @@ let
           modules.base.ssh.harden = true;
 
           # secrets
+          modules.secrets.base.enable = true;
           modules.secrets.server.proxy.enable = true;
 
           # sing-box

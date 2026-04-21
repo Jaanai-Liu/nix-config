@@ -68,7 +68,8 @@ in
       };
     };
 
-    networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 6806 ];
+    # networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 6806 ];
     # networking.firewall.allowedTCPPorts = [ 6806 ];
+    networking.firewall.interfaces."tun0".allowedTCPPorts = [ 6806 ];
   };
 }
