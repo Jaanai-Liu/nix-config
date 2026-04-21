@@ -51,8 +51,6 @@ let
           modules.base.easytier = {
             enable = true;
             ipv4 = easytierConf.ipv4;
-            # peers = [ "tcp://${aliPublicIp}:11010" ];
-            peers = [ "tcp://47.116.41.155:11010" ];
           };
         }
       ];

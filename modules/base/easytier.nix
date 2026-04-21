@@ -3,6 +3,7 @@
   config,
   lib,
   pkgs,
+  myvars,
   ...
 }:
 
@@ -26,7 +27,7 @@ in
 
     peers = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [ ];
+      default = [ myvars.networking.easytierSeed ];
       description = "List of peers to connect to (Seed Nodes)";
     };
 

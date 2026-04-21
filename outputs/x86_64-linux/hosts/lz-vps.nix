@@ -49,7 +49,6 @@ let
           modules.base.easytier = {
             enable = true;
             ipv4 = nodeConf.ipv4;
-            peers = [ "tcp://47.116.41.155:11010" ];
           };
         }
       ];

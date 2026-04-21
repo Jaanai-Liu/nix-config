@@ -114,6 +114,8 @@ let
 
 in
 {
+  easytierSeed = "tcp://47.116.41.155:11010";
+
   hostsAddr = {
     easytier = resolvedEasytier;
     # public = resolvedPublic;
