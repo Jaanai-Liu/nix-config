@@ -18,7 +18,9 @@
 }@args:
 let
   name = "lz-ali";
-  nodeConf = myvars.networking.hostsAddr.${name};
+  # nodeConf = myvars.networking.hostsAddr.${name};
+  nodeConf = myvars.networking.hostsAddr.public.${name};
+  easytierConf = myvars.networking.hostsAddr.easytier.${name};
 
   modules = {
     nixos-modules =
@@ -37,6 +39,12 @@ let
           # modules.secrets.server.proxy.enable = true;
           modules.secrets.server.siyuan.enable = true;
           modules.secrets.server.web-server.enable = true;
+
+          # ===> EasyTier <===
+          modules.base.easytier = {
+            enable = true;
+            ipv4 = easytierConf.ipv4;
+          };
 
           # services
           # modules.services.sing-box.enable = true;

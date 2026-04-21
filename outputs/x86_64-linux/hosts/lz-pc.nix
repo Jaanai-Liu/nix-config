@@ -14,6 +14,10 @@
 }@args:
 let
   name = "lz-pc";
+
+  easytierConf = myvars.networking.hostsAddr.easytier.${name};
+  aliPublicIp = myvars.networking.hostsAddr.public.lz-ali.ipv4;
+
   base-modules = {
     nixos-modules =
       (map mylib.relativeToRoot [
@@ -41,6 +45,13 @@ let
           # server
           modules.base.ssh.harden = false;
           modules.secrets.server.proxy.enable = false;
+
+          # easytier
+          modules.base.easytier = {
+            enable = true;
+            ipv4 = easytierConf.ipv4;
+            peers = [ "tcp://${aliPublicIp}:11010" ];
+          };
         }
       ];
 
