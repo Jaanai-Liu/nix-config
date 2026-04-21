@@ -19,8 +19,8 @@
 let
   name = "lz-ali";
   # nodeConf = myvars.networking.hostsAddr.${name};
-  nodeConf = myvars.networking.hostsAddr.public.${name};
-  easytierConf = myvars.networking.hostsAddr.easytier.${name};
+  nodeConf = myvars.networking.hostsAddr.easytier.${name};
+  # easytierConf = myvars.networking.hostsAddr.easytier.${name};
 
   modules = {
     nixos-modules =
@@ -43,7 +43,7 @@ let
           # ===> EasyTier <===
           modules.base.easytier = {
             enable = true;
-            ipv4 = easytierConf.ipv4;
+            ipv4 = nodeConf.ipv4;
           };
 
           # services

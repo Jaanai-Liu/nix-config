@@ -79,20 +79,20 @@ let
     };
   };
 
-  rawPublic = {
-    lz-pc = {
-      ipv4 = "100.81.104.63";
-    };
-    lz-vps = {
-      ipv4 = "23.95.28.22";
-    };
-    lz-ali = {
-      ipv4 = "47.116.41.155";
-    };
-    lz-wsl = {
-      ipv4 = "100.85.72.62";
-    };
-  };
+  # rawPublic = {
+  #   lz-pc = {
+  #     ipv4 = "100.81.104.63";
+  #   };
+  #   lz-vps = {
+  #     ipv4 = "23.95.28.22";
+  #   };
+  #   lz-ali = {
+  #     ipv4 = "47.116.41.155";
+  #   };
+  #   lz-wsl = {
+  #     ipv4 = "100.85.72.62";
+  #   };
+  # };
 
   resolveHosts =
     rawData:
@@ -110,13 +110,13 @@ let
     ) rawData;
 
   resolvedEasytier = resolveHosts rawEasytier;
-  resolvedPublic = resolveHosts rawPublic;
+  # resolvedPublic = resolveHosts rawPublic;
 
 in
 {
   hostsAddr = {
     easytier = resolvedEasytier;
-    public = resolvedPublic;
+    # public = resolvedPublic;
   };
 
   sshExtraConfig = lib.attrsets.foldlAttrs (
