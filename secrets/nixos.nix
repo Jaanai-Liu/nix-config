@@ -92,6 +92,11 @@ in
           group = "users";
           mode = "0500";
         };
+
+        "api-keys.env" = {
+          file = "${mysecrets}/secrets/api-keys.env.age";
+        }
+        // user_readable;
       };
 
       nix.extraOptions = ''
