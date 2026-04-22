@@ -2,7 +2,8 @@
 {
   home.packages = with pkgs; [
     # vscode
-    antigravity
+    # antigravity
+    claude-code
     android-studio
     android-tools
   ];
