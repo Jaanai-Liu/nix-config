@@ -141,7 +141,7 @@ window-rule {
 window-rule {
     match app-id="wpsoffice"
     open-on-workspace "6file"
-    // open-maximized true
+    open-maximized true
 }
 window-rule {
     match app-id="gimp"
