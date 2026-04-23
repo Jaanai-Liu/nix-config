@@ -387,6 +387,10 @@ in
 
         # Digital Painting
         ".local/share/krita"
+        ".config/GIMP"
+        ".local/share/GIMP"
+        ".local/share/gimp"
+        ".local/share/kdenlive"
 
         # Japanese IME
         ".config/mozc" # used by fcitx5-mozc
@@ -409,6 +413,24 @@ in
         {
           file = ".claude.json";
           how = "bindmount";
+        }
+
+        # media
+        {
+          file = ".config/kritarc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kritadisplayrc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kdenliverc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kdeglobals";
+          how = "symlink";
         }
 
       ];

@@ -51,6 +51,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # AI coding agents
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     # Agenix - secrets manager
     agenix = {
       url = "github:ryantm/agenix";

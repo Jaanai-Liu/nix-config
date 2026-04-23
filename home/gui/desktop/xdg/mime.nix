@@ -66,6 +66,14 @@
         "image/png" = [ "imv-dir.desktop" ];
         "image/webp" = [ "imv-dir.desktop" ];
 
+        "image/arw" = [ "org.darktable.darktable.desktop" ];
+        "image/x-raw" = [ "org.darktable.arktable.desktop" ];
+        "image/x-sony-arw" = [ "org.darktable.arktable.desktop" ];
+        "image/x-adobe-dng" = [ "org.darktable.arktable.desktop" ];
+        "image/x-canon-cr2" = [ "org.darktable.arktable.desktop" ];
+        "image/x-nikon-nef" = [ "org.darktable.arktable.desktop" ];
+        "image/x-fuji-raf" = [ "org.darktable.arktable.desktop" ];
+
         "inode/directory" = [ "yazi.desktop" ];
       };
 

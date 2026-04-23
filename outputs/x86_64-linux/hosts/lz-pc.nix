@@ -10,6 +10,7 @@
   nixpkgs,
   home-manager,
   nixvim,
+  llm-agents,
   ...
 }@args:
 let
