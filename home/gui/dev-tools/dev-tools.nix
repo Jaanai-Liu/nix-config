@@ -9,6 +9,9 @@
     [
       # mitmproxy # http/https proxy tool
       # wireshark # network analyzer
+
+      antigravity
+
       android-studio
       android-tools
     ]
