@@ -38,6 +38,7 @@ in
       patch:
         schema_list:
           - schema: rime_ice
+          - schema: double_pinyin_flypy
           - schema: flypy
     '';
     "fcitx5/rime/rime_ice.custom.yaml".text = ''
