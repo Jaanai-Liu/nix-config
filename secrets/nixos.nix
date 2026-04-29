@@ -72,8 +72,8 @@ in
         agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
       ];
 
-      # age.identityPaths = [ "/persistent/etc/ssh/ssh_host_ed25519_key" ];
-      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      age.identityPaths = [ "/persistent/etc/ssh/ssh_host_ed25519_key" ];
+      #age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
       age.secrets = {
         "ssh-key.age" = {
