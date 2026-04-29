@@ -21,7 +21,8 @@ in
     virtualisation.oci-containers.backend = "docker";
 
     systemd.tmpfiles.rules = [
-      "d /var/lib/${name} 0755 1000 1000 -"
+      # "d /var/lib/${name} 0755 1000 1000 -"
+      "d /var/lib/${name} 0755 5984 5984 -"
     ];
 
     virtualisation.oci-containers.containers.${name} = {
