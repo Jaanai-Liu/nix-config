@@ -25,7 +25,8 @@ in
     ];
 
     virtualisation.oci-containers.containers.${name} = {
-      image = "couchdb:3.3.3";
+      # image = "couchdb:3.3.3";
+      image = "m.daocloud.io/docker.io/library/couchdb:3.3.3";
 
       environmentFiles = [
         config.age.secrets."obsidian-sync-env".path
