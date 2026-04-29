@@ -46,7 +46,7 @@ in
           max_age = 3600
           [couchdb]
           max_document_size = 50000000
-        ''}:/opt/couchdb/etc/local.d/10-custom.ini:ro"
+        ''}:/opt/couchdb/etc/default.d/99-cors.ini:ro"
       ];
 
       ports = [ "127.0.0.1:5984:5984" ];
