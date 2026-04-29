@@ -39,6 +39,7 @@ let
           modules.secrets.base.enable = true;
           # modules.secrets.server.proxy.enable = true;
           modules.secrets.server.siyuan.enable = true;
+          modules.secrets.server.obsidian-sync.enable = true;
           modules.secrets.server.web-server.enable = true;
 
           # ===> EasyTier <===

@@ -36,6 +36,7 @@ in
     server.proxy.enable = mkEnableOption "NixOS Secrets for Proxy Server";
     server.siyuan.enable = mkEnableOption "NixOS Secrets for SiYuan Server";
     server.web-server.enable = mkEnableOption "NixOS Secrets for Web Server";
+    server.obsidian-sync.enable = mkEnableOption "NixOS Secrets for Obsidian Sync Server";
 
     preservation.enable = mkEnableOption "whether use preservation and ephemeral root file system";
   };
@@ -215,6 +216,20 @@ in
       age.secrets = {
         "siyuan-server-env" = {
           file = "${mysecrets}/secrets/siyuan-server-env.age";
+        }
+        // high_security;
+      };
+    })
+
+    # ==========================================
+    # 📓 Obsidian Sync Server Secrets
+    # ==========================================
+    (mkIf cfg.server.obsidian-sync.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "obsidian-sync-env" = {
+          file = "${mysecrets}/secrets/obsidian-sync-env.age";
         }
         // high_security;
       };
