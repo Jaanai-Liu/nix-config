@@ -36,6 +36,8 @@ in
     server.proxy.enable = mkEnableOption "NixOS Secrets for Proxy Server";
     server.siyuan.enable = mkEnableOption "NixOS Secrets for SiYuan Server";
     server.web-server.enable = mkEnableOption "NixOS Secrets for Web Server";
+
+    preservation.enable = mkEnableOption "whether use preservation and ephemeral root file system";
   };
 
   config = mkMerge [
@@ -72,8 +74,19 @@ in
         agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
       ];
 
-      age.identityPaths = [ "/persistent/etc/ssh/ssh_host_ed25519_key" ];
-      #age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      # age.identityPaths = [ "/persistent/etc/ssh/ssh_host_ed25519_key" ];
+      # age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      age.identityPaths =
+        if cfg.preservation.enable then
+          [
+            # To decrypt secrets on boot, this key should exists when the system is booting,
+            # so we should use the real key file path(prefixed by `/persistent/`) here, instead of the path mounted by preservation.
+            "/persistent/etc/ssh/ssh_host_ed25519_key"
+          ]
+        else
+          [
+            "/etc/ssh/ssh_host_ed25519_key"
+          ];
 
       age.secrets = {
         "ssh-key.age" = {

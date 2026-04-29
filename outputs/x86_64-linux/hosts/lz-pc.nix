@@ -34,6 +34,7 @@ let
           modules.secrets.base.enable = true;
           modules.secrets.desktop.enable = true;
           modules.secrets.mail.enable = true;
+          modules.secrets.preservation.enable = true;
 
           # btrbk
           modules.btrbk.enable = true;
