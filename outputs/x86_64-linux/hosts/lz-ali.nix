@@ -50,6 +50,7 @@ let
           # services
           # modules.services.sing-box.enable = true;
           modules.services.siyuan-server.enable = true;
+          modules.services.obsidian-sync.enable = true;
           # web server
           modules.services.web-server.enable = true;
 
