@@ -22,7 +22,7 @@
       # cursor-cli
 
       claude-code
-      claude-code-router
+      # claude-code-router
 
       gemini-cli
       # opencode
@@ -30,4 +30,10 @@
       # Utilities
       rtk # CLI proxy that reduces LLM token consumption
     ]);
+
+  programs.zsh.initContent = ''
+    if [ -f "/run/agenix/api-keys.env" ]; then
+      source "/run/agenix/api-keys.env"
+    fi
+  '';
 }
