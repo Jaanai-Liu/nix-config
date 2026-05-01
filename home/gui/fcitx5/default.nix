@@ -37,11 +37,15 @@ in
     "fcitx5/rime/default.custom.yaml".text = ''
       patch:
         schema_list:
-          - schema: rime_ice
           - schema: double_pinyin_flypy
+          - schema: rime_ice
           - schema: flypy
     '';
     "fcitx5/rime/rime_ice.custom.yaml".text = ''
+      patch:
+        "menu/page_size": 9
+    '';
+    "fcitx5/rime/double_pinyin_flypy.custom.yaml".text = ''
       patch:
         "menu/page_size": 9
     '';
