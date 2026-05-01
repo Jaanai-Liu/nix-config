@@ -29,11 +29,11 @@ in
       };
 
       niri = {
-        # default = lib.mkForce [ "gtk" ];
-        default = lib.mkForce [
-          "termfilechooser"
-          "gtk"
-        ];
+        default = lib.mkForce [ "gtk" ];
+        # default = lib.mkForce [
+        #   "termfilechooser"
+        #   "gtk"
+        # ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
 
