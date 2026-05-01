@@ -9,6 +9,7 @@
 
 {
   imports = [
+    inputs.nixos-wsl.nixosModules.default
     ./nix-ld.nix
     ../../secrets/nixos.nix
     ../../modules/base

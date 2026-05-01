@@ -1,19 +1,7 @@
 # outputs/x86_64-linux/hosts/lz-pc.nix
-{
-  inputs,
-  mylib,
-  myvars,
-  pkgs-stable,
-  mysecrets,
-  agenix,
-  myfonts,
-  nixpkgs,
-  home-manager,
-  nixvim,
-  llm-agents,
-  ...
-}@args:
+{ args }:
 let
+  inherit (args) inputs mylib myvars pkgs-stable mysecrets agenix myfonts nixpkgs home-manager nixvim llm-agents;
   name = "lz-pc";
 
   easytierConf = myvars.networking.hostsAddr.easytier.${name};
@@ -27,8 +15,6 @@ let
         "secrets/nixos.nix"
       ])
       ++ [
-        inputs.disko.nixosModules.disko
-        # inputs.preservation.nixosModules.preservation
         {
           # secret
           modules.secrets.base.enable = true;
@@ -61,9 +47,7 @@ let
       (map mylib.relativeToRoot [
         "home/hosts/${name}.nix"
       ])
-      ++ [
-        inputs.nixvim.homeModules.nixvim
-      ];
+      ;
   };
 
   modules-niri = {

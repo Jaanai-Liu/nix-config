@@ -13,7 +13,7 @@
 }:
 let
   inherit (inputs) nixpkgs home-manager nixos-generators;
-  spArgs = specialArgs // {
+  spArgs = (builtins.removeAttrs specialArgs [ "lib" ]) // {
     inherit mymodules myhome;
   };
 in

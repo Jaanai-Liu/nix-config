@@ -1,22 +1,7 @@
 # outputs/x86_64-linux/hosts/lz-vps.nix
-{
-  # NOTE: the args not used in this file CAN NOT be removed!
-  # because haumea pass argument lazily,
-  # and these arguments are used in the functions like `mylib.nixosSystem`, `mylib.colmenaSystem`, etc.
-  inputs,
-  lib,
-  mylib,
-  myvars,
-  system,
-  genSpecialArgs,
-  mysecrets,
-  agenix,
-  nixpkgs,
-  home-manager,
-  nixvim,
-  ...
-}@args:
+{ args }:
 let
+  inherit (args) inputs lib mylib myvars system genSpecialArgs mysecrets agenix nixpkgs home-manager nixvim;
   name = "lz-vps";
   # nodeConf = myvars.networking.hostsAddr.${name};
   nodeConf = myvars.networking.hostsAddr.easytier.${name};
@@ -29,7 +14,6 @@ let
         "secrets/nixos.nix"
       ])
       ++ [
-        inputs.disko.nixosModules.disko
         {
           # server ssh
           modules.base.ssh.harden = true;

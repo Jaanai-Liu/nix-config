@@ -1,4 +1,6 @@
-{ mylib, ... }:
+{ inputs, mylib, ... }:
 {
-  imports = mylib.scanPaths ./.;
+  imports = mylib.scanPaths ./. ++ [
+    inputs.nixvim.homeModules.nixvim
+  ];
 }

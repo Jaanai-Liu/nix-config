@@ -7,17 +7,16 @@
   pkgs,
   myvars,
   mysecrets,
+  inputs,
   ...
 }:
 
 {
   imports = [
-    # Include the results of the hardware scan.
+    inputs.disko.nixosModules.disko
+
     ./hardware-configuration.nix
-
-    # disks
     ./disk-config.nix
-
     ./preservation.nix
   ];
   # modules.secrets.desktop.enable = true;

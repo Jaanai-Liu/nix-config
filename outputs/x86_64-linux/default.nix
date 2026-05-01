@@ -6,9 +6,11 @@
 let
   inherit (inputs) haumea;
 
+  # Wrap args into a single attribute so haumea doesn't filter
+  # individual inputs — new flake inputs flow through automatically.
   data = haumea.lib.load {
     src = ./hosts;
-    inputs = args;
+    inputs = { inherit args; };
   };
 
   dataWithoutPaths = builtins.attrValues data;
