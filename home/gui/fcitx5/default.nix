@@ -2,14 +2,7 @@
   config,
   pkgs,
   ...
-}:
-let
-  flypy-data = pkgs.runCommandLocal "rime-data-flypy" { } ''
-    mkdir -p $out/share/rime-data
-    cp -r ${./rime-data-flypy}/* $out/share/rime-data/
-  '';
-in
-{
+}: {
   xdg.configFile = {
     "fcitx5/profile" = {
       source = ./profile;
