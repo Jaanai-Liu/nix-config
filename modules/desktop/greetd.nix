@@ -23,10 +23,10 @@
     enable = true;
     settings = {
       default_session = {
-        user = "greeter";
-        # user = myvars.username;
+        # user = "greeter";
+        user = myvars.username;
 
-        # command = "/home/${myvars.username}/.wayland-session";
+        command = "/home/${myvars.username}/.wayland-session";
         # command = lib.concatStringsSep " " [
         #   "${pkgs.tuigreet}/bin/tuigreet"
         #   "--time"
@@ -39,7 +39,7 @@
         # ];
 
         # command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd /home/${myvars.username}/.wayland-session"; # start wayland session with a TUI login manager
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd /home/${myvars.username}/.wayland-session"; # start wayland session with a TUI login manager
+        # command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd /home/${myvars.username}/.wayland-session"; # start wayland session with a TUI login manager
       };
     };
   };
