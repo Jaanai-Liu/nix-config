@@ -149,7 +149,12 @@ let
       version = sources.version;
       src = fetchurl (
         {
-          curlOpts = "-A apt";
+          curlOptsList = [
+            "-A"
+            "apt"
+            "-H"
+            "Referer: https://pro-store-packages.uniontech.com/"
+          ];
         }
         // (sources.${stdenv.hostPlatform.system}
           or (throw "Unsupported system: ${stdenv.hostPlatform.system}")
