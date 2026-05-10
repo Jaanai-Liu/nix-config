@@ -21,6 +21,7 @@ window-rule {
     open-on-workspace "1terminal"
     draw-border-with-background false
     open-maximized true
+    background-effect { blur true; }
 }
 window-rule {
     match app-id="Alacritty"
@@ -28,6 +29,7 @@ window-rule {
     // opacity 0.93
     draw-border-with-background false
     open-maximized true
+    background-effect { blur true; }
 }
 window-rule {
     match app-id="kitty"
@@ -35,6 +37,7 @@ window-rule {
     // opacity 0.93
     draw-border-with-background false
     open-maximized true
+    background-effect { blur true; }
 }
 window-rule {
     match app-id="jetbrains-studio"

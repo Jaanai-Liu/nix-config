@@ -70,6 +70,15 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+// Global blur settings.
+// Blur radius/intensity is tuned here; per-window blur is enabled via window-rule background-effect.
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
