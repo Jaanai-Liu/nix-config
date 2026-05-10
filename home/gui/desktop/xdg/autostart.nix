@@ -14,7 +14,7 @@
     # "${pkgs.clash-verge-rev}/share/applications/clash-verge.desktop"
 
     # nixpaks
-    "${pkgs.firefox}/share/applications/org.mozilla.firefox.desktop"
+    # "${pkgs.firefox}/share/applications/org.mozilla.firefox.desktop"
     # "${pkgs.telegram-desktop}/share/applications/org.telegram.desktop.desktop"
   ];
   # ++ (
