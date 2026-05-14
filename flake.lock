@@ -760,11 +760,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1778664369,
-        "narHash": "sha256-U//HSS+D/k+SSqe5V5fCccG7hlj4UyMADywAGQGoQus=",
+        "lastModified": 1778769789,
+        "narHash": "sha256-dDwmwpfKKDzcuWOI1FMxJS4AK38WgkkmvBxhvlOGmZw=",
         "owner": "Jaanai-Liu",
         "repo": "wallpapers",
-        "rev": "6533bab90a8e312316b8883d8319cef0939c14cd",
+        "rev": "8e9c3ea7cd335ae388d7e094fc7089062e59bbba",
         "type": "github"
       },
       "original": {
