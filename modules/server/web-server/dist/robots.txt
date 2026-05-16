@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://astro-paper.pages.dev/sitemap-index.xml
+Sitemap: https://114132.xyz/sitemap-index.xml
