@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://astro-paper.pages.dev/sitemap-index.xml
