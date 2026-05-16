@@ -28,7 +28,7 @@ in
         # Enable Server Side Includes (SSI) to assemble HTML components automatically
         extraConfig = "ssi on;";
         locations."/" = {
-          root = "${./homepage}";
+          root = "${./dist}";
           index = "index.html";
         };
       };

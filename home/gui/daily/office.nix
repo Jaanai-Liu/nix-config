@@ -16,6 +16,8 @@
     # pkgs-stable.logseq
     # vikunja
     obsidian
+    pandoc
+    python3Packages.weasyprint
     typora
     xournalpp
     # edrawmax-cn
