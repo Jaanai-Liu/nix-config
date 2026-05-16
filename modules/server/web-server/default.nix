@@ -9,6 +9,27 @@ with lib;
 
 let
   cfg = config.modules.services.web-server;
+
+  blogDist = pkgs.stdenv.mkDerivation {
+    name = "jaanai-blog";
+    src = ./blog;
+    nativeBuildInputs = [ pkgs.nodejs_22 pkgs.pnpm ];
+    __noChroot = true;
+
+    configurePhase = ''
+      export HOME=$TMPDIR
+      pnpm config set store-dir $TMPDIR/pnpm-store
+      pnpm install --frozen-lockfile --prefer-offline
+    '';
+
+    buildPhase = ''
+      pnpm run build
+    '';
+
+    installPhase = ''
+      cp -r dist $out
+    '';
+  };
 in
 {
   options.modules.services.web-server = {
@@ -25,10 +46,9 @@ in
             port = 80;
           }
         ];
-        # Enable Server Side Includes (SSI) to assemble HTML components automatically
         extraConfig = "ssi on;";
         locations."/" = {
-          root = "${./dist}";
+          root = "${blogDist}";
           index = "index.html";
         };
       };
