@@ -103,7 +103,10 @@
     };
 
     # My blog
-    jaanai-blog.url = "path:/home/zheng/projects/jaanai-blog";
+    jaanai-blog = {
+      url = "path:/home/zheng/projects/jaanai-blog";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: import ./outputs inputs;
