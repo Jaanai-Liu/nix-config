@@ -101,6 +101,9 @@
       url = "github:Jaanai-Liu/fonts";
       flake = false;
     };
+
+    # My blog
+    jaanai-blog.url = "path:/home/zheng/projects/jaanai-blog";
   };
 
   outputs = inputs: import ./outputs inputs;

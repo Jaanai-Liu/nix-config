@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -27,7 +28,7 @@ in
         ];
         extraConfig = "ssi on;";
         locations."/" = {
-          root = "${./blog/dist}";
+          root = "${inputs.jaanai-blog.packages.${pkgs.system}.default}";
           index = "index.html";
         };
       };

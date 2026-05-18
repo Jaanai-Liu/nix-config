@@ -3,5 +3,3 @@ result
 .devenv/
 .direnv/
 
-# Blog build artifacts
-modules/server/web-server/blog/node_modules/
