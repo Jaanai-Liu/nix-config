@@ -14,23 +14,44 @@ in
   ];
 
   preservation.enable = true;
+  # pverservation required initrd using systemd.
   boot.initrd.systemd.enable = true;
 
   environment.systemPackages = [
+    # `sudo ncdu -x /`
     pkgs.ncdu
   ];
 
+  # There are two ways to clear the root filesystem on every boot:
+  ##  1. use tmpfs for /
+  ##  2. (btrfs/zfs only)take a blank snapshot of the root filesystem and revert to it on every boot via:
+  ##     boot.initrd.postDeviceCommands = ''
+  ##       mkdir -p /run/mymount
+  ##       mount -o subvol=/ /dev/disk/by-uuid/UUID /run/mymount
+  ##       btrfs subvolume delete /run/mymount
+  ##       btrfs subvolume snapshot / /run/mymount
+  ##     '';
+  #
+  #  See also https://grahamc.com/blog/erase-your-darlings/
+
+  # NOTE: preservation only mounts the directory/file list below to /persistent
+  # If the directory/file already exists in the root filesystem you should
+  # move those files/directories to /persistent first!
   preservation.preserveAt."/persistent" = {
     directories = [
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
       "/etc/nix/inputs"
-      "/etc/secureboot"
-
+      "/etc/secureboot" # lanzaboote - secure boot
+      # my secrets
       "/etc/agenix/"
+
       "/var/log"
+
+      # preserve davfs2 driver's cache to avoid large memory usage
       "/var/cache/davfs2"
 
+      # tuigreet login remember
       {
         directory = "/var/cache/tuigreet";
         user = "greeter";
@@ -46,19 +67,31 @@ in
       }
 
       "/opt"
+
+      # containers
+      # "/var/lib/docker"
       "/var/lib/cni"
       "/var/lib/containers"
+
+      # other data
       "/var/lib/flatpak"
+
+      # virtualisation
       "/var/lib/libvirt"
       "/var/lib/lxc"
       "/var/lib/lxd"
       "/var/lib/qemu"
+      # "/var/lib/waydroid"
 
+      # network
       "/var/lib/bluetooth"
       "/var/lib/NetworkManager"
       "/var/lib/iwd"
       "/var/lib/tailscale"
+      "/var/lib/netbird-homelab" # netbird's homelab client
+      "/etc/netbird-homelab"
 
+      # openlist
       {
         directory = "/var/lib/openlist";
         user = username;
@@ -67,60 +100,356 @@ in
       }
     ];
     files = [
+      # auto-generated machine ID
       {
         file = "/etc/machine-id";
         inInitrd = true;
       }
     ];
 
+    # the following directories will be passed to /persistent/home/$USER
     users.${username} = {
-      commonMountOptions = [ "x-gvfs-hide" ];
+      commonMountOptions = [
+        "x-gvfs-hide"
+      ];
 
       directories = [
+        # ======================================
+        # XDG Directories
+        # ======================================
         "Desktop"
         "Downloads"
         "Documents"
         "Music"
         "Pictures"
         "Videos"
+
+        # Keep .cache off tmpfs to avoid high RAM usage; many apps use it and it is storage-heavy.
         ".cache"
-        "work"
-        "projects"
+
+        # ======================================
+        # Codes / Work / Playground
+        # ======================================
+        "work" # for work contains a .gitconfig with my work email.
+        "projects" # for personal code
+        "SiYuan"
         "nix-config"
         "tmp"
-        ".local/share/direnv"
-        ".local/state/nix"
-        ".local/share/nix"
-        ".local/state/home-manager"
-        ".config/zsh"
+
+        # ======================================
+        # Mail
+        # ======================================
+        "Mail"
+        ".config/aerc"
+        ".offlineimap"
+        ".local/share/goimapnotify"
+
+        # ======================================
+        # media
+        # ======================================
+        ".cache/mpv"
+
+        # ======================================
+        # Office / Documents
+        # ======================================
+        ".config/Kingsoft"
+        ".local/share/Kingsoft"
+
+        # ======================================
+        # Chat files
+        # ======================================
+        "xwechat_files"
+        ".xwechat"
+
+        # ======================================
+        # fcitx5 chinese
+        # ======================================
         ".config/fcitx5"
         ".local/share/fcitx5"
-        ".gnupg"
-        ".ssh"
-        ".npm"
-        ".cargo"
-        ".m2"
+
+        # ======================================
+        # Nix / Home Manager Profiles
+        # ======================================
+        ".local/state/home-manager"
+        ".local/state/nix"
+        ".local/share/nix"
+
+        # ======================================
+        # zsh
+        # ======================================
+        ".config/zsh"
+
+        # ======================================
+        # IDE / Editors
+        # ======================================
+
+        ".local/share/direnv"
+
+        # neovim plugins
+        ".wakatime"
+
+        # vscode
+        ".vscode"
+        ".config/Code"
+
+        # cursor ai editor / cli
+        ".cursor"
+        ".config/cursor"
+        ".config/Cursor"
+
+        # ai agents
+        ".agents" # skills for all agents
+        ".config/agents"
+        ".claude"
+        ".gemini"
+        ".codex"
+        ".config/opencode"
+        ".local/share/opencode"
+        ".local/state/opencode"
+        ".kimi" # kimi-cli
+        ".context7" # up-to-date docs and code examples for for LLMs & agents
+
+        # nvim
+        ".local/share/nvim"
+        ".local/state/nvim"
+
+        # helix & steel
+        ".local/share/steel"
+
+        # Joplin
+        ".config/joplin" # tui client
+        ".config/Joplin" # joplin-desktop
+
+        # Android
+        "Android"
+        ".android"
         ".gradle"
+        ".config/Google"
+        ".local/share/Google"
+        ".cache/Google"
+        ".java"
+
+        ".local/share/jupyter"
+        ".ipython"
+
+        # ======================================
+        # Cloud Native
+        # ======================================
+        {
+          # pulumi - infrastructure as code
+          directory = ".pulumi";
+          mode = "0700";
+        }
+        {
+          directory = ".aws";
+          mode = "0700";
+        }
+        {
+          directory = ".aliyun";
+          mode = "0700";
+        }
+        {
+          directory = ".config/gcloud";
+          mode = "0700";
+        }
+        {
+          directory = ".docker";
+          mode = "0700";
+        }
+        {
+          directory = ".kube";
+          mode = "0700";
+        }
+        ".terraform.d/plugin-cache" # terraform's plugin plugin-cache
+
+        ".cache/rclone"
+
+        # ======================================
+        # language package managers
+        # ======================================
+        ".npm" # typsescript/javascript
         "go"
+        ".cargo" # rust
+        ".m2" # java maven
+        ".gradle" # java gradle
+        ".conda" # python generated by `conda-shell`
+        # python pipx
         ".local/pipx"
         ".local/bin"
+        # python uv
         ".local/share/uv"
+
+        # ======================================
+        # Security
+        # ======================================
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
+        {
+          directory = ".pki";
+          mode = "0700";
+        }
+        {
+          directory = ".local/share/password-store";
+          mode = "0700";
+        }
+        {
+          # gnmome keyrings
+          directory = ".local/share/keyrings";
+          mode = "0700";
+        }
+
+        # ======================================
+        # Games / Media
+        # ======================================
+
+        "Games"
+        ".steam"
+        ".config/blender"
+        ".config/LDtk"
+        ".config/heroic"
+        ".config/lutris"
+        ".local/share/umu"
+
+        ".local/share/Steam"
+        ".local/state/Heroic"
+
+        ".local/share/lutris"
+        ".local/share/tiled"
+        ".local/share/GOG.com"
+        ".local/share/StardewValley"
+        ".local/share/feral-interactive"
+
+        # ======================================
+        # Meeting / Remote Desktop / Recording
+        # ======================================
+        ".zoom"
+        ".config/obs-studio"
+        ".config/sunshine"
+        ".config/freerdp"
+
+        ".config/remmina"
+        ".local/share/remmina"
+
+        ".config/LarkShell"
+        ".config/bytertc"
+        ".cache/LarkShell"
+
+        # ======================================
+        # media
+        # ======================================
+        ".config/SPlayer"
+        ".config/Splayer"
+
+        # ======================================
+        # browsers
+        # ======================================
+        ".mozilla"
+        ".config/mozilla"
+        ".config/google-chrome"
+        ".config/chromium"
+
+        # ======================================
+        # CLI data
+        # ======================================
+        ".local/share/atuin"
+        ".local/share/zoxide"
+        ".local/share/direnv"
+        ".local/share/k9s"
+
+        # ======================================
+        # Containers
+        # ======================================
+        ".local/share/containers"
+        ".local/share/flatpak"
+        # flatpak/nixpak app's data
         {
           directory = ".var";
           mode = "0700";
         }
-        ".claude"
-        ".config/claude"
-        ".mozilla"
-        ".config/google-chrome"
-        ".local/share/containers"
-        ".local/share/flatpak"
+
+        # ======================================
+        # Misc
+        # ======================================
+
+        # Clash Verge Rev
+        ".local/share/io.github.clash-verge-rev.clash-verge-rev"
+        ".local/share/clash-verge"
+
+        # Audio
         ".config/pulse"
         ".local/state/wireplumber"
+
+        # Digital Painting
+        ".local/share/krita"
+        ".config/GIMP"
+        ".local/share/GIMP"
+        ".local/share/gimp"
+        ".local/share/kdenlive"
+
+        # Japanese IME
+        ".config/mozc" # used by fcitx5-mozc
+
+        ".config/nushell"
+      ];
+      files = [
+        {
+          file = ".wakatime.cfg";
+          how = "symlink";
+        }
+        {
+          file = ".config/zoomus.conf";
+          how = "symlink";
+        }
+        {
+          file = ".config/zoom.conf";
+          how = "symlink";
+        }
+        {
+          file = ".claude.json";
+          how = "bindmount";
+        }
+
+        # media
+        {
+          file = ".config/kritarc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kritadisplayrc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kdenliverc";
+          how = "symlink";
+        }
+        {
+          file = ".config/kdeglobals";
+          how = "symlink";
+        }
+
       ];
     };
   };
 
+  # Create some directories with custom permissions.
+  #
+  # In this configuration the path `/home/butz/.local` is not an immediate parent
+  # of any persisted file so it would be created with the systemd-tmpfiles default
+  # ownership `root:root` and mode `0755`. This would mean that the user `butz`
+  # could not create other files or directories inside `/home/butz/.local`.
+  #
+  # Therefore systemd-tmpfiles is used to prepare such directories with
+  # appropriate permissions.
+  #
+  # Note that immediate parent directories of persisted files can also be
+  # configured with ownership and permissions from the `parent` settings if
+  # `configureParent = true` is set for the file.
   systemd.tmpfiles.settings.preservation =
     let
       permission = {
@@ -135,10 +464,16 @@ in
       "/home/${username}/.local/share".d = permission;
       "/home/${username}/.local/state".d = permission;
       "/home/${username}/.local/state/nix".d = permission;
+      "/home/${username}/.terraform.d".d = permission;
     };
 
+  # systemd-machine-id-commit.service would fail but it is not relevant
+  # in this specific setup for a persistent machine-id so we disable it
+  #
+  # see the firstboot example below for an alternative approach
   systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
 
+  # let the service commit the transient ID to the persistent volume
   systemd.services.systemd-machine-id-commit = {
     unitConfig.ConditionPathIsMountPoint = [
       ""
