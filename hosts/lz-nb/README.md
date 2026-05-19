@@ -93,7 +93,22 @@ sudo nixos-generate-config --show-hardware-config
 
 将输出的内容替换 `hosts/lz-nb/hardware-configuration.nix` 中对应的硬件部分。
 
-#### 4.2 重新部署
+#### 4.2 补充笔记本专属硬件配置
+
+```bash
+# 触摸板型号
+cat /proc/bus/input/devices | grep -i -A5 touchpad
+libinput list-devices | grep -i -A10 touchpad
+
+# 摄像头型号
+lsusb | grep -i camera
+lspci | grep -i camera
+sudo dmesg | grep -i camera
+```
+
+根据输出，取消注释并填充 `hosts/lz-nb/hardware/touchpad.nix` 和 `camera.nix`。
+
+#### 4.3 重新部署
 
 ```bash
 # 在台式机上

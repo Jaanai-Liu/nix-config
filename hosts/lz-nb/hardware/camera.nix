@@ -1,5 +1,9 @@
-{ ... }:
-{
-  # TODO: Intel IPU6 / MIPI IR 摄像头可能需要额外固件或驱动
-  # 装完后用 `lspci` 和 `lsusb` 确认设备，再补配置
-}
+# 装完系统后，用以下命令确认摄像头型号，再取消注释并补驱动：
+#   lsusb | grep -i camera
+#   lspci | grep -i camera
+#   sudo dmesg | grep -i camera
+#
+# { ... }:
+# {
+#   # TODO: 根据摄像头型号补配置
+# }
