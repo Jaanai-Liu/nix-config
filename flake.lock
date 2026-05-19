@@ -282,6 +282,23 @@
         "type": "github"
       }
     },
+    "jaanai-blog": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779123537,
+        "narHash": "sha256-LWw+6F0gxAmGCB0bF/SYsO5WqK7J4/ifOQtScoYeylI=",
+        "path": "/home/zheng/projects/jaanai-blog",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/zheng/projects/jaanai-blog",
+        "type": "path"
+      }
+    },
     "llm-agents": {
       "inputs": {
         "blueprint": "blueprint",
@@ -637,6 +654,7 @@
         "disko": "disko",
         "haumea": "haumea",
         "home-manager": "home-manager_2",
+        "jaanai-blog": "jaanai-blog",
         "llm-agents": "llm-agents",
         "myfonts": "myfonts",
         "mysecrets": "mysecrets",
