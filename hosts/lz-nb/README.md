@@ -8,9 +8,11 @@ AMD Ryzen 7 7840HS / Radeon 780M / 14" 2K 16:10
 
 ### 0. 准备工作
 
-- [ ] 备份笔记本上的重要数据
+- [ ] 备份笔记本上的重要数据（Windows 会被清空）
 - [ ] 一个空闲 U 盘（≥4G），用于制作 NixOS 启动盘
-- [ ] 笔记本和台式机在同一局域网（或通过 Easytier 互联）
+- [ ] 笔记本和台式机在同一局域网，或通过 **Easytier** 互联（笔记本 U 盘启动后，台式机需能 `ssh root@<NB_IP>`）
+
+> **硬件**：32GB RAM + 1TB SSD，当前 disk-config 使用 4G tmpfs root + 32G swap（= 内存大小，支持休眠）+ 剩余空间全部给 btrfs，绰绰有余。
 
 ### 1. 制作 NixOS 启动 U 盘
 
