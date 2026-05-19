@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
     ./preservation.nix
+    ./hardware
   ];
 
   # Bootloader.
