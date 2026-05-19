@@ -13,13 +13,13 @@
 
 ## 💻 Hardware Overview
 
-| Host         | Type    | Specifications              | Status             |
-| ------------ | ------- | --------------------------- | ------------------ |
-| **`lz-pc`**  | Desktop | Intel i5-12400F, AMD Radeon | ✅ Active          |
-| **`lz-nb`**  | Laptop  | AMD Ryzen 7 7840HS          | _Work in Progress_ |
-| **`lz-ali`** | Server  | Aliyun ECS                  | ✅ Active          |
-| **`lz-vps`** | Server  | VPS                         | ✅ Active          |
-| **`lz-wsl`** | WSL2    | —                           | ✅ Active          |
+| Host         | Type    | Specifications                     | Status             |
+| ------------ | ------- | ---------------------------------- | ------------------ |
+| **`lz-pc`**  | Desktop | Intel i5-12400F, AMD Radeon 9060xt | ✅ Active          |
+| **`lz-nb`**  | Laptop  | AMD Ryzen 7 7840HS                 | _Work in Progress_ |
+| **`lz-ali`** | Server  | Aliyun ECS                         | ✅ Active          |
+| **`lz-vps`** | Server  | VPS                                | ✅ Active          |
+| **`lz-wsl`** | WSL2    | —                                  | ✅ Active          |
 
 ## 🧩 Software Stack
 
