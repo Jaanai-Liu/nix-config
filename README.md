@@ -13,10 +13,14 @@
 
 ## 💻 Hardware Overview
 
-| Host            | Type    | Specifications     | Status             |
-| --------------- | ------- | ------------------ | ------------------ |
-| **`lz-pc`**     | Desktop | Intel i5-12400F    | AMD Radeon GPU     |
-| **`lz-laptop`** | Laptop  | AMD Ryzen 7 7840HS | _Work in Progress_ |
+| Host            | Type    | Specifications              | Status             |
+| --------------- | ------- | --------------------------- | ------------------ |
+| **`lz-pc`**     | Desktop | Intel i5-12400F, AMD Radeon | ✅ Active          |
+| **`lz-nb`**     | Laptop  | TBD                         | _Work in Progress_ |
+| **`lz-laptop`** | Laptop  | AMD Ryzen 7 7840HS          | _Work in Progress_ |
+| **`lz-ali`**    | Server  | Aliyun ECS                  | ✅ Active          |
+| **`lz-vps`**    | Server  | VPS                         | ✅ Active          |
+| **`lz-wsl`**    | WSL2    | —                           | ✅ Active          |
 
 ## 🧩 Software Stack
 
