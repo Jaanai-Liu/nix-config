@@ -289,14 +289,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1779123537,
-        "narHash": "sha256-LWw+6F0gxAmGCB0bF/SYsO5WqK7J4/ifOQtScoYeylI=",
-        "path": "/home/zheng/projects/jaanai-blog",
-        "type": "path"
+        "lastModified": 1779162818,
+        "narHash": "sha256-pjU0V0HdVkxDx6A3kRPVg8W4JAm7Z00NTqRf6RkAybM=",
+        "owner": "Jaanai-Liu",
+        "repo": "jaanai-blog",
+        "rev": "b77faeee9fd4039e7c6f7fd81aa49837fc5fc521",
+        "type": "github"
       },
       "original": {
-        "path": "/home/zheng/projects/jaanai-blog",
-        "type": "path"
+        "owner": "Jaanai-Liu",
+        "repo": "jaanai-blog",
+        "type": "github"
       }
     },
     "llm-agents": {

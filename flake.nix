@@ -104,7 +104,7 @@
 
     # My blog
     jaanai-blog = {
-      url = "path:/home/zheng/projects/jaanai-blog";
+      url = "github:Jaanai-Liu/jaanai-blog";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
