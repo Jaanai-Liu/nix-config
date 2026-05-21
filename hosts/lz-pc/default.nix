@@ -27,8 +27,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Hibernate
-  boot.resumeDevice = "/dev/disk/by-uuid/3af88785-818d-4451-9977-9d20bea1854b";
+  # Hibernate (resume handled by disko swap.resumeDevice)
+  # boot.resumeDevice = "/dev/disk/by-uuid/3af88785-818d-4451-9977-9d20bea1854b";
   # power manage
   powerManagement.enable = true;
 
