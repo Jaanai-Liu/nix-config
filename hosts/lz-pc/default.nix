@@ -28,7 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hibernate
-  # boot.resumeDevice = "/dev/disk/by-uuid/8b14124f-e4c1-4f9d-9e9d-af852e1bc152";
+  boot.resumeDevice = "/dev/disk/by-uuid/3af88785-818d-4451-9977-9d20bea1854b";
   # power manage
   powerManagement.enable = true;
 
