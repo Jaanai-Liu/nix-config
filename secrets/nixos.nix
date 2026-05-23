@@ -98,6 +98,11 @@ in
         "github-token" = {
           file = "${mysecrets}/secrets/github-token.age";
         }
+        // user_readable;
+
+        "nix-access-tokens" = {
+          file = "${mysecrets}/secrets/nix-access-tokens.age";
+        }
         // high_security;
 
         "rclone-openlist" = {
@@ -114,16 +119,16 @@ in
       };
 
       nix.extraOptions = ''
-        !include ${config.age.secrets."github-token".path}
+        !include ${config.age.secrets."nix-access-tokens".path}
       '';
 
-      # environment.etc = {
-      #   "agenix/id_ed25519" = {
-      #     source = config.age.secrets."ssh-key.age".path;
-      #     mode = "0500";
-      #     user = myvars.username;
-      #   };
-      # };
+      environment.etc = {
+        "agenix/github-token" = {
+          source = config.age.secrets."github-token".path;
+          mode = "0400";
+          user = myvars.username;
+        };
+      };
     })
 
     # ==========================================

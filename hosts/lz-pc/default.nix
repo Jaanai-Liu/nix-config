@@ -19,7 +19,7 @@
     ./disk-config.nix
     ./preservation.nix
   ];
-  # modules.secrets.desktop.enable = true;
+  modules.secrets.desktop.enable = true;
   # modules.desktop.gaming.enable = true;
   # modules.synopsys.enable = true;
 

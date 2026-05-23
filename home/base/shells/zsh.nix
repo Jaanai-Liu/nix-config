@@ -37,6 +37,7 @@
     initContent = ''
       # PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%~%{$reset_color%} \$(git_prompt_info)"
       export TERM=xterm-256color
+      export GITHUB_TOKEN="$(cat /etc/agenix/github-token 2>/dev/null)"
 
       # Force set environment variables for input method
       #  export IM_MODULE=fcitx
