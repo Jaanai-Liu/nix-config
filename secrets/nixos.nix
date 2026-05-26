@@ -103,7 +103,7 @@ in
         "nix-access-tokens" = {
           file = "${mysecrets}/secrets/nix-access-tokens.age";
         }
-        // high_security;
+        // user_readable;
 
         "rclone-openlist" = {
           file = "${mysecrets}/secrets/rclone-openlist.age";

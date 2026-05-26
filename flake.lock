@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779612291,
-        "narHash": "sha256-fLF79hMl/fcjtvePrxLsXFl1hQZa91Yns5axagFzCM0=",
+        "lastModified": 1779800709,
+        "narHash": "sha256-Bty5zH+d/iY3w7hR9oO+YB7Mxq9FSXAJe6G0FbQ2XSc=",
         "owner": "Jaanai-Liu",
         "repo": "jaanai-blog",
-        "rev": "9d1e575e5166d9a3c942c2a29698935f7bf38996",
+        "rev": "29d794ab96dba5584a2d4425b5cde14bc7a31de1",
         "type": "github"
       },
       "original": {
@@ -344,10 +344,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1779552189,
-        "narHash": "sha256-D/QbyUdt7YQQ+xLQn8dsGcCFDDqno3v+R/1HsfEDmaM=",
+        "lastModified": 1779803461,
+        "narHash": "sha256-Y30M3JvL6mN5wK5ysulCkSdpTGUojV7AuduMAXKiHTs=",
         "ref": "refs/heads/main",
-        "rev": "d4d22139d134814397d2651dc723144528093350",
+        "rev": "1e3dddb300010675567be241e8adc05389a5979d",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Jaanai-Liu/nix-secrets.git"
