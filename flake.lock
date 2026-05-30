@@ -289,11 +289,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780147915,
-        "narHash": "sha256-xV5/KYYrmMvoWXwu9gNjY0PpzXOAJK1bnhPK3ar2cgY=",
+        "lastModified": 1780148338,
+        "narHash": "sha256-POazT+32I/jPIQg3nWCfK4SYJq3vJMdqgIpfw2aJ1lI=",
         "owner": "Jaanai-Liu",
         "repo": "jaanai-blog",
-        "rev": "57875963428db1786536fc8f31df1bc1aa7816f0",
+        "rev": "80f0ca1607ba431e19699c46695e6cb78f1a8179",
         "type": "github"
       },
       "original": {
