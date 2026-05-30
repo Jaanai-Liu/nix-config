@@ -29,6 +29,7 @@
       createDirectories = true;
       setSessionVariables = false;
       extraConfig = {
+        PROJECTS = "${config.home.homeDirectory}";
         SCREENSHOTS = "${config.xdg.userDirs.pictures}/Screenshots";
       };
     };
