@@ -46,15 +46,10 @@ in
       # my secrets
       "/etc/agenix/"
 
-      # CUPS printer definitions & PPD files (HP DeskJet 2130)
-      "/etc/cups/ppd"
-
       "/var/log"
 
       # preserve davfs2 driver's cache to avoid large memory usage
       "/var/cache/davfs2"
-      # CUPS runtime cache (printer state, job history)
-      "/var/cache/cups"
 
       # tuigreet login remember
       {
@@ -110,9 +105,6 @@ in
         file = "/etc/machine-id";
         inInitrd = true;
       }
-
-      # CUPS printer registry (HP DeskJet 2130)
-      "/etc/cups/printers.conf"
     ];
 
     # the following directories will be passed to /persistent/home/$USER
@@ -444,6 +436,19 @@ in
       ];
     };
   };
+
+  # CUPS printer persistence — symlink runtime state to /persistent.
+  # systemd-tmpfiles runs before CUPS starts, creating dirs on the
+  # persistent volume and force-symlinking /etc/cups paths to them.
+  # Without this, printers added via the CUPS web UI are lost on reboot.
+  systemd.tmpfiles.rules = [
+    "d /persistent/etc/cups 0755 root root - -"
+    "d /persistent/etc/cups/ppd 0755 root root - -"
+    "L+ /etc/cups/ppd - - - - /persistent/etc/cups/ppd"
+    "L+ /etc/cups/printers.conf - - - - /persistent/etc/cups/printers.conf"
+    "d /persistent/var/cache/cups 0755 root root - -"
+    "L+ /var/cache/cups - - - - /persistent/var/cache/cups"
+  ];
 
   # Create some directories with custom permissions.
   #
