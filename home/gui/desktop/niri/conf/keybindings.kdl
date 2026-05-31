@@ -16,8 +16,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     // Mod+Return { spawn "foot"; }
     // Mod+Shift+Return { spawn "alacritty"; }
-    mod+return { spawn "foot"; }
-    Mod+Shift+Return { spawn "kitty"; }
+    mod+return { spawn "kitty"; }
+    Mod+Shift+Return { spawn "foot"; }
 
     // Launcher
     // Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
