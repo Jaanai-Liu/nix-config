@@ -238,19 +238,18 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+    // niri 默认截图快捷键
     // Print { screenshot; }
     // Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
-    // F1 { screenshot; }
-    // //全屏截图：Ctrl + F1
-    // Ctrl+F1 { screenshot-screen; }
-    // // 窗口截图：Alt + F1 (只截取当前活动的窗口，非常干净)
-    // Alt+F1 { screenshot-window; }
+    F1 { screenshot; }
+    Ctrl+F1 { screenshot-screen; }
+    Alt+F1 { screenshot-window; }
 
     // Flameshot 截图
-    F1 { spawn "flameshot" "gui"; }
-    Ctrl+F1 { spawn "flameshot" "full"; }
-    Print { spawn "flameshot" "gui"; }
+    // F1 { spawn "flameshot" "gui"; }
+    // Ctrl+F1 { spawn "flameshot" "full"; }
+    // Print { spawn "flameshot" "gui"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

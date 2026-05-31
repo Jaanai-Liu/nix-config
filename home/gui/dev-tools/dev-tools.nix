@@ -4,16 +4,15 @@
   ...
 }:
 {
+  # ai app
   home.packages =
     with pkgs;
     [
       # mitmproxy # http/https proxy tool
       # wireshark # network analyzer
 
-      antigravity
-
-      android-studio
-      android-tools
+      # android-studio
+      # android-tools
     ]
     # AI Agent Tools
     ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
@@ -31,6 +30,7 @@
       rtk # CLI proxy that reduces LLM token consumption
     ]);
 
+  # deepseek api setting
   programs.zsh.initContent = ''
     if [ -f "/run/agenix/api-keys.env" ]; then
       source "/run/agenix/api-keys.env"

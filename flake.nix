@@ -12,7 +12,8 @@
     # Home Manager
     home-manager = {
       # url = "github:nix-community/home-manager/release-25.11";
-      url = "github:nix-community/home-manager/master";
+      # url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,10 +46,9 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    # neovim for nix
+    # neovim for nix — locked standalone flake
     nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Jaanai-Liu/nixvim";
     };
 
     # AI coding agents
