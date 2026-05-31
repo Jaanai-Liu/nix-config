@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -8,8 +8,15 @@
     variant = "";
   };
 
+  # ============================= Printer =============================
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  # HP DeskJet 2130 (USB wired) — print + scan
+  services.printing.drivers = [ pkgs.hplip ];
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.hplip ];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
