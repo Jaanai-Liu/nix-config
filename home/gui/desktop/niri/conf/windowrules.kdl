@@ -185,3 +185,8 @@ window-rule {
     open-on-workspace "0other"
 }
 
+//max windows
+window-rule {
+    match app-id="code"
+    open-maximized true
+}
