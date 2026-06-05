@@ -25,6 +25,8 @@ let
           modules.secrets.server.siyuan.enable = true;
           modules.secrets.server.obsidian-sync.enable = true;
           modules.secrets.server.web-server.enable = true;
+          modules.secrets.server.rustdesk-server.enable = true;
+          modules.secrets.server.rustdesk-api.enable = true;
 
           # ===> EasyTier <===
           modules.base.easytier = {
@@ -38,6 +40,8 @@ let
           modules.services.obsidian-sync.enable = true;
           # web server
           modules.services.web-server.enable = true;
+          modules.services.rustdesk-server.enable = true;
+          modules.services.rustdesk-api.enable = true;
 
           # btrbk
           modules.btrbk.enable = true;

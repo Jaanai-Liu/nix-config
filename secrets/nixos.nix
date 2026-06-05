@@ -37,6 +37,8 @@ in
     server.siyuan.enable = mkEnableOption "NixOS Secrets for SiYuan Server";
     server.web-server.enable = mkEnableOption "NixOS Secrets for Web Server";
     server.obsidian-sync.enable = mkEnableOption "NixOS Secrets for Obsidian Sync Server";
+    server.rustdesk-server.enable = mkEnableOption "NixOS Secrets for RustDesk Server";
+    server.rustdesk-api.enable = mkEnableOption "NixOS Secrets for RustDesk API Server";
 
     preservation.enable = mkEnableOption "whether use preservation and ephemeral root file system";
   };
@@ -235,6 +237,36 @@ in
       age.secrets = {
         "obsidian-sync-env" = {
           file = "${mysecrets}/secrets/obsidian-sync-env.age";
+        }
+        // high_security;
+      };
+    })
+
+    # ==========================================
+    # 🖥️ RustDesk Server Secrets
+    # ==========================================
+    (mkIf cfg.server.rustdesk-server.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "hbbs-conf" = {
+          file = "${mysecrets}/secrets/hbbs-conf.ini.age";
+          owner = "rustdesk";
+          group = "rustdesk";
+          mode = "0400";
+        };
+      };
+    })
+
+    # ==========================================
+    # 🌐 RustDesk API Server Secrets
+    # ==========================================
+    (mkIf cfg.server.rustdesk-api.enable {
+      age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+      age.secrets = {
+        "rustdesk-api-env" = {
+          file = "${mysecrets}/secrets/rustdesk-api-env.age";
         }
         // high_security;
       };

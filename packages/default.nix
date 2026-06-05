@@ -18,7 +18,7 @@ in
   #  useChineseVersion = true;
   # };
 
-  # rustdesk-server-pro = pkgs.callPackage ./rustdesk-server-pro { };
+  rustdesk-server-pro = pkgs.callPackage ./rustdesk-server-pro { };
 
   # canokey-manager = pkgs.callPackage ./canokey-manager { };
 
