@@ -105,7 +105,6 @@
     # My blog
     jaanai-blog = {
       url = "github:Jaanai-Liu/jaanai-blog";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
