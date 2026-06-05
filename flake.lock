@@ -353,11 +353,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1780630309,
-        "narHash": "sha256-eEqcmUoXvR9CILQPBygdPgt8IYjtvmHN6vRV2NAQXpk=",
+        "lastModified": 1780631066,
+        "narHash": "sha256-dLvP2tQQVe+jTp4LLqyezjKGpUlFrl52zDSeuIfAfWA=",
         "owner": "Jaanai-Liu",
         "repo": "jaanai-blog",
-        "rev": "2c68783b66a3b232df3a300b90d52a1d02850a9f",
+        "rev": "70b2b99f60a49748ff1b76bb123b69f504b99ce8",
         "type": "github"
       },
       "original": {
