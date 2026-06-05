@@ -332,6 +332,7 @@ in
         ".config/obs-studio"
         ".config/sunshine"
         ".config/freerdp"
+        ".config/rustdesk"
 
         ".config/remmina"
         ".local/share/remmina"
