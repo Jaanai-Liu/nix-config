@@ -31,7 +31,7 @@ let
           modules.secrets.server.proxy.enable = false;
 
           modules.base.easytier = {
-            enable = true;
+            enable = false;
             ipv4 = easytierConf.ipv4;
           };
         }

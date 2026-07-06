@@ -2,15 +2,17 @@
   config,
   pkgs,
   myvars,
+  lib,
   ...
 }:
 
 let
+  cfg = config.modules.secrets.desktop;
   username = myvars.username;
   mountPath = "/mnt/openlist";
   configPath = config.age.secrets."rclone-openlist".path;
 in
-{
+lib.mkIf cfg.enable {
   programs.fuse.userAllowOther = true;
 
   environment.systemPackages = [
