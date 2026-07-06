@@ -15,10 +15,10 @@ let
       ])
       ++ [
         {
-          modules.secrets.base.enable = true;
-          modules.secrets.desktop.enable = true;
-          modules.secrets.mail.enable = true;
-          modules.secrets.preservation.enable = true;
+          modules.secrets.base.enable = false;
+          modules.secrets.desktop.enable = false;
+          modules.secrets.mail.enable = false;
+          modules.secrets.preservation.enable = false;
 
           modules.btrbk.enable = true;
           modules.btrbk.role = "workstation";
