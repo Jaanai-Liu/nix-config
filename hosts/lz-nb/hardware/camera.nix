@@ -7,6 +7,10 @@
 #
 # NOTE: This is an RGB camera (not IR). Howdy can be fooled by a printed photo;
 #   by default the PAM control is "required" (second-factor), not "sufficient".
+#
+# After rebuild, enroll your face:  sudo howdy add
+# Test (with preview window):       sudo -E howdy test
+# Test (headless):                  sudo howdy test --plain
 
 { ... }:
 
@@ -19,4 +23,9 @@
   services.howdy.settings = {
     video.device_path = "/dev/video2";
   };
+
+  # Preserve display env vars so `sudo -E howdy test` can open the GTK preview window.
+  security.sudo.extraConfig = ''
+    Defaults env_keep += "DISPLAY WAYLAND_DISPLAY XAUTHORITY XDG_RUNTIME_DIR"
+  '';
 }

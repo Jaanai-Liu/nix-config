@@ -345,7 +345,7 @@
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
         "animationSpeed": 1,
-        "autoStartAuth": false,
+        "autoStartAuth": true,
         "avatarImage": "/home/zheng/Pictures/wallpapers/avatar/bluexiaoxin.jpg",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
