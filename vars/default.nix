@@ -28,7 +28,6 @@
   sshAuthorizedKeys = [
     # The main ssh keys for daily usage
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8B31wZficBJy4Tli3w+C0hsa7uhsMlff43JF6PSYBe zheng@lz-pc"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/P3wcnTB34/GmfDNqObV85/OdmqvRKv0fooDOZr+cj zheng@lz-nb"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZdkOnvmQOiFYyWsWKCY+yfXDGt8mdYq3jlOOyshDjW zheng@lz-wsl"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKq8ImUWo257h4mdGQ1h+/kI/iviDVn/WD+Xx9K6JPYO zheng@lz-nb"
   ];
 }

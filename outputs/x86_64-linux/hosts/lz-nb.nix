@@ -15,10 +15,10 @@ let
       ])
       ++ [
         {
-          modules.secrets.base.enable = false;
-          modules.secrets.desktop.enable = false;
-          modules.secrets.mail.enable = false;
-          modules.secrets.preservation.enable = false;
+          modules.secrets.base.enable = true;
+          modules.secrets.desktop.enable = true;
+          modules.secrets.mail.enable = true;
+          modules.secrets.preservation.enable = true;
 
           modules.btrbk.enable = true;
           modules.btrbk.role = "workstation";
@@ -31,7 +31,7 @@ let
           modules.secrets.server.proxy.enable = false;
 
           modules.base.easytier = {
-            enable = false;
+            enable = true;
             ipv4 = easytierConf.ipv4;
           };
         }
