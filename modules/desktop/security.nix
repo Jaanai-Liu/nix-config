@@ -25,11 +25,6 @@
   security.pam.services.noctalia = {
     enableGnomeKeyring = false;
     fprintAuth = false;
-    howdy = {
-      enable = true;
-      # sufficient = if face matches → done; if not → fall through to password
-      control = "sufficient";
-    };
   };
 
   security.pam.services.login.enableGnomeKeyring = true;

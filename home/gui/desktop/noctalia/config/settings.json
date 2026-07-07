@@ -70,6 +70,14 @@
         "rightClickCommand": "",
         "rightClickFollowMouse": true,
         "screenOverrides": [
+            {
+                "enabled": true,
+                "name": "eDP-1"
+            },
+            {
+                "enabled": false,
+                "name": "DP-2"
+            }
         ],
         "showCapsule": true,
         "showOnWorkspaceSwitch": true,
@@ -449,8 +457,8 @@
     },
     "network": {
         "bluetoothAutoConnect": true,
-        "bluetoothDetailsViewMode": "grid",
-        "bluetoothHideUnnamedDevices": false,
+        "bluetoothDetailsViewMode": "list",
+        "bluetoothHideUnnamedDevices": true,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,

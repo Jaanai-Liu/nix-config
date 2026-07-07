@@ -4,3 +4,10 @@ output "eDP-1" {
     transform "normal"
     position x=0 y=0
 }
+
+output "DP-2" {
+    mode "2560x1440@144.001"
+    scale 1
+    transform "normal"
+    position x=1920 y=0
+}
