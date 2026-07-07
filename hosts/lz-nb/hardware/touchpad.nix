@@ -7,8 +7,8 @@
   ...
 }:
 {
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad = {
+  services.libinput.enable = true;
+  services.libinput.touchpad = {
     naturalScrolling = true;
     tapping = true;
     tappingButtonMap = "lrm"; # 1-finger=left, 2-finger=right, 3-finger=middle
