@@ -18,6 +18,7 @@
     ./hardware-configuration.nix
     ./disk-config.nix
     ./preservation.nix
+    ./roc-audio.nix
   ];
   modules.secrets.desktop.enable = true;
   # modules.desktop.gaming.enable = true;
