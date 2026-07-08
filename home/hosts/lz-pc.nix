@@ -9,6 +9,7 @@
   imports = [
     ../../home
     # ./niri
+    ../../hosts/lz-pc/lan-mouse
   ];
 
   home.desktop.niri.enable = true;

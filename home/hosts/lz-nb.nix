@@ -10,6 +10,7 @@
     ../../home
     ../../hosts/lz-nb/scaling
     ../../hosts/lz-nb/niri/env.nix
+    ../../hosts/lz-nb/lan-mouse
   ];
 
   home.desktop.niri.enable = true;

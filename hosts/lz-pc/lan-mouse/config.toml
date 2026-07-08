@@ -1,0 +1,8 @@
+# Lan Mouse config for desktop (lz-pc).
+# Laptop (lz-nb) is to the left of the desktop screen.
+port = 4242
+
+[[clients]]
+hostname = "lz-nb"
+position = "left"
+activate_on_startup = true
