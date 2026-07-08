@@ -15,6 +15,7 @@
     ./disk-config.nix
     ./preservation.nix
     ./hardware
+    ./roc-audio.nix
   ];
 
   # Bootloader.
