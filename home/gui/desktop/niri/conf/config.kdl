@@ -3,14 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-// Environment variables set before any client starts.
-// These prefer Wayland so apps get native compositor scaling automatically.
-// Host-specific XWayland DPI hints go into env.kdl (overridden per host).
-environment {
-    MOZ_ENABLE_WAYLAND "1"
-    WINIT_UNIX_BACKEND "wayland"
-}
-
 // This is the main configuration file that includes all other config files
 include "./keybindings.kdl"
 include "./windowrules.kdl"
@@ -18,7 +10,6 @@ include "./output.kdl"
 // include "./niri-hardware.kdl"
 include "./noctalia-shell.kdl"
 include "./spawn-at-startup.kdl"
-include "./env.kdl"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
