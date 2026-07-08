@@ -40,17 +40,18 @@ in
 {
   nixosConfigurations.${name} = mylib.nixosSystem systemArgs;
 
-  colmena.${name} = mylib.colmenaSystem (
-    systemArgs
-    // {
-      targetHost = nodeConf.ipv4;
-      targetUser = nodeConf.user;
-      ssh-user = nodeConf.user;
-      privilegeEscalationCommand = [
-        "sudo"
-        "-E"
-      ];
-      tags = [ "wsl" ];
-    }
-  );
+  # colmena disabled — wsl not used atm, re-enable when needed
+  # colmena.${name} = mylib.colmenaSystem (
+  #   systemArgs
+  #   // {
+  #     targetHost = nodeConf.ipv4;
+  #     targetUser = nodeConf.user;
+  #     ssh-user = nodeConf.user;
+  #     privilegeEscalationCommand = [
+  #       "sudo"
+  #       "-E"
+  #     ];
+  #     tags = [ "wsl" ];
+  #   }
+  # );
 }
