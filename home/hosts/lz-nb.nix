@@ -2,13 +2,14 @@
   config,
   pkgs,
   myvars,
+  lib,
   ...
 }:
 
 {
   imports = [
     ../../home
-    ../../hosts/lz-nb/niri/xsettingsd.nix
+    ../../hosts/lz-nb/scaling
   ];
 
   home.desktop.niri.enable = true;
@@ -19,6 +20,11 @@
 
   xdg.configFile."niri/output.kdl".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/lz-nb/niri/output.kdl";
+
+  # Override shared env.kdl with laptop-specific Qt X11 scaling vars.
+  xdg.configFile."niri/env.kdl".source = lib.mkForce (
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/lz-nb/scaling/env.kdl"
+  );
 
   fonts.fontconfig.enable = true;
 

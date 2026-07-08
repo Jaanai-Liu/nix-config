@@ -11,7 +11,7 @@
 
   # xsettingsd config symlink — 166912 = 163 DPI × 1024 (96 × 1.7 ≈ 163)
   xdg.configFile."xsettingsd/xsettingsd.conf".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/lz-nb/niri/xsettingsd.conf";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/hosts/lz-nb/scaling/xsettingsd.conf";
 
   # systemd user service: starts after graphical session, retries until
   # xwayland-satellite brings the X server up
