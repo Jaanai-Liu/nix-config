@@ -16,6 +16,7 @@
     # theme
     "fcitx5/conf/classicui.conf" = {
       text = ''
+        PerScreenDPI=True
         Vertical Candidate List=False
         WheelForPaging=True
         Font="Noto Sans CJK SC 10"
