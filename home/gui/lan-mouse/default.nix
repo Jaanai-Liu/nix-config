@@ -6,7 +6,24 @@
   ...
 }:
 {
-  home.packages = [ pkgs.lan-mouse ];
+  home.packages = with pkgs; [
+    lan-mouse
+    xdg-desktop-portal-wlr
+  ];
+
+  xdg.configFile."lan-mouse/config.toml" = {
+    text = ''
+      port = 4242
+      capture_backend = "LayerShell"
+
+      [[clients]]
+      hostname = "lz-nb"
+      position = "left"
+      activate_on_startup = true
+
+      [authorized_fingerprints]
+    '';
+  };
 
   systemd.user.services.lan-mouse = {
     Unit = {
