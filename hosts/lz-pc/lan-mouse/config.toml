@@ -2,7 +2,7 @@ port = 4242
 
 [[clients]]
 hostname = "lz-nb"
-ips = ["192.168.1.5"]
+ips = ["10.126.0.11"]
 position = "left"
 activate_on_startup = true
 
