@@ -1,12 +1,14 @@
-# Bidirectional ROC audio sharing between lz-pc (10.126.0.10) and lz-nb (10.126.0.11)
+# Bidirectional ROC audio sharing using Easytier VPN IPs from myvars.
+# Source of truth: vars/networking.nix
 #
-# After rebuild, pavucontrol will show:
-#   "ROC to lz-nb"     — send audio to lz-nb
-#   "ROC from lz-nb"   — receive audio from lz-nb (auto-plays on local speakers)
-#
-# Usage: in pavucontrol, switch an app's output to "ROC to lz-nb" to play on the notebook.
-#        lz-nb sends audio here → "ROC from lz-nb" → your speakers.
-{ ... }:
+# After rebuild, pavucontrol shows:
+#   "ROC to lz-nb"  — send audio to notebook
+#   "ROC from lz-nb" — receive notebook audio → local speakers
+{ myvars, ... }:
+let
+  localIp = myvars.networking.hostsAddr.easytier.lz-pc.ipv4;
+  remoteIp = myvars.networking.hostsAddr.easytier.lz-nb.ipv4;
+in
 {
   services.pipewire.extraConfig.pipewire."99-roc-network" = {
     "context.modules" = [
@@ -14,7 +16,7 @@
       {
         name = "libpipewire-module-roc-source";
         args = {
-          "local.ip" = "10.126.0.10";
+          "local.ip" = localIp;
           "local.source.port" = 10001;
           "local.repair.port" = 10002;
           "sink.name" = "roc-from-lz-nb";
@@ -28,7 +30,7 @@
       {
         name = "libpipewire-module-roc-sink";
         args = {
-          "remote.ip" = "10.126.0.11";
+          "remote.ip" = remoteIp;
           "remote.source.port" = 10001;
           "remote.repair.port" = 10002;
           "sink.name" = "roc-to-lz-nb";
@@ -41,6 +43,5 @@
     ];
   };
 
-  # Allow UDP for ROC (source port + repair port)
   networking.firewall.allowedUDPPorts = [ 10001 10002 ];
 }
