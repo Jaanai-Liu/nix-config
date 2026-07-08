@@ -8,6 +8,7 @@
 {
   imports = [
     ../../home
+    ../../hosts/lz-nb/niri/xsettingsd
   ];
 
   home.desktop.niri.enable = true;
