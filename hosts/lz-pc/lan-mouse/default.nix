@@ -10,6 +10,7 @@ in
 
   xdg.configFile."lan-mouse/config.toml".text = ''
     port = 4242
+    capture_backend = "layer-shell"
 
     [[clients]]
     hostname = "lz-nb"

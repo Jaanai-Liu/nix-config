@@ -19,6 +19,7 @@ let
 in
 {
   home.pointerCursor = {
+    enable = true;
     package = cursorPackage;
     name = cursorName;
     size = cursorSize;

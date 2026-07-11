@@ -11,20 +11,6 @@
     xdg-desktop-portal-wlr
   ];
 
-  xdg.configFile."lan-mouse/config.toml" = {
-    text = ''
-      port = 4242
-      capture_backend = "LayerShell"
-
-      [[clients]]
-      hostname = "lz-nb"
-      position = "left"
-      activate_on_startup = true
-
-      [authorized_fingerprints]
-    '';
-  };
-
   systemd.user.services.lan-mouse = {
     Unit = {
       Description = "Lan Mouse — keyboard & mouse sharing daemon";
