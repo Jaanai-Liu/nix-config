@@ -204,6 +204,9 @@ in
         ".gemini"
         ".codex"
         ".config/opencode"
+
+        # lan-mouse cert (must persist to keep TLS fingerprint stable)
+        ".config/lan-mouse"
         ".local/share/opencode"
         ".local/state/opencode"
         ".kimi" # kimi-cli
