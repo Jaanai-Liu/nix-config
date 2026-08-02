@@ -53,10 +53,7 @@ in
             multiplex = {
               enabled = true;
             };
-            sniff = {
-              enabled = true;
-              route_only = true;
-            };
+            sniff = true;
           }
           {
             type = "shadowsocks";
@@ -70,10 +67,7 @@ in
               protocol = "smux";
               max_streams = 32;
             };
-            sniff = {
-              enabled = true;
-              route_only = true;
-            };
+            sniff = true;
           }
         ];
         outbounds = [
