@@ -53,7 +53,6 @@ in
             multiplex = {
               enabled = true;
               protocol = "smux";
-              max_streams = 64;
             };
             sniff = {
               enabled = true;
