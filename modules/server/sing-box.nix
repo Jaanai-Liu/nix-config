@@ -85,22 +85,7 @@ in
             type = "direct";
             tag = "direct";
           }
-          {
-            type = "block";
-            tag = "block";
-          }
         ];
-
-        route = {
-          auto_detect_interface = true;
-          rules = [
-            # Block private/local IP ranges (security)
-            {
-              ip_is_private = true;
-              outbound = "block";
-            }
-          ];
-        };
       };
     };
 
