@@ -45,8 +45,8 @@
       #  export QT_IM_MODULE=fcitx
       #  export XMODIFIERS="@im=fcitx"
 
-      function nixsw() { sudo nixos-rebuild switch --flake "/home/zheng/nix-config#lz-${1}" ; }
-      function nixbd() { sudo nixos-rebuild build --flake "/home/zheng/nix-config#lz-${1}" ; }
+      function nixsw() { sudo nixos-rebuild switch --flake "/home/zheng/nix-config#lz-''${1}" ; }
+      function nixbd() { sudo nixos-rebuild build --flake "/home/zheng/nix-config#lz-''${1}" ; }
 
       function ma() {
         if [ -z "$1" ]; then

@@ -61,7 +61,31 @@
   # Bluetooth devices automatically connect with bluetoothctl as well:
   # [bluetooth] # trust [hex-address]
   hardware.bluetooth.enable = true;
+  # BLE keyboard (K380) fast reconnection — reduce idle wake-up lag
+  hardware.bluetooth.settings = {
+    General = {
+      # Enable Fast Connectable mode so the adapter actively listens for
+      # reconnection requests from paired BLE devices (e.g. K380).
+      # This is the single most impactful setting for reconnection speed.
+      FastConnectable = "true";
+      # Privacy mode: "device" keeps a static random address so bonded
+      # peripherals can find the adapter without re-discovery.
+      Privacy = "device";
+    };
+    Policy = {
+      # More frequent reconnect attempts with shorter initial intervals.
+      # Intervals are in seconds — the first retry fires after 1s instead of
+      # the default 5-7s, dramatically cutting perceived reconnection lag.
+      ReconnectAttempts = "7";
+      ReconnectIntervals = "1,2,4,8,16,32,64";
+    };
+  };
   services.blueman.enable = true;
+
+  # Disable USB autosuspend for the Bluetooth adapter — without this the
+  # USB BT dongle/chip enters runtime suspend after ~2s of inactivity and
+  # takes several seconds to wake up when a keypress triggers reconnection.
+  boot.kernelParams = [ "btusb.enable_autosuspend=0" ];
 
   # ( Performance/Balanced/Power Saver ）
   services.power-profiles-daemon.enable = true;
