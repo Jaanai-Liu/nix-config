@@ -14,7 +14,10 @@ in
     enable = mkEnableOption "Sing-box server service";
   };
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ 443 ];
+    networking.firewall.allowedTCPPorts = [
+      443
+      8443
+    ];
     networking.firewall.allowedUDPPorts = [
       443
       8443
