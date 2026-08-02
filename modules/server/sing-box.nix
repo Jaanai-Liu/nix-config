@@ -50,10 +50,6 @@ in
                 ];
               };
             };
-            multiplex = {
-              enabled = true;
-            };
-            sniff = true;
           }
           {
             type = "shadowsocks";
@@ -62,12 +58,6 @@ in
             listen_port = 8443;
             method = "2022-blake3-aes-128-gcm";
             password._secret = config.age.secrets."sing-box-hy2-pass".path;
-            multiplex = {
-              enabled = true;
-              protocol = "smux";
-              max_streams = 32;
-            };
-            sniff = true;
           }
         ];
         outbounds = [
