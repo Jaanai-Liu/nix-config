@@ -66,6 +66,18 @@ in
             tag = "direct";
           }
         ];
+
+        route = {
+          rules = [
+            {
+              inbound = [
+                "vless-in"
+                "ss-udp-in"
+              ];
+              action = "sniff";
+            }
+          ];
+        };
       };
     };
 
