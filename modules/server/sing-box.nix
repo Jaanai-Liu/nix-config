@@ -53,7 +53,6 @@ in
             multiplex = {
               enabled = true;
               protocol = "smux";
-              max_connections = 8;
               max_streams = 64;
             };
             sniff = {
@@ -71,7 +70,6 @@ in
             multiplex = {
               enabled = true;
               protocol = "smux";
-              max_connections = 4;
               max_streams = 32;
             };
             sniff = {
