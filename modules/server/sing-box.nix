@@ -52,7 +52,6 @@ in
             };
             multiplex = {
               enabled = true;
-              protocol = "smux";
             };
             sniff = {
               enabled = true;
