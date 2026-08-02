@@ -13,7 +13,7 @@ in
   home.packages = [
     noctalia-pkg
     pkgs.qt6Packages.qt6ct
-    pkgs.app2unit
+    # pkgs.app2unit
   ]
   ++ (pkgs.lib.optionals pkgs.stdenv.isx86_64 [
     pkgs.gpu-screen-recorder
