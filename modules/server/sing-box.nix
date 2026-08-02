@@ -50,6 +50,16 @@ in
                 ];
               };
             };
+            multiplex = {
+              enabled = true;
+              protocol = "smux";
+              max_connections = 8;
+              max_streams = 64;
+            };
+            sniff = {
+              enabled = true;
+              route_only = true;
+            };
           }
           {
             type = "shadowsocks";
@@ -58,6 +68,16 @@ in
             listen_port = 8443;
             method = "2022-blake3-aes-128-gcm";
             password._secret = config.age.secrets."sing-box-hy2-pass".path;
+            multiplex = {
+              enabled = true;
+              protocol = "smux";
+              max_connections = 4;
+              max_streams = 32;
+            };
+            sniff = {
+              enabled = true;
+              route_only = true;
+            };
           }
         ];
         outbounds = [
@@ -65,7 +85,22 @@ in
             type = "direct";
             tag = "direct";
           }
+          {
+            type = "block";
+            tag = "block";
+          }
         ];
+
+        route = {
+          auto_detect_interface = true;
+          rules = [
+            # Block private/local IP ranges (security)
+            {
+              ip_is_private = true;
+              outbound = "block";
+            }
+          ];
+        };
       };
     };
 

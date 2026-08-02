@@ -26,8 +26,8 @@ let
           modules.services.sing-box.enable = true;
 
           # btrbk
-          modules.btrbk.enable = true;
-          modules.btrbk.role = "server";
+          modules.btrbk.enable = false;
+          # modules.btrbk.role = "server";
 
           # easytier
           modules.base.easytier = {
