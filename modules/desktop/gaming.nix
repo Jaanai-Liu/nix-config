@@ -44,6 +44,12 @@ in
       #   ~/.steam             - Some Symlinks & user info
       enable = true;
       package = pkgs.steam;
+      # GE-Proton: FSR4 for RDNA4 (stock Steam Proton does not support FSR4).
+      # Shows up in Steam's compatibility tool list, force it for the game and
+      # launch with: PROTON_FSR4_UPGRADE=1 %command%
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+      ];
       # https://github.com/ValveSoftware/gamescope
       # Run a GameScope driven Steam session from your display-manager
       # fix resolution upscaling and stretched aspect ratios
