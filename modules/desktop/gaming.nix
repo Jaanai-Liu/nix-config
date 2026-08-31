@@ -64,6 +64,21 @@ in
       ];
     };
 
+    # Autostart Steam on login, minimized to the system tray.
+    # The unit is deployed to /etc/systemd/user and picked up by the user
+    # session when graphical-session.target is reached.
+    systemd.user.services.steam-autostart = {
+      description = "Steam (autostart on login)";
+      after = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${getExe pkgs.steam} -silent";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+    };
+
     # see https://github.com/fufexan/nix-gaming/#pipewire-low-latency
     # services.pipewire.lowLatency.enable = true;
     # programs.steam.platformOptimizations.enable = true;
