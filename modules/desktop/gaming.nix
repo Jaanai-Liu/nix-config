@@ -67,13 +67,20 @@ in
     # Autostart Steam on login, minimized to the system tray.
     # The unit is deployed to /etc/systemd/user and picked up by the user
     # session when graphical-session.target is reached.
+    #
+    # NOTE: must use `config.programs.steam.package` (the package overridden by
+    # the nixpkgs steam module), NOT raw `pkgs.steam`. The module injects
+    # STEAM_EXTRA_COMPAT_TOOLS_PATHS (GE-Proton etc.) and the extest LD_PRELOAD
+    # via steam.override.extraEnv; raw pkgs.steam lacks them, so an autostarted
+    # Steam would never see GE-Proton in its compatibility tools list until
+    # Steam is manually restarted from the app launcher.
     systemd.user.services.steam-autostart = {
       description = "Steam (autostart on login)";
       after = [ "graphical-session.target" ];
       partOf = [ "graphical-session.target" ];
       wantedBy = [ "graphical-session.target" ];
       serviceConfig = {
-        ExecStart = "${getExe pkgs.steam} -silent";
+        ExecStart = "${getExe config.programs.steam.package} -silent";
         Restart = "on-failure";
         RestartSec = 5;
       };
