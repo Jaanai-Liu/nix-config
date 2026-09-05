@@ -8,7 +8,7 @@
 
   programs.foot = {
     # foot is designed only for Linux
-    enable = pkgs.stdenv.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux;
     # enable = true;
 
     # foot can also be run in a server mode. In this mode, one process hosts multiple windows.

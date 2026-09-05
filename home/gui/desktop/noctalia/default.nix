@@ -15,7 +15,7 @@ in
     pkgs.qt6Packages.qt6ct
     # pkgs.app2unit
   ]
-  ++ (pkgs.lib.optionals pkgs.stdenv.isx86_64 [
+  ++ (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
     pkgs.gpu-screen-recorder
   ]);
 

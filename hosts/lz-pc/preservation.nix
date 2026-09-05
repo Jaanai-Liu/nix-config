@@ -161,6 +161,7 @@ in
         "xwechat_files"
         ".xwechat"
         ".config/QQ"
+        ".local/share/TelegramDesktop"
 
         # ======================================
         # fcitx5 chinese
