@@ -127,7 +127,7 @@ window-rule {
 // Media applications - open in workspace 5
 window-rule {
     // Run music
-    match app-id="SPlayer"
+    match app-id="top.imsyy.splayer_next"
     open-on-workspace "5music"
     open-maximized true
 }
