@@ -1,5 +1,26 @@
 config_version = 14
 
+[bar.default]
+end = [
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+margin_ends = 0
+radius_top_left = 0
+radius_top_right = 0
+start = [ "launcher", "wallpaper", "workspaces", "media" ]
+
+[location]
+address = "shanghai"
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
@@ -37,8 +58,13 @@ widget_order = [ "lockscreen-login-box@DP-2" ]
         show_unlock_hint = true
         show_weather = true
 
-[theme.templates]
-community_ids = [ "pywalfox" ]
+[theme]
+builtin = "Catppuccin"
+mode = "auto"
+shell_mode = "dark"
+
+    [theme.templates]
+    community_ids = [ "pywalfox" ]
 
 [wallpaper.default]
 path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
@@ -48,3 +74,6 @@ path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
 
 [wallpaper.monitors.DP-2]
 path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
+
+[widget.clock]
+format = "{:%a %d %b %H:%M}"
