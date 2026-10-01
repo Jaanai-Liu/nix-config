@@ -1,6 +1,7 @@
 config_version = 14
 
 [bar.default]
+capsule = true
 end = [
     "tray",
     "notifications",
