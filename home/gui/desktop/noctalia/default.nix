@@ -27,15 +27,9 @@ in
     in
     {
       # NOTE: noctalia v5's Settings UI persists the whole user config (bar,
-      # theme, wallpaper paths, lockscreen widgets) to this one file,
-      # ~/.local/state/noctalia/settings.toml. Other files in that dir are
-      # runtime data (histories, caches) and stay unmanaged.
-      # v5 writes atomically through the symlink to the real file, so GUI
-      # changes land in git directly. force replaces the app-written file
-      # with the link on activation.
-      "noctalia/settings.toml" = {
-        source = mkSymlink "${confPath}/settings.toml";
-        force = true;
-      };
+      # theme, wallpaper paths, lockscreen widgets) to this one file; v5 writes
+      # atomically through the symlink to the real file, so GUI changes land
+      # in git directly.
+      "noctalia/settings.toml".source = mkSymlink "${confPath}/settings.toml";
     };
 }
