@@ -184,6 +184,7 @@ in
         # ======================================
         # noctalia
         # ======================================
+        # ".local/state/noctalia/.setup-complete"
         # NOTE: settings.toml is managed by home-manager as a symlink into
         # nix-config (home/gui/desktop/noctalia/default.nix) and recreated at
         # every boot, so it must NOT be preserved here — the preserved copy

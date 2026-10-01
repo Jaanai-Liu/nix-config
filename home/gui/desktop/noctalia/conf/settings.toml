@@ -31,9 +31,9 @@ enabled = true
 address = "shanghai"
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-2" ]
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -66,6 +66,21 @@ widget_order = [ "lockscreen-login-box@DP-2" ]
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1280.0
+    cy = 165.0
+    output = "DP-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        format = "{:%y.%m.%d %H:%M}"
+        timezone = ""
 
 [theme]
 builtin = "Catppuccin"
