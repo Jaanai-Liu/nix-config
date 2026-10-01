@@ -13,7 +13,7 @@
     # proxy
     "${pkgs.clash-verge-rev}/share/applications/clash-verge.desktop"
     # input method
-    "${pkgs.fcitx5}/share/applications/org.fcitx.Fcitx5.desktop"
+    # "${pkgs.fcitx5}/share/applications/org.fcitx.Fcitx5.desktop"
     # music player
     "${pkgs.splayer-next}/share/applications/top.imsyy.splayer_next.desktop"
     # terminal
