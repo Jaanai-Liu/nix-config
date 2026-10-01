@@ -20,15 +20,15 @@ binds {
     Mod+Shift+Return { spawn "foot"; }
 
     // Launcher
-    // Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    // Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Alt+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    XF86Search { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    // Mod+D { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    // Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Alt+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    XF86Search { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
     // Alt+Space { spawn "fuzzel"; }
 
     // Locker
-    Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+L { spawn "noctalia" "msg" "session" "lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -43,10 +43,10 @@ binds {
     // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
     // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     // XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
 
 
     // Example media keys mapping using playerctl.
@@ -55,18 +55,18 @@ binds {
     // XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     // XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     // XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia-shell ipc call media playPause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "noctalia-shell ipc call media pause"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "octalia-shell ipc call media previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia-shell ipc call media next"; }
+    XF86AudioPlay        allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+    XF86AudioStop        allow-when-locked=true { spawn "noctalia" "msg" "media" "pause"; }
+    XF86AudioPrev        allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
     // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%+"; }
     // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%-"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
 
     // keyboard backlight
     XF86KbdBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--device=kbd_backlight" "set" "10%+"; }
@@ -270,11 +270,11 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // Utility shortcuts
-    Mod+Shift+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+Shift+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
     // Mod+C { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
 
-    Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
-    Mod+E { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+S { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+    Mod+E { spawn "noctalia" "msg" "panel-toggle" "session"; }
 
     // F2 { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H%M%S').png"; }
     // F3 { spawn "sh" "-c" "f=$(mktemp /tmp/pin-XXXXXX.png); if wl-paste -t image/png > $f; then imv -b 00000000 $f; else rm $f; fi"; }

@@ -27,8 +27,10 @@ in
       confPath = "${config.home.homeDirectory}/nix-config/home/gui/desktop/noctalia";
     in
     {
-      # NOTE: use config dir as noctalia config because config is not only settings.json
-      # https://github.com/noctalia-dev/noctalia-shell/blob/main/nix/home-module.nix#L211-L220
+      # NOTE: noctalia v5 loads every *.toml in ~/.config/noctalia (this symlinked
+      # dir), then ~/.local/state/noctalia/settings.toml (Settings UI changes)
+      # overrides them. Declarative settings live in ./config/*.toml; UI changes
+      # win at runtime, sync them back here to persist them in git.
       "noctalia".source = mkSymlink "${confPath}/config";
       "qt6ct/qt6ct.conf".source = mkSymlink "${confPath}/qt6ct.conf";
     };
