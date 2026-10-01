@@ -11,4 +11,6 @@ spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "firefox"
 // spawn-at-startup "SPlayer-Next"
 spawn-at-startup "systemctl" "--user" "start" "wayland-session.target"
-spawn-at-startup "sh" "-c" "while ! noctalia msg session lock; do sleep 0.1; done"
+// 开机自动锁屏:原先是配合 greetd 自动登录用的(无认证直接进会话)。
+// 现在改成 noctalia-greeter 登录界面(登录即认证),不需要再锁一次。
+// spawn-at-startup "sh" "-c" "while ! noctalia msg session lock; do sleep 0.1; done"

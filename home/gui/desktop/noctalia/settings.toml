@@ -19,6 +19,14 @@ radius_top_left = 0
 radius_top_right = 0
 start = [ "launcher", "wallpaper", "workspaces", "media" ]
 
+[calendar]
+enabled = true
+
+    [calendar.account.1528588293]
+    provider = "icloud"
+    type = "caldav"
+    username = "1528588293@qq.com"
+
 [location]
 address = "shanghai"
 
