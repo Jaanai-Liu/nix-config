@@ -67,14 +67,17 @@ shell_mode = "dark"
     [theme.templates]
     community_ids = [ "pywalfox" ]
 
-[wallpaper.default]
-path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
+[wallpaper]
+directory = "/home/zheng/Pictures/wallpapers"
 
-[wallpaper.last]
-path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
+    [wallpaper.default]
+    path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
 
-[wallpaper.monitors.DP-2]
-path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
+    [wallpaper.last]
+    path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/zheng/Pictures/wallpapers/self/yuanyuan-guloupu.jpg"
 
 [widget.clock]
 format = "{:%a %d %b %H:%M}"
