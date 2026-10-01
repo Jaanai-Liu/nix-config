@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   xdg.configFile = {
@@ -76,4 +77,11 @@
       catppuccin-fcitx5
     ];
   };
+
+  # fcitx5 is autostarted by niri (spawn-at-startup "fcitx5" "-d"), so the
+  # fcitx5-daemon.service that i18n.inputMethod generates must not autostart
+  # via graphical-session.target too — the two instances would race, and
+  # home-manager restarts the service on every switch, fighting the one
+  # niri spawned.
+  systemd.user.services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ ];
 }
