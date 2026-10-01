@@ -1,0 +1,6 @@
+# 只跟踪声明式配置 settings.toml;其余都是运行时数据
+# (通知历史、启动历史、使用统计、下载的模板/插件缓存、迁移标记),
+# 不进 git。
+*
+!settings.toml
+!.gitignore
