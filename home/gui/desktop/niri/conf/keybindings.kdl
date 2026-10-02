@@ -242,7 +242,9 @@ binds {
     // Print { screenshot; }
     // Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
-    F1 { screenshot; }
+
+    // F1 { screenshot; }
+    F1 { spawn "noctalia" "msg" "screenshot-region"; }
     Ctrl+F1 { screenshot-screen; }
     Alt+F1 { screenshot-window; }
 
