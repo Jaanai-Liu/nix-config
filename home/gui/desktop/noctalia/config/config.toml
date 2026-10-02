@@ -1,0 +1,113 @@
+# Noctalia v5 declarative baseline.
+#
+# This file is symlinked out of store into ~/.config/noctalia/config.toml, so
+# edits hot-reload without a home-manager switch. Noctalia never rewrites files
+# in the config layer; Settings UI changes go to
+# ~/.local/state/noctalia/settings.toml, which loads after this file and wins.
+
+[accessibility]
+# Content scale for panels and other non-bar shell UI.
+ui_scale = 1.1
+
+[shell]
+font_family = "Maple Mono NF CN"
+avatar_path = "~/nix-config/_img/myself.jpg"
+# Declarative deployment: state (~/.local/state/noctalia) is not persisted, so do
+# not auto-open the first-run wizard every boot.
+setup_wizard_enabled = false
+
+[shell.screenshot]
+# Capture a region, then open the built-in annotation editor (replaces grim/slurp/satty).
+annotate = true
+directory = "~/Pictures/Screenshots"
+
+# On-screen display popups: move the input-method/keyboard-layout OSD (shown on
+# every IM change, e.g. focusing an input box) out of the top-center lane and
+# pair it with notifications in the top-right corner. Also moves volume,
+# brightness, and the other OSD kinds; notifications keep their own position.
+[osd]
+position = "top_right"
+
+[theme]
+source = "builtin"
+builtin = "Catppuccin"
+# Follow the sunrise/sunset schedule from [location].
+mode = "auto"
+
+# Application theming is managed by catppuccin/nix, so Noctalia templates stay off.
+[theme.templates]
+enable_builtin_templates = false
+enable_community_templates = false
+
+[wallpaper]
+directory = "/home/ryan/Pictures/Wallpapers"
+
+[wallpaper.automation]
+enabled = true
+interval_seconds = 600
+
+[wallpaper.default]
+path = "/home/ryan/Pictures/Wallpapers/rolling-girls_lalala.png"
+
+[location]
+address = "Changsha"
+
+[weather]
+enabled = true
+
+# Eye protection: hold the warm night temperature all the time.
+[nightlight]
+enabled = true
+force = true
+
+[bar.main]
+# Too transparent and dark wallpapers show through the light-mode surface,
+# making the dark light-mode text unreadable; keep enough fill for contrast.
+background_opacity = 0.61
+# Text-only bump; `scale` would enlarge glyphs and spacing too.
+font_scale = 1.1
+# Widen the bar body so the centered clock clears the end-lane media widget: the
+# default 100 left too little room once the sysmon widgets and dated clock landed.
+margin_ends = 20
+# Keep the default sections and append resource/network monitors after the
+# workspaces, mirroring the old v4 SystemMonitor widget.
+start = [ "launcher", "wallpaper", "workspaces", "cpu", "ram", "disk", "net_rx", "net_tx" ]
+
+# Clock: year-month-day first, then full English weekday and 24h time
+# (e.g. "2026-09-19 Saturday 16:06"). Weekday names follow LC_TIME.
+[widget.clock]
+type = "clock"
+format = "{:%Y-%m-%d %A %H:%M}"
+
+# Media: hide when idle instead of showing the "Nothing Playing" placeholder.
+[widget.media]
+hide_when_no_media = true
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_pct"
+
+[widget.disk]
+type = "sysmon"
+stat = "disk_used_pct"
+path = "/persistent"
+
+# Download/upload throughput; compact units ("1.2M") keep the width stable.
+[widget.net_rx]
+type = "sysmon"
+stat = "net_rx"
+network_speed_compact = true
+
+[widget.net_tx]
+type = "sysmon"
+stat = "net_tx"
+network_speed_compact = true
+
+# Network: keep the status glyph but drop the SSID/interface text, which is too
+# long for the bar. Hover tooltip still shows the full network name.
+[widget.network]
+show_label = false
