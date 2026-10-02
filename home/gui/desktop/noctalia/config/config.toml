@@ -120,10 +120,11 @@ refresh_minutes = 15
 
 [calendar.account.icloud_cn]
 type = "caldav"
-name = "iCloud 云上贵州"
+name = "Personal iCloud"
 provider = "custom"
 server_url = "https://caldav.icloud.com.cn/"
 username = "1528588293@qq.com"
+color = "primary"
 calendars = []
 credential_source = "file"
 password_file = "/run/agenix/icloud-password"
