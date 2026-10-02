@@ -54,9 +54,9 @@
   environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
   # make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
   # discard all the default paths, and only use the one from this flake.
-  # nix.settings.nixPath = lib.mkForce [ "/etc/nix/inputs" ];
+  nix.settings.nix-path = lib.mkForce [ "/etc/nix/inputs" ];
   # https://github.com/NixOS/nix/issues/9574
-  nix.settings.nix-path = lib.mkForce [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+  # nix.settings.nix-path = lib.mkForce [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
 
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
