@@ -18,10 +18,10 @@
     obsidian
     pandoc
     python3Packages.weasyprint
-    typora
+    # typora
     xournalpp
     # edrawmax-cn
-    siyuan
+    # siyuan
     tesseract # for siyuan OCR, ~1GB space consumption
     drawio
   ];
