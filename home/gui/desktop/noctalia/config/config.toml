@@ -11,7 +11,7 @@ ui_scale = 1.1
 
 [shell]
 font_family = "Maple Mono NF CN"
-avatar_path = "~/nix-config/_img/myself.jpg"
+avatar_path = "~/Documents/wallpapers/avatar/bluexiaoxin.jpg"
 # Declarative deployment: state (~/.local/state/noctalia) is not persisted, so do
 # not auto-open the first-run wizard every boot.
 setup_wizard_enabled = false
@@ -40,30 +40,31 @@ enable_builtin_templates = false
 enable_community_templates = false
 
 [wallpaper]
-directory = "/home/ryan/Pictures/Wallpapers"
+directory = "/home/zheng/Pictures/wallpapers"
 
 [wallpaper.automation]
-enabled = true
+enabled = false
 interval_seconds = 600
 
 [wallpaper.default]
-path = "/home/ryan/Pictures/Wallpapers/rolling-girls_lalala.png"
+path = "/home/zheng/Pictures/wallpapers/self/yuanyuan.jpg"
 
 [location]
-address = "Changsha"
+address = "Shanghai"
 
 [weather]
 enabled = true
 
 # Eye protection: hold the warm night temperature all the time.
+# shutdown do not need it
 [nightlight]
-enabled = true
-force = true
+enabled = false
+force = false
 
 [bar.main]
 # Too transparent and dark wallpapers show through the light-mode surface,
 # making the dark light-mode text unreadable; keep enough fill for contrast.
-background_opacity = 0.61
+background_opacity = 0.51
 # Text-only bump; `scale` would enlarge glyphs and spacing too.
 font_scale = 1.1
 # Widen the bar body so the centered clock clears the end-lane media widget: the
@@ -111,3 +112,19 @@ network_speed_compact = true
 # long for the bar. Hover tooltip still shows the full network name.
 [widget.network]
 show_label = false
+
+# Calendar setup
+[calendar]
+enabled = true
+refresh_minutes = 15
+
+[calendar.account.icloud_cn]
+type = "caldav"
+name = "iCloud 云上贵州"
+provider = "custom"
+server_url = "https://caldav.icloud.com.cn/"
+username = "1528588293@qq.com"
+calendars = []
+credential_source = "file"
+password_file = "/run/agenix/icloud-password"
+

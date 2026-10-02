@@ -97,6 +97,11 @@ in
         }
         // user_readable;
 
+        "icloud-password" = {
+          file = "${mysecrets}/secrets/icloud-password.age";
+        }
+        // user_readable;
+
         "github-token" = {
           file = "${mysecrets}/secrets/github-token.age";
         }
