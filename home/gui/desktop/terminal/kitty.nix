@@ -21,7 +21,7 @@
     };
     settings = {
       hide_window_decorations = "yes";
-      background_opacity = "0.70";
+      background_opacity = "0.51";
       background_blur = 1;
       dynamic_background_opacity = "yes";
       enable_audio_bell = false;
@@ -52,7 +52,7 @@
       color7 = "#f1f1f0";
       color15 = "#fffafa";
 
-      # 1. 开启光标尾迹动画（核心！）
+      # 开启光标尾迹动画（核心！）
       cursor_trail = 3;
       # 尾迹衰减速度（0.1到1之间，数值越小越丝滑）
       cursor_trail_decay = "0.1 0.4";
