@@ -73,6 +73,8 @@ margin_ends = 20
 # Keep the default sections and append resource/network monitors after the
 # workspaces, mirroring the old v4 SystemMonitor widget.
 start = [ "launcher", "wallpaper", "workspaces", "cpu", "ram", "disk", "net_rx", "net_tx" ]
+# Gives every widget a capsule
+capsule = true
 
 # Clock: year-month-day first, then full English weekday and 24h time
 # (e.g. "2026-09-19 Saturday 16:06"). Weekday names follow LC_TIME.
