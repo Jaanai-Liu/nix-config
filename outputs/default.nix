@@ -2,6 +2,7 @@
 {
   self,
   nixpkgs,
+  colmena,
   # pre-commit-hooks,
   ...
 }@inputs:
@@ -97,6 +98,7 @@ in
           map (it: it.colmenaMeta.nodeSpecialArgs or { }) nixosSystemValues
         );
       };
+    colmenaHive = colmena.lib.makeHive self.outputs.colmena;
   }
   // lib.attrsets.mergeAttrsList (map (it: it.colmena or { }) nixosSystemValues);
 
