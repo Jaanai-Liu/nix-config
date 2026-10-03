@@ -1,7 +1,19 @@
 # outputs/x86_64-linux/hosts/lz-nb.nix
 { args }:
 let
-  inherit (args) inputs mylib myvars pkgs-stable mysecrets agenix myfonts nixpkgs home-manager nixvim llm-agents;
+  inherit (args)
+    inputs
+    mylib
+    myvars
+    pkgs-stable
+    mysecrets
+    agenix
+    myfonts
+    nixpkgs
+    home-manager
+    nixvim
+    llm-agents
+    ;
   name = "lz-nb";
 
   easytierConf = myvars.networking.hostsAddr.easytier.${name};
@@ -37,11 +49,11 @@ let
         }
       ];
 
-    home-modules =
-      (map mylib.relativeToRoot [
+    home-modules = (
+      map mylib.relativeToRoot [
         "home/hosts/${name}.nix"
-      ])
-      ;
+      ]
+    );
   };
 
   modules-niri = {
@@ -64,4 +76,20 @@ in
       }
     );
   };
+
+  # colmena node (new-style): deploy over SSH to the easytier IP
+  colmena."${name}" = mylib.colmenaSystem (
+    modules-niri
+    // args
+    // {
+      targetHost = easytierConf.ipv4;
+      targetUser = easytierConf.user;
+      privilegeEscalationCommand = [
+        "sudo"
+        "-E"
+      ];
+      tags = [ "desktop" ]; # lz-nb 改 "laptop"
+    }
+  );
+
 }

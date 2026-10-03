@@ -1,7 +1,19 @@
 # outputs/x86_64-linux/hosts/lz-ali.nix
 { args }:
 let
-  inherit (args) inputs lib mylib myvars system genSpecialArgs mysecrets agenix nixpkgs home-manager nixvim;
+  inherit (args)
+    inputs
+    lib
+    mylib
+    myvars
+    system
+    genSpecialArgs
+    mysecrets
+    agenix
+    nixpkgs
+    home-manager
+    nixvim
+    ;
   name = "lz-ali";
   # nodeConf = myvars.networking.hostsAddr.${name};
   nodeConf = myvars.networking.hostsAddr.easytier.${name};
@@ -62,7 +74,6 @@ in
     // {
       targetHost = nodeConf.ipv4;
       targetUser = nodeConf.user;
-      ssh-user = nodeConf.user;
       privilegeEscalationCommand = [
         "sudo"
         "-E"

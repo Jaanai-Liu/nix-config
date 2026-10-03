@@ -1,4 +1,7 @@
 # colmena - Remote Deployment via SSH
+# New-style helper: accepts and passes through deployment params so that
+# per-host overrides (targetHost / targetUser / targetPort /
+# privilegeEscalationCommand) actually take effect.
 {
   lib,
   inputs,
@@ -7,7 +10,10 @@
   myvars,
   system,
   tags,
-  ssh-user,
+  targetHost ? null,
+  targetUser ? null,
+  targetPort ? null,
+  privilegeEscalationCommand ? null,
   genSpecialArgs,
   specialArgs ? (genSpecialArgs system),
   mymodules ? { },
@@ -24,9 +30,11 @@ in
 {
   deployment = {
     inherit tags;
-    targetUser = ssh-user;
-    targetHost = name; # hostName or IP address
-  };
+    targetUser = if targetUser != null then targetUser else myvars.username;
+    targetHost = if targetHost != null then targetHost else name;
+  }
+  // lib.optionalAttrs (targetPort != null) { inherit targetPort; }
+  // lib.optionalAttrs (privilegeEscalationCommand != null) { inherit privilegeEscalationCommand; };
 
   imports =
     nixos-modules

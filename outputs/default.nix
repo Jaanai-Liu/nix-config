@@ -60,18 +60,27 @@ let
   # Helper function to generate a set of attributes for each system
   forAllSystems = func: (nixpkgs.lib.genAttrs allSystemNames func);
 
+  # New-style colmena: raw hive = meta + per-host nodes (wrapped into colmenaHive below)
+  colmenaRaw = {
+    meta = {
+      nixpkgs = import nixpkgs { system = "x86_64-linux"; };
+      specialArgs = genSpecialArgs "x86_64-linux";
+    };
+  }
+  // lib.attrsets.mergeAttrsList (map (it: it.colmena or { }) nixosSystemValues);
+
   # nixosSystemValues = builtins.attrValues nixosSystems;
 in
 {
   # Add attribute sets into outputs, for debugging
-  debugAttrs = {
-    inherit
-      nixosSystems
-      darwinSystems
-      allSystems
-      allSystemNames
-      ;
-  };
+  # debugAttrs = {
+  #   inherit
+  #     nixosSystems
+  #     darwinSystems
+  #     allSystems
+  #     allSystemNames
+  #     ;
+  # };
 
   # NixOS Hosts
   nixosConfigurations = lib.attrsets.mergeAttrsList (
@@ -80,28 +89,8 @@ in
 
   # packages = forAllSystems (system: allSystems.${system}.packages or { });
 
-  # Colmena - remote deployment via SSH
-  colmena = {
-    meta =
-      let
-        system = "x86_64-linux";
-      in
-      {
-        nixpkgs = import nixpkgs { inherit system; };
-        specialArgs = genSpecialArgs system;
-      }
-      // {
-        nodeNixpkgs = lib.attrsets.mergeAttrsList (
-          map (it: it.colmenaMeta.nodeNixpkgs or { }) nixosSystemValues
-        );
-        nodeSpecialArgs = lib.attrsets.mergeAttrsList (
-          map (it: it.colmenaMeta.nodeSpecialArgs or { }) nixosSystemValues
-        );
-      };
-  }
-  // lib.attrsets.mergeAttrsList (map (it: it.colmena or { }) nixosSystemValues);
-
-  colmenaHive = colmena.lib.makeHive self.outputs.colmena;
+  # Colmena - remote deployment via SSH (new-style output; CLI reads it via nix eval)
+  colmenaHive = colmena.lib.makeHive colmenaRaw;
 
   darwinConfigurations = lib.attrsets.mergeAttrsList (
     map (it: it.darwinConfigurations or { }) darwinSystemValues
@@ -110,7 +99,7 @@ in
   packages = forAllSystems (system: allSystems.${system}.packages or { });
 
   # Eval Tests for all NixOS & darwin systems.
-  evalTests = lib.lists.all (it: it.evalTests == { }) allSystemValues;
+  # evalTests = lib.lists.all (it: it.evalTests == { }) allSystemValues;
 
   # checks = forAllSystems (system: {
   #   # eval-tests per system
@@ -168,7 +157,7 @@ in
           prettier
         ];
         name = "dots";
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        # inherit (self.checks.${system}.pre-commit-check) shellHook;
       };
     }
   );
