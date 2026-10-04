@@ -16,27 +16,28 @@
       };
 
       listener = [
-        # 5分钟(300s)熄屏
+        # 5 mins (300s) poweroff monitors
         {
-          # timeout = 300;
-          # on-timeout = "niri msg action power-off-monitors";
-          # on-resume = "niri msg action power-on-monitors";
+          timeout = 300;
+          on-timeout = "niri msg action power-off-monitors";
+          on-resume = "niri msg action power-on-monitors";
 
           # timeout = 300;
           # on-timeout = "brightnessctl -s set 0";
           # on-resume = "brightnessctl -r";
 
         }
-        # 10分钟(600s)锁屏
+        # 10 mins (600s) lock
         {
           timeout = 600;
           on-timeout = "loginctl lock-session";
         }
-        # 15分钟(900s)睡眠
-        # {
-        #   timeout = 900;
-        #   on-timeout = "systemctl suspend";
-        # }
+        # 15 mins (900s) sleep
+        {
+          timeout = 900;
+          on-timeout = "systemctl suspend";
+          # on-timeout = "systemctl hibernate";
+        }
       ];
     };
   };
