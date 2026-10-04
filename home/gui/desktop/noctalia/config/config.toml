@@ -115,6 +115,29 @@ network_speed_compact = true
 [widget.network]
 show_label = false
 
+[idle.behavior.screen-off]
+timeout = 300
+action = "screen_off"       # turns monitors off, and back on when you return
+enabled = true              # explicitly disabled in the default config
+
+[idle.behavior.lock]
+timeout = 660
+action = "lock"
+enabled = true              # explicitly disabled in the default config
+
+[idle.behavior.suspend]
+timeout = 900
+action = "lock_and_suspend" # or action = "suspend" with lock_before_suspend = false
+enable = true
+
+# [idle.behavior.hibernate]
+# timeout = 900
+# action = "command"
+# ommand = "notify-send 'Idle' 'Going idle'"
+# action = "lock_and_hibernate"
+# enable = false
+# resume_command = "notify-send 'Idle' 'Back from idle'"
+
 # Calendar setup
 [calendar]
 enabled = true
