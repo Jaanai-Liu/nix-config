@@ -121,7 +121,7 @@ action = "screen_off"       # turns monitors off, and back on when you return
 enabled = true              # explicitly disabled in the default config
 
 [idle.behavior.lock]
-timeout = 660
+timeout = 600
 action = "lock"
 enabled = true              # explicitly disabled in the default config
 
