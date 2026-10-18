@@ -37,7 +37,9 @@ mode = "auto"
 # Application theming is managed by catppuccin/nix, so Noctalia templates stay off.
 [theme.templates]
 enable_builtin_templates = false
-enable_community_templates = false
+# builtin_ids = [ "kitty", "btop" ]
+enable_community_templates = true
+community_ids = [ "pywalfox" ]
 
 [wallpaper]
 directory = "/home/zheng/Pictures/wallpapers"
