@@ -80,7 +80,8 @@ in
       partOf = [ "graphical-session.target" ];
       wantedBy = [ "graphical-session.target" ];
       serviceConfig = {
-        ExecStart = "${getExe config.programs.steam.package} -silent";
+        ExecStart = "${getExe config.programs.steam.package}";
+        # ExecStart = "${getExe config.programs.steam.package} -silent";
         Restart = "on-failure";
         RestartSec = 5;
       };
