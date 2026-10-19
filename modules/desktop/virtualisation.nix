@@ -30,5 +30,8 @@
     spice-gtk
     spice-protocol
     linux-firmware
+    dnsmasq
   ];
+
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 }

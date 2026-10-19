@@ -191,6 +191,8 @@ in
         # would fight the link. The rest of the state dir (histories, caches)
         # can be ephemeral.
 
+        ".wine"
+
         # ======================================
         # IDE / Editors
         # ======================================
