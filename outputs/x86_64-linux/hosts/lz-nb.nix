@@ -78,18 +78,18 @@ in
   };
 
   # colmena node (new-style): deploy over SSH to the easytier IP
-  colmena."${name}" = mylib.colmenaSystem (
-    modules-niri
-    // args
-    // {
-      targetHost = easytierConf.ipv4;
-      targetUser = easytierConf.user;
-      privilegeEscalationCommand = [
-        "sudo"
-        "-E"
-      ];
-      tags = [ "desktop" ]; # lz-nb 改 "laptop"
-    }
-  );
+  # colmena."${name}" = mylib.colmenaSystem (
+  #   modules-niri
+  #   // args
+  #   // {
+  #     targetHost = easytierConf.ipv4;
+  #     targetUser = easytierConf.user;
+  #     privilegeEscalationCommand = [
+  #       "sudo"
+  #       "-E"
+  #     ];
+  #     tags = [ "desktop" ];
+  #   }
+  # );
 
 }
