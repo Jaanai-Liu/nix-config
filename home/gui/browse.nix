@@ -5,9 +5,9 @@
     # google-chrome
   ];
 
-  # home.sessionVariables = {
-  #   BROWSER = "firefox";
-  # };
+  home.sessionVariables = {
+    BROWSER = "firefox";
+  };
 
   # xdg.mimeApps = {
   #   enable = true;

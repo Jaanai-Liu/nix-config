@@ -9,7 +9,7 @@
 {
   imports = [
     # XDDXDD cache substituter
-    # inputs.nur-xddxdd.nixosModules.nix-cache-attic
+    inputs.nur-xddxdd.nixosModules.nix-cache-attic
     inputs.nix-index-database.nixosModules.nix-index
   ];
   # auto upgrade nix to the unstable version
@@ -20,8 +20,10 @@
     substituters = lib.mkBefore [
       # Priority of the official substititer is 40
       # See https://cache.nixos.org/nix-cache-info
-      "https://mirrors.ustc.edu.cn/nix-channels/store?priority=37"
-      # "https://mirror.sjtu.edu.cn/nix-channels/store?priority=38"
+      "https://mirrors.ustc.edu.cn/nix-channels/store?priority=10"
+      "https://mirror.sjtu.edu.cn/nix-channels/store?priority=20"
+      "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store?priority=21"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30"
       "https://nix-community.cachix.org"
       "https://nixpkgs-update-cache.nix-community.org"
     ];
@@ -36,6 +38,9 @@
       "nix-command"
       "flakes"
     ];
+    fallback = true;
+    connect-timeout = 5;
+    download-attempts = 2;
   };
 
   # nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];

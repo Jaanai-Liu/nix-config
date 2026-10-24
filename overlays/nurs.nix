@@ -9,6 +9,8 @@
 
     # inputs.helix-driver.overlays.default
 
+    inputs.nur-xddxdd.overlays.inSubTree
+
     # (final: prev: {
     #   nur-xddxdd = inputs.nur-xddxdd.overlays.default final prev;
     # })
