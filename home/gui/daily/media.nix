@@ -50,7 +50,7 @@
 
   # config kuake cookie
   programs.zsh.initContent = ''
-    if [[ -r /run/agenix/kuake-cookie.env ]]; then
+    if [ -f "/run/agenix/kuake-cookie.env" ]; then
       source /run/agenix/kuake-cookie.env
     fi
   '';
