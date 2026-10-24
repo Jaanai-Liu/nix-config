@@ -41,9 +41,19 @@
     kdePackages.kdenlive
     vlc
 
-    #fonts
+    # fonts
     noto-fonts-cjk-sans
+
+    # kuake-cli
+    nur.repos.xddxdd.kuake-cli
   ];
+
+  # config kuake cookie
+  programs.zsh.initContent = ''
+    if [[ -r /run/agenix/kuake-cookie.env ]]; then
+      source /run/agenix/kuake-cookie.env
+    fi
+  '';
 
   programs = {
     # live streaming

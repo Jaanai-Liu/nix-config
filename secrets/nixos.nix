@@ -123,6 +123,11 @@ in
           file = "${mysecrets}/secrets/api-keys.env.age";
         }
         // user_readable;
+
+        "kuake-cookie.env" = {
+          file = "${mysecrets}/secrets/kuake-cookie.age";
+        }
+        // user_readable;
       };
 
       nix.extraOptions = ''

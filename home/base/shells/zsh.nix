@@ -28,6 +28,9 @@
       f = "fastfetch";
       c = "code";
       b = "cd ..";
+      scs = "source ~/.config/zsh/.zshrc";
+      sc = "source ";
+      gcs = "nvim ~/nix-config/home/base/shells/zsh.nix";
       py = "python3";
       nixclear = "sudo nix-collect-garbage -d";
     };
@@ -43,8 +46,8 @@
       #  export QT_IM_MODULE=fcitx
       #  export XMODIFIERS="@im=fcitx"
 
-      function nixsw() { sudo nixos-rebuild switch --flake "/home/zheng/nix-config#lz-''${1}" ; }
-      function nixbd() { sudo nixos-rebuild build --flake "/home/zheng/nix-config#lz-''${1}" ; }
+      function nixsw() { sudo nixos-rebuild switch --flake "/home/zheng/nix-config#lz-''${1}" --show-trace --print-build-logs; }
+      function nixbd() { sudo nixos-rebuild build --flake "/home/zheng/nix-config#lz-''${1}" --show-trace --print-build-logs; }
 
       function ma() {
         if [ -z "$1" ]; then
