@@ -34,11 +34,6 @@ let
           # secrets
           modules.secrets.base.enable = true;
           # modules.secrets.server.proxy.enable = true;
-          modules.secrets.server.siyuan.enable = true;
-          modules.secrets.server.obsidian-sync.enable = true;
-          modules.secrets.server.web-server.enable = true;
-          modules.secrets.server.rustdesk-server.enable = true;
-          modules.secrets.server.rustdesk-api.enable = true;
 
           # ===> EasyTier <===
           modules.base.easytier = {
@@ -48,10 +43,19 @@ let
 
           # services
           # modules.services.sing-box.enable = true;
+
+          modules.secrets.server.siyuan.enable = true;
           modules.services.siyuan-server.enable = true;
+
+          modules.secrets.server.obsidian-sync.enable = true;
           modules.services.obsidian-sync.enable = true;
           # web server
-          modules.services.web-server.enable = true;
+          modules.secrets.server.web-server.enable = true;
+          modules.services.web-server.enable = false;
+
+          # rustdesk
+          modules.secrets.server.rustdesk-server.enable = true;
+          modules.secrets.server.rustdesk-api.enable = true;
           modules.services.rustdesk-server.enable = true;
           modules.services.rustdesk-api.enable = true;
 

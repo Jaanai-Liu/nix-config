@@ -32,9 +32,9 @@ let
 
           # secrets
           modules.secrets.base.enable = true;
-          modules.secrets.server.proxy.enable = true;
 
           # sing-box
+          modules.secrets.server.proxy.enable = true;
           modules.services.sing-box.enable = true;
 
           # btrbk
@@ -46,6 +46,10 @@ let
             enable = true;
             ipv4 = nodeConf.ipv4;
           };
+
+          # web-server
+          modules.secrets.server.web-server.enable = true;
+          modules.services.web-server.enable = true;
         }
       ];
     home-modules = [

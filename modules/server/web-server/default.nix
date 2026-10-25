@@ -13,7 +13,7 @@ let
 in
 {
   options.modules.services.web-server = {
-    enable = mkEnableOption "114132.xyz Web Server (via CF Tunnel)";
+    enable = mkEnableOption "Web Server (via CF Tunnel)";
   };
 
   config = mkIf cfg.enable {
