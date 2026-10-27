@@ -23,7 +23,7 @@
       claude-code
       # claude-code-router
 
-      gemini-cli
+      # gemini-cli
       # opencode
 
       # Utilities
