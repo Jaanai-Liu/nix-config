@@ -43,7 +43,7 @@ let
 
           # easytier
           modules.base.easytier = {
-            enable = true;
+            enable = false;
             ipv4 = nodeConf.ipv4;
           };
 
